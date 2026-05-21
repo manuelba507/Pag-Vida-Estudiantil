@@ -1,1396 +1,1750 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Proyecto ITSE – Vida Estudiantil</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
-  <style>
-    :root {
-      --primary-blue: #003DA5;
-      --yellow: #FFD100;
-      --white: #FFFFFF;
-      --black: #1A1A1A;
-      --gray-light: #F5F5F5;
-      --blue-dark: #0B2161;
-      --red: #DC2626;
-      --red-light: #FEE2E2;
-      --gray-50: #F9FAFB;
-      --gray-100: #F3F4F6;
-      --gray-200: #E5E7EB;
-      --gray-500: #6B7280;
-      --gray-700: #374151;
-      --gray-900: #111827;
-      --font-body: 'Inter', sans-serif;
-      --font-title: 'Montserrat', sans-serif;
-    }
+ <meta charset="UTF-8" />
+ <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+ <title>Proyecto ITSE – Vida Estudiantil</title>
+ <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+ <style>
+ :root {
+ --primary-blue: #FFD100;
+ --yellow: #FFD100;
+ --white: #FFFFFF;
+ --black: #1A1A1A;
+ --gray-light: #F5F5F5;
+ --blue-dark: #0B2161;
+ --red: #DC2626;
+ --red-light: #FEE2E2;
+ --gray-50: #F9FAFB;
+ --gray-100: #F3F4F6;
+ --gray-200: #E5E7EB;
+ --gray-500: #6B7280;
+ --gray-700: #374151;
+ --gray-900: #111827;
+ --font-body: 'Inter', sans-serif;
+ --font-title: 'Montserrat', sans-serif;
+ }
  
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: var(--font-body); color: var(--black); background: var(--white); font-size: 16px; font-weight: 400; }
+ * { margin: 0; padding: 0; box-sizing: border-box; }
+ body { font-family: var(--font-body); color: var(--black); background: var(--white); font-size: 16px; font-weight: 400; }
  
-    h1, h2, h3, h4, h5, h6 { font-family: var(--font-title); font-weight: 700; }
+ h1, h2, h3, h4, h5, h6 { font-family: var(--font-title); font-weight: 700; }
  
-    /* ── NAVIGATION ── */
-    .page { display: none; }
-    .page.active { display: block; }
+ /* ── NAVIGATION ── */
+ .page { display: none; }
+ .page.active { display: block; }
  
-    /* ── INICIO NAV ── */
-    .nav-inicio {
-      position: absolute; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; justify-content: center; align-items: center; gap: 48px;
-      padding: 20px 40px;
-      background: var(--primary-blue);
-    }
-    .nav-inicio a {
-      color: var(--white); text-decoration: none; font-size: 14px; font-weight: 600; letter-spacing: 0.5px;
-      cursor: pointer; transition: color .2s;
-    }
-    .nav-inicio a:hover { color: var(--yellow); }
+ /* ── INICIO NAV ── */
+ .nav-inicio {
+ position: absolute; top: 0; left: 0; right: 0; z-index: 100;
+ display: flex; justify-content: center; align-items: center; gap: 48px;
+ padding: 20px 40px;
+ background: var(--primary-blue);
+ }
+ .nav-inicio a {
+ color: var(--black); text-decoration: none; font-size: 14px; font-weight: 600; letter-spacing: 0.5px;
+ cursor: pointer; transition: color .2s;
+ }
+ .nav-inicio a:hover { color: var(--blue-dark); }
  
-    /* ── HERO ── */
-    .hero {
-      position: relative; height: 100vh; min-height: 600px;
-      display: flex; align-items: center; justify-content: center;
-      overflow: hidden;
-    }
-    .hero-bg {
-      position: absolute; inset: 0;
-      background: linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.6)),
-                  <img src="img/SaveClip.App_657350010_18343254409212897_5372588526522119236_n.jpg" alt="Hero Background" style="width: 100%; height: 100%; object-fit: cover;"> 
+ /* ── HERO ── */
+ .hero {
+ position: relative; height: 100vh; min-height: 600px;
+ display: flex; align-items: center; justify-content: center;
+ overflow: hidden;
+ }
+ .hero-bg {
+ position: absolute; inset: 0;
+ background: linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.6)),
+ url('img/SaveClip.App_693382464_18348540760212897_1156338101896558044_n.jpg') center/cover no-repeat;
+ filter: grayscale(100%);
+ }
+ .hero-content {
+ position: relative; z-index: 2; text-align: center; color: var(--white);
+ }
+ .hero-content h1 {
+ font-size: clamp(52px, 7vw, 90px); font-weight: 900; line-height: 1.05; font-family: var(--font-title);
+ }
+ .hero-content h1 span { color: var(--yellow); }
+ .hero-content p {
+ font-size: clamp(24px, 3.5vw, 42px); font-weight: 700; margin-top: 16px; font-family: var(--font-title);
+ }
+ .hero-dots {
+ position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
+ display: flex; gap: 8px; z-index: 2;
+ }
+ .hero-dot {
+ width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,.4);
+ }
+ .hero-dot.active { background: var(--white); }
+ 
+ /* ── SECTION TITLES ── */
+ .section { padding: 60px 80px; background: var(--white); }
+ .section-sm { padding: 40px 80px; background: var(--white); }
+ .section-title {
+ font-size: 32px; font-weight: 800; text-align: center; margin-bottom: 8px; font-family: var(--font-title); color: var(--black);
+ }
+ .section-title strong { color: var(--primary-blue); }
+ .section-sub {
+ text-align: center; color: var(--gray-500); font-size: 16px; margin-bottom: 40px;
+ }
+ 
+ /* ── ACTIVIDADES LABEL ── */
+ .actividades-label {
+ text-align: center; padding: 40px;
+ }
+ .actividades-label span {
+ font-size: 28px; font-weight: 800; color: var(--yellow); letter-spacing: 1px;
+ border: 2px solid var(--yellow); border-radius: 50px; padding: 12px 40px; font-family: var(--font-title);
+ }
+ 
+ /* ── BANNER NEGRO ── */
+ .banner-black {
+ background: var(--blue-dark);
+ background-image: url('img/SaveClip.App_642159919_18338080858212897_3074899472525507639_n.jpg');
+ background-size: cover; background-position: center;
+ position: relative; min-height: 480px;
+ display: flex; align-items: center; justify-content: center;
+ }
+ .banner-black::before {
+ content: ''; position: absolute; inset: 0;
+ background: rgba(0,0,0,.6); filter: grayscale(100%);
+ }
+ .banner-black-content {
+ position: relative; z-index: 2; text-align: center; color: var(--white);
+ }
+ .banner-black-content h2 {
+ font-size: clamp(36px, 5vw, 64px); font-weight: 900; color: var(--yellow);
+ margin-bottom: 12px; font-family: var(--font-title); letter-spacing: 0.5px;
+ }
+ .banner-black-content p {
+ font-size: clamp(28px, 4vw, 52px); font-weight: 800; color: var(--white); font-family: var(--font-title);
+ }
+ 
+ /* ── NEWS CARD ── */
+ .news-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+ .news-img-wrap {
+ border: 6px solid var(--yellow); border-radius: 12px; overflow: hidden;
+ }
+ .news-img-wrap img { width: 100%; display: block; }
+ .news-text h3 { font-size: 20px; font-weight: 700; margin-bottom: 12px; color: var(--black); font-family: var(--font-title); }
+ .news-text p { font-size: 16px; line-height: 1.7; color: var(--gray-700); }
+ 
+ /* ── PHOTO GRID ── */
+ .photo-grid {
+ display: grid; grid-template-columns: 1fr 1fr; gap: 20px; padding: 40px 80px; background: var(--gray-light);
+ }
+ .photo-grid img {
+ width: 100%; height: 320px; object-fit: cover; border-radius: 12px;
+ }
+ 
+ /* ── STANDARD NAV (other pages) ── */
+ .std-nav {
+ display: flex; align-items: center; gap: 32px;
+ padding: 16px 40px; border-bottom: 1px solid var(--gray-200);
+ background: var(--white); position: sticky; top: 0; z-index: 100;
+ }
+ .std-nav .logo { font-size: 16px; font-weight: 800; color: var(--primary-blue); margin-right: auto; font-family: var(--font-title); }
+ .std-nav .logo span { font-weight: 400; display: block; font-size: 12px; color: var(--gray-500); }
+ .std-nav a {
+ font-size: 14px; color: var(--gray-700); text-decoration: none; cursor: pointer;
+ transition: color .2s; font-weight: 500;
+ }
+ .std-nav a:hover { color: var(--primary-blue); }
+ .std-nav a.active-link { font-weight: 700; color: var(--primary-blue); }
+ .btn { padding: 10px 20px; border-radius: 8px; font-size: 14px; font-weight: 700; letter-spacing: 0.5px; cursor: pointer; border: 2px solid transparent; transition: all .2s; text-decoration: none; display: inline-block; }
+ .btn-outline { border-color: var(--gray-300,#d1d5db); color: var(--gray-700); background: transparent; }
+ .btn-outline:hover { background: var(--gray-100); }
+ .btn-primary { background: var(--primary-blue); color: var(--black); border-color: var(--primary-blue); }
+ .btn-primary:hover { background: #e6b800; }
+ .btn-green { background: var(--primary-blue); color: var(--black); border-color: var(--primary-blue); border-radius: 50px; }
+ .btn-green:hover { background: #e6b800; }
+ .btn-white-outline { border-color: var(--black); color: var(--black); background: transparent; border-radius: 50px; }
+ .btn-white-outline:hover { background: rgba(0,0,0,.1); }
+ 
+ /* ── HERO CAIPI ── */
+ .hero-caipi {
+ background: linear-gradient(135deg, #e8f5e9 0%, #f0fdf4 100%);
+ padding: 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
+ }
+ .hero-caipi .badge {
+ display: inline-flex; align-items: center; gap: 8px;
+ background: var(--primary-blue); color: var(--black); border-radius: 50px;
+ padding: 6px 16px; font-size: 13px; font-weight: 600; margin-bottom: 20px;
+ }
+ .hero-caipi h1 { font-size: 44px; font-weight: 900; line-height: 1.1; margin-bottom: 16px; font-family: var(--font-title); }
+ .hero-caipi p { font-size: 16px; color: var(--gray-500); margin-bottom: 24px; }
+ .info-chips { display: flex; gap: 12px; }
+ .chip {
+ display: flex; align-items: center; gap: 6px;
+ border: 1.5px solid var(--gray-200); border-radius: 50px;
+ padding: 6px 16px; font-size: 14px; font-weight: 500; color: var(--gray-700);
+ }
+ .hero-caipi .img-placeholder {
+ background: #93c5fd; border-radius: 16px; height: 380px;
+ display: flex; align-items: center; justify-content: center;
+ color: var(--white); font-weight: 600; font-size: 18px; overflow: hidden;
+ }
+ .hero-caipi .img-placeholder img { width: 100%; height: 100%; object-fit: cover; }
 
-      filter: grayscale(100%);
-    }
-    .hero-content {
-      position: relative; z-index: 2; text-align: center; color: var(--white);
-    }
-    .hero-content h1 {
-      font-size: clamp(52px, 7vw, 90px); font-weight: 900; line-height: 1.05; font-family: var(--font-title);
-    }
-    .hero-content h1 span { color: var(--yellow); }
-    .hero-content p {
-      font-size: clamp(24px, 3.5vw, 42px); font-weight: 700; margin-top: 16px; font-family: var(--font-title);
-    }
-    .hero-dots {
-      position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%);
-      display: flex; gap: 8px; z-index: 2;
-    }
-    .hero-dot {
-      width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,.4);
-    }
-    .hero-dot.active { background: var(--white); }
+ /* ── CAIPI CAROUSEL ── */
+ .caipi-carousel { position: relative; border-radius: 16px; overflow: hidden; height: 380px; }
+ .caipi-slides { display: flex; height: 100%; transition: transform .45s ease; }
+ .caipi-slides img { width: 100%; height: 100%; object-fit: cover; flex-shrink: 0; }
+ .caipi-btn {
+ position: absolute; top: 50%; transform: translateY(-50%);
+ background: rgba(0,0,0,.45); color: #fff; border: none;
+ width: 40px; height: 40px; border-radius: 50%; font-size: 22px; cursor: pointer;
+ display: flex; align-items: center; justify-content: center; z-index: 2;
+ transition: background .2s;
+ }
+ .caipi-btn:hover { background: rgba(0,0,0,.7); }
+ .caipi-prev { left: 12px; }
+ .caipi-next { right: 12px; }
+ .caipi-dots {
+ position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%);
+ display: flex; gap: 8px; z-index: 2;
+ }
+ .caipi-dots span {
+ width: 9px; height: 9px; border-radius: 50%;
+ background: rgba(255,255,255,.5); cursor: pointer; transition: background .2s;
+ }
+ .caipi-dots span.active { background: #fff; }
  
-    /* ── SECTION TITLES ── */
-    .section { padding: 60px 80px; background: var(--white); }
-    .section-sm { padding: 40px 80px; background: var(--white); }
-    .section-title {
-      font-size: 32px; font-weight: 800; text-align: center; margin-bottom: 8px; font-family: var(--font-title); color: var(--black);
-    }
-    .section-title strong { color: var(--primary-blue); }
-    .section-sub {
-      text-align: center; color: var(--gray-500); font-size: 16px; margin-bottom: 40px;
-    }
+ /* ── SERVICES CARDS ── */
+ .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+ .service-card { background: var(--white); border: 1px solid var(--gray-200); border-radius: 16px; padding: 28px; }
+ .service-icon {
+ width: 56px; height: 56px; border-radius: 50%;
+ background: var(--primary-blue); display: flex; align-items: center; justify-content: center;
+ margin-bottom: 16px; font-size: 24px; color: var(--white);
+ }
+ .service-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; font-family: var(--font-title); }
+ .service-card p { font-size: 14px; color: var(--gray-500); line-height: 1.6; }
  
-    /* ── ACTIVIDADES LABEL ── */
-    .actividades-label {
-      text-align: center; padding: 40px;
-    }
-    .actividades-label span {
-      font-size: 28px; font-weight: 800; color: var(--yellow); letter-spacing: 1px;
-      border: 2px solid var(--yellow); border-radius: 50px; padding: 12px 40px; font-family: var(--font-title);
-    }
+ /* ── STATS ROW ── */
+ .stats-row { display: flex; align-items: center; padding: 40px 80px; gap: 0; }
+ .stat-item { flex: 1; text-align: center; }
+ .stat-divider { width: 1px; height: 60px; background: var(--gray-200); }
+ .stat-num { font-size: 48px; font-weight: 900; font-family: var(--font-title); }
+ .stat-label { font-size: 15px; color: var(--gray-500); margin-top: 4px; }
+ .orange { color: var(--yellow); }
+ .blue { color: var(--primary-blue); }
  
-    /* ── BANNER NEGRO ── */
-    .banner-black {
-      background: var(--blue-dark);
-      background-image: url('https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1400&q=80');
-      background-size: cover; background-position: center;
-      position: relative; min-height: 480px;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .banner-black::before {
-      content: ''; position: absolute; inset: 0;
-      background: rgba(0,0,0,.6); filter: grayscale(100%);
-    }
-    .banner-black-content {
-      position: relative; z-index: 2; text-align: center; color: var(--white);
-    }
-    .banner-black-content h2 {
-      font-size: clamp(36px, 5vw, 64px); font-weight: 900; color: var(--yellow);
-      margin-bottom: 12px; font-family: var(--font-title); letter-spacing: 0.5px;
-    }
-    .banner-black-content p {
-      font-size: clamp(28px, 4vw, 52px); font-weight: 800; color: var(--white); font-family: var(--font-title);
-    }
+ /* ── CTA BANNER ── */
+ .cta-banner {
+ background: var(--primary-blue); padding: 60px; text-align: center;
+ }
+ .cta-banner h2 { font-size: 36px; font-weight: 900; color: var(--black); margin-bottom: 12px; font-family: var(--font-title); }
+ .cta-banner p { font-size: 17px; color: rgba(0,0,0,.75); margin-bottom: 28px; }
  
-    /* ── NEWS CARD ── */
-    .news-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-    .news-img-wrap {
-      border: 6px solid var(--yellow); border-radius: 12px; overflow: hidden;
-    }
-    .news-img-wrap img { width: 100%; display: block; }
-    .news-text h3 { font-size: 20px; font-weight: 700; margin-bottom: 12px; color: var(--black); font-family: var(--font-title); }
-    .news-text p { font-size: 16px; line-height: 1.7; color: var(--gray-700); }
+ /* ── INFO CARDS ROW ── */
+ .info-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; padding: 40px 80px; background: var(--gray-light); }
+ .info-card { background: var(--white); border-radius: 16px; padding: 32px; text-align: center; border: 1px solid var(--gray-200); }
+ .info-card .icon { font-size: 36px; margin-bottom: 16px; }
+ .info-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; font-family: var(--font-title); }
+ .info-card p { font-size: 14px; color: var(--gray-500); }
  
-    /* ── PHOTO GRID ── */
-    .photo-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 20px; padding: 40px 80px; background: var(--gray-light);
-    }
-    .photo-grid img {
-      width: 100%; height: 300px; object-fit: cover; border-radius: 12px;
-    }
+ /* ── PSICOLOGÍA PAGE ── */
+ .hero-psico {
+ background: linear-gradient(135deg, #eff6ff 0%, #e0f2fe 100%);
+ padding: 80px; text-align: center;
+ }
+ .hero-psico .badge-blue {
+ background: var(--primary-blue); color: var(--black);
+ border-radius: 50px; padding: 6px 18px; font-size: 13px; font-weight: 600;
+ display: inline-block; margin-bottom: 20px;
+ }
+ .hero-psico h1 { font-size: 48px; font-weight: 900; color: var(--primary-blue); margin-bottom: 16px; font-family: var(--font-title); }
+ .hero-psico p { font-size: 17px; color: var(--gray-500); margin-bottom: 28px; }
+ .btn-orange { background: var(--yellow); color: var(--black); padding: 14px 32px; border-radius: 50px; font-size: 16px; font-weight: 700; border: none; cursor: pointer; transition: background .2s; }
+ .btn-orange:hover { background: #e6b800; }
  
-    /* ── STANDARD NAV (other pages) ── */
-    .std-nav {
-      display: flex; align-items: center; gap: 32px;
-      padding: 16px 40px; border-bottom: 1px solid var(--gray-200);
-      background: var(--white); position: sticky; top: 0; z-index: 100;
-    }
-    .std-nav .logo { font-size: 16px; font-weight: 800; color: var(--primary-blue); margin-right: auto; font-family: var(--font-title); }
-    .std-nav .logo span { font-weight: 400; display: block; font-size: 12px; color: var(--gray-500); }
-    .std-nav a {
-      font-size: 14px; color: var(--gray-700); text-decoration: none; cursor: pointer;
-      transition: color .2s; font-weight: 500;
-    }
-    .std-nav a:hover { color: var(--primary-blue); }
-    .std-nav a.active-link { font-weight: 700; color: var(--primary-blue); }
-    .btn { padding: 10px 20px; border-radius: 8px; font-size: 14px; font-weight: 700; letter-spacing: 0.5px; cursor: pointer; border: 2px solid transparent; transition: all .2s; text-decoration: none; display: inline-block; }
-    .btn-outline { border-color: var(--gray-300,#d1d5db); color: var(--gray-700); background: transparent; }
-    .btn-outline:hover { background: var(--gray-100); }
-    .btn-primary { background: var(--primary-blue); color: var(--white); border-color: var(--primary-blue); }
-    .btn-primary:hover { background: var(--blue-dark); }
-    .btn-green { background: var(--primary-blue); color: var(--white); border-color: var(--primary-blue); border-radius: 50px; }
-    .btn-green:hover { background: var(--blue-dark); }
-    .btn-white-outline { border-color: var(--white); color: var(--white); background: transparent; border-radius: 50px; }
-    .btn-white-outline:hover { background: rgba(255,255,255,.1); }
+ .alert-crisis {
+ border: 2px solid var(--red); border-radius: 12px;
+ padding: 28px 32px; margin: 0 80px 40px;
+ }
+ .alert-crisis h3 { color: var(--red); font-size: 18px; font-weight: 700; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
+ .alert-crisis p { color: var(--gray-700); font-size: 15px; margin-bottom: 12px; }
+ .alert-crisis .contact-line { font-size: 15px; margin-bottom: 6px; }
+ .alert-crisis a { color: var(--primary-blue); text-decoration: none; }
+ .alert-crisis .ver-mas { color: var(--primary-blue); font-size: 14px; text-decoration: none; margin-top: 10px; display: inline-block; }
  
-    /* ── HERO CAIPI ── */
-    .hero-caipi {
-      background: linear-gradient(135deg, #e8f5e9 0%, #f0fdf4 100%);
-      padding: 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
-    }
-    .hero-caipi .badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: var(--primary-blue); color: var(--white); border-radius: 50px;
-      padding: 6px 16px; font-size: 13px; font-weight: 600; margin-bottom: 20px;
-    }
-    .hero-caipi h1 { font-size: 44px; font-weight: 900; line-height: 1.1; margin-bottom: 16px; font-family: var(--font-title); }
-    .hero-caipi p { font-size: 16px; color: var(--gray-500); margin-bottom: 24px; }
-    .info-chips { display: flex; gap: 12px; }
-    .chip {
-      display: flex; align-items: center; gap: 6px;
-      border: 1.5px solid var(--gray-200); border-radius: 50px;
-      padding: 6px 16px; font-size: 14px; font-weight: 500; color: var(--gray-700);
-    }
-    .hero-caipi .img-placeholder {
-      background: #93c5fd; border-radius: 16px; height: 380px;
-      display: flex; align-items: center; justify-content: center;
-      color: var(--white); font-weight: 600; font-size: 18px; overflow: hidden;
-    }
-    .hero-caipi .img-placeholder img { width: 100%; height: 100%; object-fit: cover; }
+ .psy-services { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; padding: 0 80px 60px; }
+ .psy-card { border: 1px solid var(--gray-200); border-radius: 12px; padding: 24px; display: flex; align-items: flex-start; gap: 16px; }
+ .psy-icon-box { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
+ .psy-icon-blue { background: #eff6ff; }
+ .psy-icon-green { background: #f0fdf4; }
+ .psy-card h4 { font-size: 16px; font-weight: 700; color: var(--primary-blue); margin-bottom: 6px; font-family: var(--font-title); }
+ .psy-card p { font-size: 14px; color: var(--gray-500); line-height: 1.6; }
  
-    /* ── SERVICES CARDS ── */
-    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .service-card { background: var(--white); border: 1px solid var(--gray-200); border-radius: 16px; padding: 28px; }
-    .service-icon {
-      width: 56px; height: 56px; border-radius: 50%;
-      background: var(--primary-blue); display: flex; align-items: center; justify-content: center;
-      margin-bottom: 16px; font-size: 24px; color: var(--white);
-    }
-    .service-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; font-family: var(--font-title); }
-    .service-card p { font-size: 14px; color: var(--gray-500); line-height: 1.6; }
+ /* ── KIOSCOS PAGE (EmprendeSpace) ── */
+ .hero-kiosko {
+ background: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1400&q=80') center/cover no-repeat;
+ position: relative; min-height: 520px; display: flex; align-items: center; justify-content: center; text-align: center;
+ }
+ .hero-kiosko::before { content: ''; position: absolute; inset: 0; background: rgba(20,40,80,.75); }
+ .hero-kiosko-content { position: relative; z-index: 2; color: var(--white); }
+ .hero-kiosko-content h1 { font-size: 52px; font-weight: 900; margin-bottom: 16px; font-family: var(--font-title); }
+ .hero-kiosko-content p { font-size: 18px; color: rgba(255,255,255,.8); margin-bottom: 28px; }
+ .btn-kiosko {
+ background: transparent; border: 2px solid var(--white);
+ color: var(--white); padding: 14px 36px; border-radius: 8px;
+ font-size: 16px; font-weight: 600; cursor: pointer; transition: all .2s;
+ }
+ .btn-kiosko:hover { background: var(--white); color: var(--blue-dark); }
  
-    /* ── STATS ROW ── */
-    .stats-row { display: flex; align-items: center; padding: 40px 80px; gap: 0; }
-    .stat-item { flex: 1; text-align: center; }
-    .stat-divider { width: 1px; height: 60px; background: var(--gray-200); }
-    .stat-num { font-size: 48px; font-weight: 900; font-family: var(--font-title); }
-    .stat-label { font-size: 15px; color: var(--gray-500); margin-top: 4px; }
-    .orange { color: var(--yellow); }
-    .blue { color: var(--primary-blue); }
+ .kiosko-stats { display: flex; padding: 32px 80px; border-bottom: 1px solid var(--gray-200); gap: 0; }
+ .kiosko-stat { flex: 1; text-align: center; }
+ .kiosko-stat-num { font-size: 44px; font-weight: 900; font-family: var(--font-title); }
+ .kiosko-stat-label { font-size: 14px; color: var(--gray-500); }
+ .kiosko-divider { width: 1px; background: var(--yellow); opacity: .3; margin: 0 20px; }
  
-    /* ── CTA BANNER ── */
-    .cta-banner {
-      background: var(--primary-blue); padding: 60px; text-align: center;
-    }
-    .cta-banner h2 { font-size: 36px; font-weight: 900; color: var(--white); margin-bottom: 12px; font-family: var(--font-title); }
-    .cta-banner p { font-size: 17px; color: rgba(255,255,255,.85); margin-bottom: 28px; }
+ .kiosko-filters { display: flex; gap: 12px; padding: 32px 80px 16px; flex-wrap: wrap; }
+ .filter-sidebar { width: 200px; flex-shrink: 0; }
+ .filter-sidebar .filter-group { margin-bottom: 20px; }
+ .filter-sidebar .filter-group h4 { font-size: 13px; font-weight: 600; color: var(--gray-500); margin-bottom: 10px; text-transform: uppercase; }
+ .filter-btn { display: flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 8px; font-size: 14px; cursor: pointer; width: 100%; border: none; background: transparent; color: var(--gray-700); transition: background .2s; margin-bottom: 4px; }
+ .filter-btn:hover, .filter-btn.active { background: #fff7ed; color: var(--yellow); }
+ .filter-btn.active { font-weight: 600; }
  
-    /* ── INFO CARDS ROW ── */
-    .info-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; padding: 40px 80px; background: var(--gray-light); }
-    .info-card { background: var(--white); border-radius: 16px; padding: 32px; text-align: center; border: 1px solid var(--gray-200); }
-    .info-card .icon { font-size: 36px; margin-bottom: 16px; }
-    .info-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; font-family: var(--font-title); }
-    .info-card p { font-size: 14px; color: var(--gray-500); }
+ .kioscos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+ .kiosko-card { border: 1px solid var(--gray-200); border-radius: 16px; overflow: hidden; }
+ .kiosko-card-img { height: 160px; object-fit: cover; width: 100%; }
+ .kiosko-card-body { padding: 20px; }
+ .kiosko-tag { display: inline-block; padding: 3px 12px; border-radius: 50px; font-size: 12px; font-weight: 600; margin-bottom: 8px; }
+ .tag-comida { background: #fef3c7; color: #92400e; }
+ .tag-papeleria { background: #dbeafe; color: #1d4ed8; }
+ .tag-bebidas { background: #dcfce7; color: #15803d; }
+ .kiosko-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 12px; font-family: var(--font-title); }
+ .kiosko-meta { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--gray-500); margin-bottom: 4px; }
+ .kiosko-products h4 { font-size: 12px; font-weight: 600; color: var(--gray-500); margin: 12px 0 6px; }
+ .kiosko-products ul { list-style: none; }
+ .kiosko-products li { font-size: 13px; color: var(--gray-700); padding: 2px 0; display: flex; align-items: center; gap: 6px; }
+ .kiosko-products li::before { content: '•'; color: var(--yellow); font-weight: 700; }
+ .kiosko-responsable { font-size: 12px; color: var(--gray-500); margin-top: 12px; border-top: 1px solid var(--gray-100); padding-top: 10px; }
  
-    /* ── PSICOLOGÍA PAGE ── */
-    .hero-psico {
-      background: linear-gradient(135deg, #eff6ff 0%, #e0f2fe 100%);
-      padding: 80px; text-align: center;
-    }
-    .hero-psico .badge-blue {
-      background: var(--primary-blue); color: var(--white);
-      border-radius: 50px; padding: 6px 18px; font-size: 13px; font-weight: 600;
-      display: inline-block; margin-bottom: 20px;
-    }
-    .hero-psico h1 { font-size: 48px; font-weight: 900; color: var(--primary-blue); margin-bottom: 16px; font-family: var(--font-title); }
-    .hero-psico p { font-size: 17px; color: var(--gray-500); margin-bottom: 28px; }
-    .btn-orange { background: var(--yellow); color: var(--black); padding: 14px 32px; border-radius: 50px; font-size: 16px; font-weight: 700; border: none; cursor: pointer; transition: background .2s; }
-    .btn-orange:hover { background: #e6b800; }
+ /* ── CLUBS PAGE ── */
+ .clubs-hero {
+ padding: 60px 80px; text-align: center;
+ background: linear-gradient(180deg, #f0f9ff 0%, var(--white) 100%);
+ }
+ .club-section-title {
+ font-size: 28px; font-weight: 800; margin: 0 80px 8px; display: flex; align-items: center; gap: 12px; font-family: var(--font-title);
+ }
+ .club-section-title::before { content: ''; display: block; width: 4px; height: 32px; background: var(--primary-blue); border-radius: 4px; }
+ .clubs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; padding: 16px 80px 60px; }
+ .club-card { border: 1px solid var(--gray-200); border-radius: 16px; overflow: hidden; cursor: pointer; transition: box-shadow .2s; }
+ .club-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,.1); }
+ .club-card-img { height: 180px; object-fit: cover; width: 100%; }
+ .club-card-body { padding: 20px; }
+ .club-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 6px; font-family: var(--font-title); }
+ .club-card p { font-size: 13px; color: var(--gray-500); margin-bottom: 12px; }
+ .club-meta { display: flex; justify-content: space-between; font-size: 12px; color: var(--gray-500); }
+ .btn-ver-club { display: block; text-align: center; padding: 10px; border: 1.5px solid var(--gray-200); border-radius: 8px; font-size: 14px; font-weight: 600; color: var(--gray-700); cursor: pointer; transition: all .2s; margin-top: 12px; text-decoration: none; }
+ .btn-ver-club:hover { border-color: var(--primary-blue); color: var(--primary-blue); }
+ .btn-unirse { display: block; text-align: center; padding: 10px; background: var(--primary-blue); border-radius: 8px; font-size: 14px; font-weight: 600; color: var(--black); cursor: pointer; margin-top: 8px; border: none; width: 100%; transition: background .2s; }
+ .btn-unirse:hover { background: var(--blue-dark); }
  
-    .alert-crisis {
-      border: 2px solid var(--red); border-radius: 12px;
-      padding: 28px 32px; margin: 0 80px 40px;
-    }
-    .alert-crisis h3 { color: var(--red); font-size: 18px; font-weight: 700; margin-bottom: 10px; display: flex; align-items: center; gap: 8px; }
-    .alert-crisis p { color: var(--gray-700); font-size: 15px; margin-bottom: 12px; }
-    .alert-crisis .contact-line { font-size: 15px; margin-bottom: 6px; }
-    .alert-crisis a { color: var(--primary-blue); text-decoration: none; }
-    .alert-crisis .ver-mas { color: var(--primary-blue); font-size: 14px; text-decoration: none; margin-top: 10px; display: inline-block; }
+ /* ── BIENESTAR PAGE ── */
+ .bienestar-hero {
+ background: linear-gradient(135deg, #fdf4ff 0%, #f5f3ff 100%);
+ padding: 80px; text-align: center;
+ }
+ .bienestar-hero h1 { font-size: 44px; font-weight: 900; margin-bottom: 14px; font-family: var(--font-title); }
+ .bienestar-hero p { font-size: 17px; color: var(--gray-500); }
  
-    .psy-services { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; padding: 0 80px 60px; }
-    .psy-card { border: 1px solid var(--gray-200); border-radius: 12px; padding: 24px; display: flex; align-items: flex-start; gap: 16px; }
-    .psy-icon-box { width: 44px; height: 44px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0; }
-    .psy-icon-blue { background: #eff6ff; }
-    .psy-icon-green { background: #f0fdf4; }
-    .psy-card h4 { font-size: 16px; font-weight: 700; color: var(--primary-blue); margin-bottom: 6px; font-family: var(--font-title); }
-    .psy-card p { font-size: 14px; color: var(--gray-500); line-height: 1.6; }
+ .bienestar-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; padding: 40px 80px; }
+ .bienestar-card { border-radius: 16px; padding: 28px; text-align: center; }
+ .bienestar-card.purple { background: #f5f3ff; }
+ .bienestar-card.green { background: #f0fdf4; }
+ .bienestar-card.blue { background: #eff6ff; }
+ .bienestar-card .b-icon { font-size: 40px; margin-bottom: 14px; }
+ .bienestar-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; font-family: var(--font-title); }
+ .bienestar-card p { font-size: 14px; color: var(--gray-500); line-height: 1.6; }
  
-    /* ── KIOSCOS PAGE (EmprendeSpace) ── */
-    .hero-kiosko {
-      background: url('https://images.unsplash.com/photo-1497366216548-37526070297c?w=1400&q=80') center/cover no-repeat;
-      position: relative; min-height: 520px; display: flex; align-items: center; justify-content: center; text-align: center;
-    }
-    .hero-kiosko::before { content: ''; position: absolute; inset: 0; background: rgba(20,40,80,.75); }
-    .hero-kiosko-content { position: relative; z-index: 2; color: var(--white); }
-    .hero-kiosko-content h1 { font-size: 52px; font-weight: 900; margin-bottom: 16px; font-family: var(--font-title); }
-    .hero-kiosko-content p { font-size: 18px; color: rgba(255,255,255,.8); margin-bottom: 28px; }
-    .btn-kiosko {
-      background: transparent; border: 2px solid var(--white);
-      color: var(--white); padding: 14px 36px; border-radius: 8px;
-      font-size: 16px; font-weight: 600; cursor: pointer; transition: all .2s;
-    }
-    .btn-kiosko:hover { background: var(--white); color: var(--blue-dark); }
+ /* ── FOOTER ── */
+ .footer {
+ background: var(--blue-dark); color: var(--white);
+ padding: 60px 80px 30px;
+ }
+ .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; margin-bottom: 40px; }
+ .footer h3 { font-size: 18px; font-weight: 800; margin-bottom: 8px; font-family: var(--font-title); }
+ .footer p { font-size: 14px; color: rgba(255,255,255,.6); line-height: 1.7; }
+ .footer h4 { font-size: 14px; font-weight: 700; margin-bottom: 16px; }
+ .footer ul { list-style: none; }
+ .footer ul li { margin-bottom: 10px; }
+ .footer ul li a { color: rgba(255,255,255,.6); text-decoration: none; font-size: 14px; cursor: pointer; transition: color .2s; }
+ .footer ul li a:hover { color: var(--white); }
+ .footer-bottom { border-top: 1px solid rgba(255,255,255,.1); padding-top: 20px; text-align: center; font-size: 13px; color: rgba(255,255,255,.4); }
  
-    .kiosko-stats { display: flex; padding: 32px 80px; border-bottom: 1px solid var(--gray-200); gap: 0; }
-    .kiosko-stat { flex: 1; text-align: center; }
-    .kiosko-stat-num { font-size: 44px; font-weight: 900; font-family: var(--font-title); }
-    .kiosko-stat-label { font-size: 14px; color: var(--gray-500); }
-    .kiosko-divider { width: 1px; background: var(--yellow); opacity: .3; margin: 0 20px; }
+ /* ── CINE CLUB PAGE ── */
+ .cine-nav {
+ background: var(--blue-dark); display: flex; align-items: center;
+ padding: 14px 40px; gap: 32px; position: sticky; top: 0; z-index: 100;
+ }
+ .cine-nav a { color: rgba(255,255,255,.6); text-decoration: none; font-size: 14px; cursor: pointer; padding: 8px 16px; border-radius: 8px; transition: all .2s; display: flex; align-items: center; gap: 6px; }
+ .cine-nav a:hover, .cine-nav a.active { color: var(--white); }
+ .cine-nav a.active { border-bottom: 2px solid var(--yellow); border-radius: 0; }
+ .cine-hero {
+ background: linear-gradient(180deg, var(--blue-dark) 0%, #1e293b 100%);
+ color: var(--white); text-align: center; padding: 80px;
+ }
+ .cine-hero h1 { font-size: 52px; font-weight: 900; margin-bottom: 16px; font-family: var(--font-title); }
+ .cine-hero p { font-size: 17px; color: rgba(255,255,255,.6); margin-bottom: 32px; }
+ .cine-features { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; padding: 0 80px 60px; background: #1e293b; }
+ .cine-feat { background: var(--blue-dark); border-radius: 12px; padding: 20px; text-align: center; border: 1px solid rgba(255,255,255,.1); }
+ .cine-feat .feat-icon { width: 44px; height: 44px; border-radius: 50%; background: var(--yellow); display: flex; align-items: center; justify-content: center; font-size: 20px; margin: 0 auto 12px; color: var(--black); }
+ .cine-feat p { font-size: 13px; color: rgba(255,255,255,.7); }
+ .equipo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; padding: 40px 80px; background: #1e293b; }
+ .equipo-card { border-radius: 12px; overflow: hidden; position: relative; }
+ .equipo-card img { width: 100%; height: 280px; object-fit: cover; filter: brightness(.7); }
+ .equipo-label {
+ position: absolute; bottom: 0; left: 0; right: 0; padding: 16px;
+ background: linear-gradient(transparent, rgba(0,0,0,.7));
+ }
+ .equipo-label h4 { color: var(--white); font-size: 16px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+ .equipo-label p { color: rgba(255,255,255,.7); font-size: 13px; }
  
-    .kiosko-filters { display: flex; gap: 12px; padding: 32px 80px 16px; flex-wrap: wrap; }
-    .filter-sidebar { width: 200px; flex-shrink: 0; }
-    .filter-sidebar .filter-group { margin-bottom: 20px; }
-    .filter-sidebar .filter-group h4 { font-size: 13px; font-weight: 600; color: var(--gray-500); margin-bottom: 10px; text-transform: uppercase; }
-    .filter-btn { display: flex; align-items: center; gap: 8px; padding: 8px 12px; border-radius: 8px; font-size: 14px; cursor: pointer; width: 100%; border: none; background: transparent; color: var(--gray-700); transition: background .2s; margin-bottom: 4px; }
-    .filter-btn:hover, .filter-btn.active { background: #fff7ed; color: var(--yellow); }
-    .filter-btn.active { font-weight: 600; }
+ /* ── MODAL ── */
+ .modal-overlay {
+ display: none; position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 1000;
+ align-items: center; justify-content: center;
+ }
+ .modal-overlay.open { display: flex; }
+ .modal {
+ background: var(--white); border-radius: 20px; padding: 40px;
+ max-width: 500px; width: 90%; position: relative;
+ }
+ .modal h2 { font-size: 24px; font-weight: 800; margin-bottom: 8px; font-family: var(--font-title); }
+ .modal p { color: var(--gray-500); margin-bottom: 24px; }
+ .modal input, .modal select, .modal textarea {
+ width: 100%; padding: 12px 16px; border: 1.5px solid var(--gray-200);
+ border-radius: 10px; font-size: 14px; margin-bottom: 14px; font-family: var(--font-body);
+ outline: none; transition: border .2s;
+ }
+ .modal input:focus, .modal select:focus, .modal textarea:focus { border-color: var(--primary-blue); }
+ .modal textarea { resize: vertical; min-height: 80px; }
+ .modal-close { position: absolute; top: 16px; right: 20px; font-size: 22px; cursor: pointer; color: var(--gray-500); background: none; border: none; }
+ .modal .btn-submit { width: 100%; padding: 14px; background: var(--primary-blue); color: var(--black); border: none; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; transition: background .2s; }
+ .modal .btn-submit:hover { background: var(--blue-dark); }
  
-    .kioscos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-    .kiosko-card { border: 1px solid var(--gray-200); border-radius: 16px; overflow: hidden; }
-    .kiosko-card-img { height: 160px; object-fit: cover; width: 100%; }
-    .kiosko-card-body { padding: 20px; }
-    .kiosko-tag { display: inline-block; padding: 3px 12px; border-radius: 50px; font-size: 12px; font-weight: 600; margin-bottom: 8px; }
-    .tag-comida { background: #fef3c7; color: #92400e; }
-    .tag-papeleria { background: #dbeafe; color: #1d4ed8; }
-    .tag-bebidas { background: #dcfce7; color: #15803d; }
-    .kiosko-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 12px; font-family: var(--font-title); }
-    .kiosko-meta { display: flex; align-items: center; gap: 6px; font-size: 13px; color: var(--gray-500); margin-bottom: 4px; }
-    .kiosko-products h4 { font-size: 12px; font-weight: 600; color: var(--gray-500); margin: 12px 0 6px; }
-    .kiosko-products ul { list-style: none; }
-    .kiosko-products li { font-size: 13px; color: var(--gray-700); padding: 2px 0; display: flex; align-items: center; gap: 6px; }
-    .kiosko-products li::before { content: '•'; color: var(--yellow); font-weight: 700; }
-    .kiosko-responsable { font-size: 12px; color: var(--gray-500); margin-top: 12px; border-top: 1px solid var(--gray-100); padding-top: 10px; }
- 
-    /* ── CLUBS PAGE ── */
-    .clubs-hero {
-      padding: 60px 80px; text-align: center;
-      background: linear-gradient(180deg, #f0f9ff 0%, var(--white) 100%);
+ /* ── SOCIAL BUTTONS ── */
+ .social-btn {
+ display: inline-flex; align-items: center; justify-content: center;
+ width: 34px; height: 34px; border-radius: 8px;
+ font-size: 11px; font-weight: 800; text-decoration: none; letter-spacing: 0;
+ transition: opacity .2s; color: #fff !important;
+ }
+ .social-btn:hover { opacity: .75; }
+ .social-ig { background: linear-gradient(45deg,#f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); }
+ .social-yt { background: #FF0000; }
+ .social-fb { background: #1877F2; }
+ .social-x { background: #14171A; border: 1px solid rgba(255,255,255,.3); }
+
+ /* ── RESPONSIVE ── */
+    /* ── RESPONSIVE TABLET ANCHO (≤ 1024px) ── */
+    @media (max-width: 1024px) {
+      .section { padding: 50px 40px; }
+      .section-sm { padding: 32px 40px; }
+      .photo-grid, .info-cards { padding: 24px 40px; }
+      .footer { padding: 48px 40px 24px; }
+      .stats-row, .kiosko-stats { padding: 28px 40px; }
+      .kiosko-filters { padding: 24px 40px 12px; }
+      .clubs-grid { padding: 16px 40px 40px; }
+      .bienestar-cards { padding: 28px 40px; }
+      .cine-features { padding: 0 40px 40px; }
+      .equipo-grid { padding: 28px 40px; }
+      .psy-services { padding: 0 40px 40px; }
+      .alert-crisis { margin: 0 40px 40px; }
+      .club-section-title { margin: 0 40px 8px; }
+      .hero-caipi, .bienestar-hero, .cine-hero { padding: 60px 40px; }
+      .hero-psico { padding: 56px 40px; }
+      .clubs-hero { padding: 44px 40px; }
     }
-    .club-section-title {
-      font-size: 28px; font-weight: 800; margin: 0 80px 8px; display: flex; align-items: center; gap: 12px; font-family: var(--font-title);
-    }
-    .club-section-title::before { content: ''; display: block; width: 4px; height: 32px; background: var(--primary-blue); border-radius: 4px; }
-    .clubs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; padding: 16px 80px 60px; }
-    .club-card { border: 1px solid var(--gray-200); border-radius: 16px; overflow: hidden; cursor: pointer; transition: box-shadow .2s; }
-    .club-card:hover { box-shadow: 0 8px 24px rgba(0,0,0,.1); }
-    .club-card-img { height: 180px; object-fit: cover; width: 100%; }
-    .club-card-body { padding: 20px; }
-    .club-card h3 { font-size: 17px; font-weight: 700; margin-bottom: 6px; font-family: var(--font-title); }
-    .club-card p { font-size: 13px; color: var(--gray-500); margin-bottom: 12px; }
-    .club-meta { display: flex; justify-content: space-between; font-size: 12px; color: var(--gray-500); }
-    .btn-ver-club { display: block; text-align: center; padding: 10px; border: 1.5px solid var(--gray-200); border-radius: 8px; font-size: 14px; font-weight: 600; color: var(--gray-700); cursor: pointer; transition: all .2s; margin-top: 12px; text-decoration: none; }
-    .btn-ver-club:hover { border-color: var(--primary-blue); color: var(--primary-blue); }
-    .btn-unirse { display: block; text-align: center; padding: 10px; background: var(--primary-blue); border-radius: 8px; font-size: 14px; font-weight: 600; color: var(--white); cursor: pointer; margin-top: 8px; border: none; width: 100%; transition: background .2s; }
-    .btn-unirse:hover { background: var(--blue-dark); }
- 
-    /* ── BIENESTAR PAGE ── */
-    .bienestar-hero {
-      background: linear-gradient(135deg, #fdf4ff 0%, #f5f3ff 100%);
-      padding: 80px; text-align: center;
-    }
-    .bienestar-hero h1 { font-size: 44px; font-weight: 900; margin-bottom: 14px; font-family: var(--font-title); }
-    .bienestar-hero p { font-size: 17px; color: var(--gray-500); }
- 
-    .bienestar-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; padding: 40px 80px; }
-    .bienestar-card { border-radius: 16px; padding: 28px; text-align: center; }
-    .bienestar-card.purple { background: #f5f3ff; }
-    .bienestar-card.green { background: #f0fdf4; }
-    .bienestar-card.blue { background: #eff6ff; }
-    .bienestar-card .b-icon { font-size: 40px; margin-bottom: 14px; }
-    .bienestar-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; font-family: var(--font-title); }
-    .bienestar-card p { font-size: 14px; color: var(--gray-500); line-height: 1.6; }
- 
-    /* ── FOOTER ── */
-    .footer {
-      background: var(--blue-dark); color: var(--white);
-      padding: 60px 80px 30px;
-    }
-    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; margin-bottom: 40px; }
-    .footer h3 { font-size: 18px; font-weight: 800; margin-bottom: 8px; font-family: var(--font-title); }
-    .footer p { font-size: 14px; color: rgba(255,255,255,.6); line-height: 1.7; }
-    .footer h4 { font-size: 14px; font-weight: 700; margin-bottom: 16px; }
-    .footer ul { list-style: none; }
-    .footer ul li { margin-bottom: 10px; }
-    .footer ul li a { color: rgba(255,255,255,.6); text-decoration: none; font-size: 14px; cursor: pointer; transition: color .2s; }
-    .footer ul li a:hover { color: var(--white); }
-    .footer-bottom { border-top: 1px solid rgba(255,255,255,.1); padding-top: 20px; text-align: center; font-size: 13px; color: rgba(255,255,255,.4); }
- 
-    /* ── CINE CLUB PAGE ── */
-    .cine-nav {
-      background: var(--blue-dark); display: flex; align-items: center;
-      padding: 14px 40px; gap: 32px; position: sticky; top: 0; z-index: 100;
-    }
-    .cine-nav a { color: rgba(255,255,255,.6); text-decoration: none; font-size: 14px; cursor: pointer; padding: 8px 16px; border-radius: 8px; transition: all .2s; display: flex; align-items: center; gap: 6px; }
-    .cine-nav a:hover, .cine-nav a.active { color: var(--white); }
-    .cine-nav a.active { border-bottom: 2px solid var(--yellow); border-radius: 0; }
-    .cine-hero {
-      background: linear-gradient(180deg, var(--blue-dark) 0%, #1e293b 100%);
-      color: var(--white); text-align: center; padding: 80px;
-    }
-    .cine-hero h1 { font-size: 52px; font-weight: 900; margin-bottom: 16px; font-family: var(--font-title); }
-    .cine-hero p { font-size: 17px; color: rgba(255,255,255,.6); margin-bottom: 32px; }
-    .cine-features { display: grid; grid-template-columns: repeat(5, 1fr); gap: 16px; padding: 0 80px 60px; background: #1e293b; }
-    .cine-feat { background: var(--blue-dark); border-radius: 12px; padding: 20px; text-align: center; border: 1px solid rgba(255,255,255,.1); }
-    .cine-feat .feat-icon { width: 44px; height: 44px; border-radius: 50%; background: var(--yellow); display: flex; align-items: center; justify-content: center; font-size: 20px; margin: 0 auto 12px; color: var(--black); }
-    .cine-feat p { font-size: 13px; color: rgba(255,255,255,.7); }
-    .equipo-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; padding: 40px 80px; background: #1e293b; }
-    .equipo-card { border-radius: 12px; overflow: hidden; position: relative; }
-    .equipo-card img { width: 100%; height: 280px; object-fit: cover; filter: brightness(.7); }
-    .equipo-label {
-      position: absolute; bottom: 0; left: 0; right: 0; padding: 16px;
-      background: linear-gradient(transparent, rgba(0,0,0,.7));
-    }
-    .equipo-label h4 { color: var(--white); font-size: 16px; font-weight: 700; display: flex; align-items: center; gap: 8px; }
-    .equipo-label p { color: rgba(255,255,255,.7); font-size: 13px; }
- 
-    /* ── MODAL ── */
-    .modal-overlay {
-      display: none; position: fixed; inset: 0; background: rgba(0,0,0,.5); z-index: 1000;
-      align-items: center; justify-content: center;
-    }
-    .modal-overlay.open { display: flex; }
-    .modal {
-      background: var(--white); border-radius: 20px; padding: 40px;
-      max-width: 500px; width: 90%; position: relative;
-    }
-    .modal h2 { font-size: 24px; font-weight: 800; margin-bottom: 8px; font-family: var(--font-title); }
-    .modal p { color: var(--gray-500); margin-bottom: 24px; }
-    .modal input, .modal select, .modal textarea {
-      width: 100%; padding: 12px 16px; border: 1.5px solid var(--gray-200);
-      border-radius: 10px; font-size: 14px; margin-bottom: 14px; font-family: var(--font-body);
-      outline: none; transition: border .2s;
-    }
-    .modal input:focus, .modal select:focus, .modal textarea:focus { border-color: var(--primary-blue); }
-    .modal textarea { resize: vertical; min-height: 80px; }
-    .modal-close { position: absolute; top: 16px; right: 20px; font-size: 22px; cursor: pointer; color: var(--gray-500); background: none; border: none; }
-    .modal .btn-submit { width: 100%; padding: 14px; background: var(--primary-blue); color: var(--white); border: none; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; transition: background .2s; }
-    .modal .btn-submit:hover { background: var(--blue-dark); }
- 
-    /* ── RESPONSIVE ── */
+
+    /* ── RESPONSIVE TABLET (≤ 900px) ── */
     @media (max-width: 900px) {
-      .section, .section-sm { padding: 40px 20px; }
-      .news-grid, .photo-grid, .services-grid, .psy-services, .kioscos-grid, .clubs-grid, .bienestar-cards { grid-template-columns: 1fr; }
-      .hero-caipi { grid-template-columns: 1fr; }
-      .stats-row, .kiosko-stats { flex-direction: column; gap: 20px; }
-      .footer-grid { grid-template-columns: 1fr; }
-      .cine-features { grid-template-columns: repeat(2, 1fr); }
-      .equipo-grid { grid-template-columns: 1fr; }
-      .kiosko-filters { flex-direction: column; }
+      .section, .section-sm { padding: 36px 24px; }
+      .photo-grid { padding: 16px 24px; grid-template-columns: 1fr 1fr; }
+      .info-cards { padding: 20px 24px; grid-template-columns: 1fr 1fr; }
+      .footer { padding: 36px 24px 20px; }
+      .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+      .stats-row, .kiosko-stats { flex-direction: column; gap: 16px; padding: 24px; }
+      .stat-divider, .kiosko-divider { display: none; }
+      .kiosko-filters { flex-direction: column; padding: 20px 24px; }
+      .clubs-grid { padding: 12px 24px 36px; grid-template-columns: 1fr 1fr; }
+      .bienestar-cards { padding: 20px 24px; grid-template-columns: 1fr 1fr; }
+      .cine-features { grid-template-columns: repeat(2, 1fr); padding: 0 24px 36px; }
+      .equipo-grid { grid-template-columns: 1fr; padding: 24px; }
+      .psy-services { padding: 0 24px 36px; grid-template-columns: 1fr; }
+      .alert-crisis { margin: 0 24px 32px; }
+      .club-section-title { margin: 0 24px 8px; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      .kioscos-grid { grid-template-columns: 1fr 1fr; }
+      .news-grid { grid-template-columns: 1fr; gap: 28px; }
+      .hero-caipi { grid-template-columns: 1fr; padding: 40px 24px; }
+      .hero-psico { padding: 44px 24px; }
+      .bienestar-hero { padding: 44px 24px; }
+      .clubs-hero { padding: 36px 24px; }
+      .cine-hero { padding: 44px 24px; }
+      .std-nav { overflow-x: auto; gap: 14px; padding: 12px 24px; flex-wrap: nowrap; white-space: nowrap; }
+      .nav-inicio { flex-wrap: wrap; gap: 10px; padding: 12px 20px; justify-content: center; }
+      .cta-banner { padding: 40px 24px; }
+      .r-grid-3 { grid-template-columns: 1fr 1fr !important; }
+      .r-grid-2 { grid-template-columns: 1fr !important; }
+      .r-grid-5 { grid-template-columns: repeat(3, 1fr) !important; }
+      .r-pad-section { padding: 40px 24px !important; }
+      .r-pad-cta { padding: 40px 24px !important; }
+      .r-hero-2col { grid-template-columns: 1fr !important; padding: 40px 24px !important; }
     }
-  </style>
+
+    /* ── RESPONSIVE MÓVIL (≤ 640px) ── */
+    @media (max-width: 640px) {
+      .nav-inicio { gap: 8px; padding: 10px 16px; }
+      .nav-inicio a { font-size: 12px; letter-spacing: 0; }
+      .std-nav { padding: 10px 16px; gap: 10px; }
+      .std-nav a, .std-nav .logo { font-size: 12px; }
+      .std-nav .btn { font-size: 11px; padding: 7px 12px; }
+      .cine-nav { padding: 10px 16px; gap: 10px; overflow-x: auto; white-space: nowrap; }
+      .hero { min-height: 420px; }
+      .hero-content h1 { font-size: 34px; }
+      .hero-content p { font-size: 19px; }
+      .section, .section-sm { padding: 28px 16px; }
+      .photo-grid { padding: 12px 16px; grid-template-columns: 1fr; }
+      .info-cards { padding: 16px; grid-template-columns: 1fr; }
+      .footer { padding: 28px 16px 16px; }
+      .footer-grid { gap: 20px; }
+      .section-title { font-size: 22px; }
+      .section-sub { font-size: 13px; margin-bottom: 24px; }
+      .banner-black { min-height: 260px; }
+      .banner-black-content h2 { font-size: 28px; }
+      .banner-black-content p { font-size: 20px; }
+      .actividades-label span { font-size: 18px; padding: 10px 20px; }
+      .hero-caipi { padding: 28px 16px; }
+      .hero-caipi h1 { font-size: 28px; }
+      .info-chips { flex-wrap: wrap; gap: 8px; }
+      .caipi-carousel { height: 220px; }
+      .hero-psico { padding: 36px 16px; }
+      .hero-psico h1 { font-size: 28px; }
+      .psy-services { padding: 0 16px 28px; }
+      .alert-crisis { margin: 0 16px 28px; padding: 18px; }
+      .kiosko-stats { padding: 16px; }
+      .kiosko-filters { padding: 16px; }
+      .kioscos-grid { grid-template-columns: 1fr; }
+      .clubs-hero { padding: 28px 16px; }
+      .clubs-grid { padding: 10px 16px 28px; grid-template-columns: 1fr; }
+      .club-section-title { margin: 0 16px 8px; font-size: 20px; }
+      .bienestar-hero { padding: 36px 16px; }
+      .bienestar-cards { padding: 16px; grid-template-columns: 1fr; }
+      .cine-hero { padding: 36px 16px; }
+      .cine-hero h1 { font-size: 30px; }
+      .cine-features { grid-template-columns: 1fr 1fr; padding: 0 16px 28px; }
+      .equipo-grid { padding: 16px; }
+      .equipo-card img { height: 200px; }
+      .services-grid, .kioscos-grid { grid-template-columns: 1fr; }
+      .stat-num { font-size: 36px; }
+      .kiosko-stat-num { font-size: 30px; }
+      .cta-banner { padding: 28px 16px; }
+      .cta-banner h2 { font-size: 24px; }
+      .modal { padding: 24px 16px; width: 96%; }
+      .modal h2 { font-size: 20px; }
+      .social-btn { width: 30px; height: 30px; font-size: 10px; }
+      .r-grid-3 { grid-template-columns: 1fr !important; }
+      .r-grid-2 { grid-template-columns: 1fr !important; }
+      .r-grid-5 { grid-template-columns: 1fr 1fr !important; }
+      .r-pad-section { padding: 28px 16px !important; }
+      .r-pad-cta { padding: 28px 16px !important; }
+      .r-hero-2col { grid-template-columns: 1fr !important; padding: 28px 16px !important; }
+    }
+
+    /* ── RESPONSIVE MÓVIL PEQUEÑO (≤ 400px) ── */
+    @media (max-width: 400px) {
+      .nav-inicio a { font-size: 11px; }
+      .hero-content h1 { font-size: 26px; }
+      .hero-content p { font-size: 16px; }
+      .hero-caipi h1 { font-size: 22px; }
+      .hero-psico h1 { font-size: 22px; }
+      .section-title { font-size: 19px; }
+      .cine-features { grid-template-columns: 1fr; }
+      .r-grid-5 { grid-template-columns: 1fr !important; }
+    }
+ </style>
 </head>
 <body>
  
 <!-- ══════════════════════════════════
-     PAGE: INICIO
+ PAGE: INICIO
 ══════════════════════════════════ -->
 <div id="page-inicio" class="page active">
-  <nav class="nav-inicio">
-    <a onclick="showPage('inicio')">Inicio</a>
-    <a onclick="showPage('caipi')">Caipi</a>
-    <a onclick="showPage('clubs')">Clubs</a>
-    <a onclick="showPage('clinica')">Clínica</a>
-    <a onclick="showPage('psicologia')">Psicología</a>
-    <a onclick="showPage('bienestar')">Bienestar Estudiantil</a>
-    <a onclick="showPage('kioscos')">Kioscos</a>
-  </nav>
+ <nav class="nav-inicio">
+ <a onclick="showPage('inicio')">Inicio</a>
+ <a onclick="showPage('caipi')">Caipi</a>
+ <a onclick="showPage('clubs')">Clubs</a>
+ <a onclick="showPage('clinica')">Clínica</a>
+ <a onclick="showPage('psicologia')">Departamento de Apoyo Psicosocial</a>
+ <a onclick="showPage('bienestar')">Bienestar Estudiantil</a>
+ <a onclick="showPage('kioscos')">Kioscos</a>
+ </nav>
  
-  <!-- Hero -->
-  <section class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-content">
-      <h1>Vida <span>Estudiantil</span><br><span>#SomosItse</span></h1>
-      <p>Una comunidad unida</p>
-    </div>
-    <div class="hero-dots">
-      <div class="hero-dot active"></div>
-      <div class="hero-dot"></div>
-      <div class="hero-dot"></div>
-    </div>
-  </section>
+ <!-- Hero -->
+ <section class="hero">
+ <div class="hero-bg"></div>
+ <div class="hero-content">
+ <h1>Vida <span>Estudiantil</span><br><span>#SomosItse</span></h1>
+ <p>Una comunidad unida</p>
+ </div>
+ <div class="hero-dots">
+ <div class="hero-dot active"></div>
+ <div class="hero-dot"></div>
+ <div class="hero-dot"></div>
+ </div>
+ </section>
  
-  <!-- News section -->
-  <section class="section">
-    <div class="news-grid">
-      <div class="news-img-wrap">
-        <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=700&q=80" alt="Celebración cumpleaños Dr. Diez"/>
-      </div>
-      <div class="news-text">
-        <h3>🎉🎂 En medio de sonrisas y muestras de cariño, los estudiantes del ITSE agasajaron al Dr. Gabriel Diez, presidente del CONEP y del Consejo Directivo del ITSE, en su cumpleaños.</h3>
-        <br/>
-        <p>En ese momento especial, compartió un mensaje que tocó corazones:</p>
-        <p>💬 "El camino no es fácil, hay días buenos, pero siempre hay una nueva página por escribir. Tengan buena actitud, no se rindan, perseveren. Reinventarse es parte del camino… aprender cada día para ser mejores, porque lo que no se renueva, expira".</p>
-      </div>
-    </div>
-  </section>
+ <!-- News section -->
+ <section class="section">
+ <div class="news-grid">
+ <div class="news-img-wrap">
+ <img src="img/SaveClip.App_662157910_18343254247212897_5978148468872916935_n.jpg" alt="Conversaciones X Que Elevan - Dr. Gabriel Diez"/>
+ </div>
+ <div class="news-text">
+ <h3>Carrera - Caminata ITSE 2026 ⭐</h3>
+ <br/>
+ <p>El ITSE, a través de la Subgerencia de Vida Estudiantil y en coordinación con los profesores de Deporte y Bienestar, realizó con éxito la Carrera Caminata ITSE 2026, una jornada que reunió a estudiantes, docentes y personal administrativo para promover la actividad física, el bienestar integral y la integración comunitaria. @vidaitse</p>
+ <br/>
+ <p>En conmemoración del Día Mundial de la Actividad Física y el Día Mundial del Deporte para el Desarrollo y la Paz, esta iniciativa sigue consolidándose como parte del calendario institucional, con una participación estimada de 500 personas.</p>
+ </div>
+ </div>
+ </section>
  
-  <!-- Banner #SomosItse -->
-  <div class="banner-black">
-    <div class="banner-black-content">
-      <h2>#SomosItse</h2>
-      <p>Una comunidad unida</p>
-    </div>
-  </div>
+ <!-- Banner #SomosItse -->
+ <div class="banner-black">
+ <div class="banner-black-content">
+ <h2>#SomosItse</h2>
+ <p>Una comunidad unida</p>
+ </div>
+ </div>
  
-  <!-- Actividades label -->
-  <div class="actividades-label">
-    <span>Actividades</span>
-  </div>
+ <!-- Actividades label -->
+ <div class="actividades-label">
+ <span>Actividades</span>
+ </div>
  
-  <!-- Photo Grid -->
-  <div class="photo-grid">
-    <img src="https://images.unsplash.com/photo-1515187029135-18ee286d815b?w=700&q=80" alt="Actividad estudiantil 1"/>
-    <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=700&q=80" alt="Actividad estudiantil 2"/>
-    <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=700&q=80" alt="Actividad estudiantil 3"/>
-    <img src="https://images.unsplash.com/photo-1464983953574-0892a716854b?w=700&q=80" alt="Actividad estudiantil 4"/>
-  </div>
+ <!-- Photo Grid -->
+ <div class="photo-grid">
+ <img src="img/SaveClip.App_660295991_18343115854212897_5279633631813186699_n.jpg" alt="Actividad estudiantil 1"/>
+ <img src="img/SaveClip.App_657350010_18343254409212897_5372588526522119236_n.jpg" alt="Actividad estudiantil 2"/>
+ <img src="img/SaveClip.App_695906729_18348540802212897_8602859953080815235_n.jpg" alt="Actividad estudiantil 3"/>
+ <img src="img/SaveClip.App_670296343_18346090663212897_8103915125518709310_n.jpg" alt="Actividad estudiantil 4"/>
+ </div>
  
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-grid">
-      <div>
-        <h3>ITSE – Vida Estudiantil</h3>
-        <p>Portal oficial de vida estudiantil del Instituto Técnico Superior Especializado. Conectando a nuestra comunidad.</p>
-      </div>
-      <div>
-        <h4>Secciones</h4>
-        <ul>
-          <li><a onclick="showPage('caipi')">Caipi</a></li>
-          <li><a onclick="showPage('clubs')">Clubs Estudiantiles</a></li>
-          <li><a onclick="showPage('psicologia')">Psicología</a></li>
-          <li><a onclick="showPage('bienestar')">Bienestar</a></li>
-          <li><a onclick="showPage('kioscos')">Kioscos</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Contacto</h4>
-        <ul>
-          <li><a>Campus Principal, Panamá</a></li>
-          <li><a>+507 123-4567</a></li>
-          <li><a>estudiantil@itse.edu.pa</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="footer-bottom">© 2026 ITSE – Vida Estudiantil. Todos los derechos reservados.</div>
-  </footer>
+ <!-- Footer -->
+ <footer class="footer">
+ <div class="footer-grid">
+ <div>
+ <h3>ITSE – Vida Estudiantil</h3>
+ <p>Portal oficial de vida estudiantil del Instituto Técnico Superior Especializado. Conectando a nuestra comunidad.</p>
+ </div>
+ <div>
+ <h4>Secciones</h4>
+ <ul>
+ <li><a onclick="showPage('caipi')">Caipi</a></li>
+ <li><a onclick="showPage('clubs')">Clubs Estudiantiles</a></li>
+ <li><a onclick="showPage('psicologia')">Departamento de Apoyo Psicosocial</a></li>
+ <li><a onclick="showPage('bienestar')">Bienestar</a></li>
+ <li><a onclick="showPage('kioscos')">Kioscos</a></li>
+ </ul>
+ </div>
+ <div>
+ <h4>Contacto</h4>
+ <ul>
+ <li><a> Tocumen, Avenida Domingo Díaz</a></li>
+ <li><a href="tel:+5075243333"> +507 524 3333</a></li>
+ <li><a href="mailto:info@itse.ac.pa">info@itse.ac.pa</a></li>
+ <li><a href="mailto:mercado@itse.ac.pa">mercado@itse.ac.pa</a></li>
+ <li><a href="mailto:admision@itse.ac.pa">admision@itse.ac.pa</a></li>
+ </ul>
+ <div style="display:flex;gap:8px;margin-top:14px">
+ <a href="https://www.instagram.com/itsepma/" target="_blank" class="social-btn social-ig">IG</a>
+ <a href="https://www.youtube.com/channel/UCL2YWBxXCD_qYMBNnyeJhCQ/featured?view_as=subscriber" target="_blank" class="social-btn social-yt">YT</a>
+ <a href="https://www.facebook.com/itsepanama/" target="_blank" class="social-btn social-fb">FB</a>
+ <a href="https://x.com/itsepma" target="_blank" class="social-btn social-x">X</a>
+ </div>
+ </div>
+ </div>
+ <div class="footer-bottom">© 2026 ITSE – Vida Estudiantil. Todos los derechos reservados.</div>
+ </footer>
 </div>
  
 <!-- ══════════════════════════════════
-     PAGE: CAIPI
+ PAGE: CAIPI
 ══════════════════════════════════ -->
 <div id="page-caipi" class="page">
-  <nav class="std-nav">
-    <div class="logo">ITSE<span>Vida Estudiantil</span></div>
-    <a onclick="showPage('inicio')">Inicio</a>
-    <a onclick="showPage('caipi')" class="active-link">Caipi</a>
-    <a onclick="showPage('clubs')">Clubs</a>
-    <a onclick="showPage('psicologia')">Psicología</a>
-    <a onclick="showPage('bienestar')">Bienestar</a>
-    <a onclick="showPage('kioscos')">Kioscos</a>
-  </nav>
+ <nav class="std-nav">
+ <div class="logo">ITSE<span>Vida Estudiantil</span></div>
+ <a onclick="showPage('inicio')">Inicio</a>
+ <a onclick="showPage('caipi')" class="active-link">Caipi</a>
+ <a onclick="showPage('clubs')">Clubs</a>
+ <a onclick="showPage('psicologia')">Departamento de Apoyo Psicosocial</a>
+ <a onclick="showPage('bienestar')">Bienestar</a>
+ <a onclick="showPage('kioscos')">Kioscos</a>
+ </nav>
  
-  <!-- Hero -->
-  <div class="hero-caipi">
-    <div>
-      <div class="badge">🌿 Para hijos de estudiantes</div>
-      <h1>Cuidado y Amor para tus Pequeños</h1>
-      <p>Centro de atención infantil especializado en niños de 1 a 4 años. Mientras estudias, nosotros cuidamos de tus hijos con dedicación y profesionalismo.</p>
-      <div class="info-chips">
-        <div class="chip">🕐 7am – 5pm</div>
-        <div class="chip">💲 Desde $15/mes</div>
-      </div>
-    </div>
-    <div class="img-placeholder">
-      <img src="https://images.unsplash.com/photo-1564429238817-393bd4286b2d?w=700&q=80" alt="Niños en Caipi"/>
-    </div>
-  </div>
+ <!-- Hero -->
+ <div class="hero-caipi">
+ <div>
+ <div class="badge"> Para hijos de estudiantes</div>
+ <h1>Cuidado y Amor para tus Pequeños</h1>
+ <p>Centro de atención infantil especializado en niños de 1 a 4 años. Mientras estudias, nosotros cuidamos de tus hijos con dedicación y profesionalismo.</p>
+ <div class="info-chips">
+ <div class="chip"> 7am – 5pm</div>
+ <div class="chip"> Desde $15/mes</div>
+ </div>
+ </div>
+ <div class="caipi-carousel">
+ <div class="caipi-slides">
+ <img src="img/WhatsApp Image 2026-05-19 at 8.20.38 PM.jpeg" alt="Caipi 1"/>
+ <img src="img/WhatsApp Image 2026-05-19 at 8.20.38 PM(1).jpeg" alt="Caipi 2"/>
+ <img src="img/WhatsApp Image 2026-05-19 at 8.20.38 PM(2).jpeg" alt="Caipi 3"/>
+ </div>
+ <button class="caipi-btn caipi-prev" onclick="caipiGo(caipiSlide-1)">&#8249;</button>
+ <button class="caipi-btn caipi-next" onclick="caipiGo(caipiSlide+1)">&#8250;</button>
+ <div class="caipi-dots">
+ <span class="active" onclick="caipiGo(0)"></span>
+ <span onclick="caipiGo(1)"></span>
+ <span onclick="caipiGo(2)"></span>
+ </div>
+ </div>
+ </div>
  
-  <!-- Nuestros Servicios -->
-  <section class="section">
-    <h2 class="section-title">Nuestros Servicios</h2>
-    <p class="section-sub">Atención integral para el desarrollo de tu hijo</p>
-    <div class="services-grid">
-      <div class="service-card">
-        <div class="service-icon">✨</div>
-        <h3>Estimulación Temprana</h3>
-        <p>Programas especializados de estimulación cognitiva, motora y sensorial adaptados a cada etapa del desarrollo.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">❤️</div>
-        <h3>Cuidado y Atención</h3>
-        <p>Personal calificado brinda atención personalizada y cariñosa a cada niño durante toda su estadía.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">🤱</div>
-        <h3>Sala de Lactancia</h3>
-        <p>Espacio especialmente diseñado para la lactancia materna, privado y confortable para las mamás.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">🍎</div>
-        <h3>Nutrición Infantil</h3>
-        <p>Alimentación balanceada y saludable preparada por nuestros especialistas en nutrición infantil.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">🎨</div>
-        <h3>Actividades Creativas</h3>
-        <p>Arte, música y juego creativo para estimular la imaginación y el desarrollo emocional.</p>
-      </div>
-      <div class="service-card">
-        <div class="service-icon">👫</div>
-        <h3>Desarrollo de Habilidades Sociales</h3>
-        <p>Actividades grupales que fomentan la convivencia, el respeto y las habilidades sociales desde temprana edad.</p>
-      </div>
-    </div>
-  </section>
+ <!-- Nuestros Servicios -->
+ <section class="section">
+ <h2 class="section-title">Nuestros Servicios</h2>
+ <p class="section-sub">Atención integral para el desarrollo de tu hijo</p>
+ <div class="services-grid">
+ <div class="service-card">
+ <div class="service-icon"></div>
+ <h3>Estimulación Temprana</h3>
+ <p>Programas especializados de estimulación cognitiva, motora y sensorial adaptados a cada etapa del desarrollo.</p>
+ </div>
+ <div class="service-card">
+ <div class="service-icon"></div>
+ <h3>Cuidado y Atención</h3>
+ <p>Personal calificado brinda atención personalizada y cariñosa a cada niño durante toda su estadía.</p>
+ </div>
+ <div class="service-card">
+ <div class="service-icon"></div>
+ <h3>Sala de Lactancia</h3>
+ <p>Espacio especialmente diseñado para la lactancia materna, privado y confortable para las mamás.</p>
+ </div>
+ <div class="service-card">
+ <div class="service-icon"></div>
+ <h3>Nutrición Infantil</h3>
+ <p>Alimentación balanceada y saludable preparada por nuestros especialistas en nutrición infantil.</p>
+ </div>
+ <div class="service-card">
+ <div class="service-icon"></div>
+ <h3>Actividades Creativas</h3>
+ <p>Arte, música y juego creativo para estimular la imaginación y el desarrollo emocional.</p>
+ </div>
+ <div class="service-card">
+ <div class="service-icon"></div>
+ <h3>Desarrollo de Habilidades Sociales</h3>
+ <p>Actividades grupales que fomentan la convivencia, el respeto y las habilidades sociales desde temprana edad.</p>
+ </div>
+ </div>
+ </section>
  
-  <!-- CTA Verde -->
-  <div class="cta-banner">
-    <h2>¿Listo para inscribir a tu hijo?</h2>
-    <p>Únete a nuestra comunidad de padres estudiantes que confían en nosotros para el cuidado de sus pequeños.</p>
-    <button class="btn btn-white-outline" onclick="openModal('modal-caipi')">Contáctanos Ahora</button>
-  </div>
+ <!-- CTA Verde -->
+ <div class="cta-banner">
+ <h2>¿Listo para inscribir a tu hijo?</h2>
+ <p>Únete a nuestra comunidad de padres estudiantes que confían en nosotros para el cuidado de sus pequeños.</p>
+ <button class="btn btn-white-outline" onclick="openModal('modal-caipi')">Contáctanos Ahora</button>
+ </div>
  
-  <!-- Info Cards -->
-  <div class="info-cards">
-    <div class="info-card">
-      <div class="icon">👥</div>
-      <h3>Edades: 1 a 4 años</h3>
-      <p>Atención especializada en maternal y primera infancia</p>
-    </div>
-    <div class="info-card">
-      <div class="icon">❤️</div>
-      <h3>Personal Calificado</h3>
-      <p>Equipo profesional con experiencia en cuidado infantil</p>
-    </div>
-    <div class="info-card">
-      <div class="icon">✨</div>
-      <h3>Instalaciones Seguras</h3>
-      <p>Ambiente acogedor y adaptado para los más pequeños</p>
-    </div>
-  </div>
+ <!-- Info Cards -->
+ <div class="info-cards">
+ <div class="info-card">
+ <div class="icon"></div>
+ <h3>Edades: 1 a 4 años</h3>
+ <p>Atención especializada en maternal y primera infancia</p>
+ </div>
+ <div class="info-card">
+ <div class="icon"></div>
+ <h3>Personal Calificado</h3>
+ <p>Equipo profesional con experiencia en cuidado infantil</p>
+ </div>
+ <div class="info-card">
+ <div class="icon"></div>
+ <h3>Instalaciones Seguras</h3>
+ <p>Ambiente acogedor y adaptado para los más pequeños</p>
+ </div>
+ </div>
  
-  <footer class="footer">
-    <div class="footer-grid">
-      <div><h3>ITSE – Caipi</h3><p>Centro de atención infantil del ITSE para hijos de estudiantes.</p></div>
-      <div><h4>Navegación</h4><ul>
-        <li><a onclick="showPage('inicio')">Inicio</a></li>
-        <li><a onclick="showPage('clubs')">Clubs</a></li>
-        <li><a onclick="showPage('psicologia')">Psicología</a></li>
-      </ul></div>
-      <div><h4>Contacto</h4><ul>
-        <li><a>caipi@itse.edu.pa</a></li>
-        <li><a>+507 123-4567</a></li>
-      </ul></div>
-    </div>
-    <div class="footer-bottom">© 2026 ITSE. Todos los derechos reservados.</div>
-  </footer>
+ <footer class="footer">
+ <div class="footer-grid">
+ <div><h3>ITSE – Caipi</h3><p>Centro de atención infantil del ITSE para hijos de estudiantes.</p></div>
+ <div><h4>Navegación</h4><ul>
+ <li><a onclick="showPage('inicio')">Inicio</a></li>
+ <li><a onclick="showPage('clubs')">Clubs</a></li>
+ <li><a onclick="showPage('psicologia')">Departamento de Apoyo Psicosocial</a></li>
+ </ul></div>
+ <div><h4>Contacto</h4><ul>
+ <li><a> Tocumen, Avenida Domingo Díaz</a></li>
+ <li><a href="tel:+5075243333"> +507 524 3333</a></li>
+ <li><a href="mailto:info@itse.ac.pa">info@itse.ac.pa</a></li>
+ <li><a href="mailto:mercado@itse.ac.pa">mercado@itse.ac.pa</a></li>
+ <li><a href="mailto:admision@itse.ac.pa">admision@itse.ac.pa</a></li>
+ </ul>
+ <div style="display:flex;gap:8px;margin-top:14px">
+ <a href="https://www.instagram.com/itsepma/" target="_blank" class="social-btn social-ig">IG</a>
+ <a href="https://www.youtube.com/channel/UCL2YWBxXCD_qYMBNnyeJhCQ/featured?view_as=subscriber" target="_blank" class="social-btn social-yt">YT</a>
+ <a href="https://www.facebook.com/itsepanama/" target="_blank" class="social-btn social-fb">FB</a>
+ <a href="https://x.com/itsepma" target="_blank" class="social-btn social-x">X</a>
+ </div></div>
+ </div>
+ <div class="footer-bottom">© 2026 ITSE. Todos los derechos reservados.</div>
+ </footer>
 </div>
  
 <!-- ══════════════════════════════════
-     PAGE: PSICOLOGÍA
+ PAGE: PSICOLOGÍA
 ══════════════════════════════════ -->
 <div id="page-psicologia" class="page">
-  <nav class="std-nav">
-    <div class="logo" style="color:var(--primary-blue)">ITSE<span style="color:var(--gray-500)">Bienestar Estudiantil</span></div>
-    <a onclick="showPage('inicio')">Inicio</a>
-    <a onclick="showPage('caipi')">Caipi</a>
-    <a onclick="showPage('clinica')">Clínica</a>
-    <a onclick="showPage('clubs')">Clubs</a>
-    <a onclick="showPage('psicologia')" style="background:#eff6ff;color:var(--primary-blue);border-radius:50px;padding:8px 16px;font-weight:600">Psicología</a>
-    <a onclick="showPage('bienestar')">Bienestar Estudiantil</a>
-    <button class="btn btn-primary" onclick="openModal('modal-psico')">Recursos de emergencia</button>
-  </nav>
+ <nav class="std-nav">
+ <div class="logo" style="color:var(--primary-blue)">ITSE<span style="color:var(--gray-500)">Bienestar Estudiantil</span></div>
+ <a onclick="showPage('inicio')">Inicio</a>
+ <a onclick="showPage('caipi')">Caipi</a>
+ <a onclick="showPage('clinica')">Clínica</a>
+ <a onclick="showPage('clubs')">Clubs</a>
+ <a onclick="showPage('psicologia')" style="background:#eff6ff;color:var(--primary-blue);border-radius:50px;padding:8px 16px;font-weight:600">Departamento de Apoyo Psicosocial</a>
+ <a onclick="showPage('bienestar')">Bienestar Estudiantil</a>
+ <button class="btn btn-primary" onclick="openModal('modal-psico')">Recursos de emergencia</button>
+ </nav>
  
-  <!-- Hero -->
-  <div class="hero-psico">
-    <span class="badge-blue">💙 Salud Mental Estudiantil</span>
-    <h1>Tu Bienestar Mental<br>es Nuestra Prioridad</h1>
-    <p>Servicios de apoyo psicológico gratuitos y confidenciales para todos los estudiantes del ITSE.</p>
-    <button class="btn-orange" onclick="openModal('modal-psico')">Conoce nuestros servicios</button>
-  </div>
+ <!-- Hero -->
+ <div class="hero-psico">
+ <span class="badge-blue"> Apoyo Integral Estudiantil</span>
+ <h1>Departamento de Apoyo<br>Psicosocial</h1>
+ <p>Acompañamiento integral para el desarrollo personal y profesional de los estudiantes del ITSE.</p>
+ <button class="btn-orange" onclick="openModal('modal-psico')">Conoce nuestros servicios</button>
+ </div>
+
+ <!-- Áreas del Departamento -->
+ <section class="section-sm">
+ <h2 class="section-title" style="color:var(--primary-blue)">Nuestras Áreas de Apoyo</h2>
+ <p class="section-sub">Tres ejes fundamentales para el bienestar estudiantil integral</p>
+
+ <!-- Área 1: Trabajo Social -->
+ <div style="border:1px solid var(--gray-200);border-radius:16px;padding:32px;margin-bottom:24px">
+ <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px">
+ <div style="width:52px;height:52px;border-radius:50%;background:var(--primary-blue);display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0"></div>
+ <h3 style="font-size:22px;font-weight:800;font-family:var(--font-title);color:var(--black)">1. Trabajo Social</h3>
+ </div>
+ <p style="font-size:15px;color:var(--gray-700);margin-bottom:20px;line-height:1.7">Se encarga de identificar y apoyar a los estudiantes que se encuentran en situaciones de vulnerabilidad. Sus funciones incluyen:</p>
+ <div class="r-grid-3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:20px">
+ <div style="background:var(--gray-50);border-radius:12px;padding:20px">
+ <div style="font-size:22px;margin-bottom:10px"></div>
+ <h4 style="font-size:15px;font-weight:700;margin-bottom:6px;font-family:var(--font-title)">Apoyo económico</h4>
+ <p style="font-size:13px;color:var(--gray-500);line-height:1.6">Asistencia para estudiantes que presentan dificultades para pagar sus estudios.</p>
+ </div>
+ <div style="background:var(--gray-50);border-radius:12px;padding:20px">
+ <div style="font-size:22px;margin-bottom:10px"></div>
+ <h4 style="font-size:15px;font-weight:700;margin-bottom:6px;font-family:var(--font-title)">Apoyo alimentario</h4>
+ <p style="font-size:13px;color:var(--gray-500);line-height:1.6">Ayuda para aquellos que no pueden costear su alimentación.</p>
+ </div>
+ <div style="background:var(--gray-50);border-radius:12px;padding:20px">
+ <div style="font-size:22px;margin-bottom:10px"></div>
+ <h4 style="font-size:15px;font-weight:700;margin-bottom:6px;font-family:var(--font-title)">Reconocimiento al desempeño</h4>
+ <p style="font-size:13px;color:var(--gray-500);line-height:1.6">Apoyo a estudiantes con buen índice académico o que destacan en cultura, arte y deporte.</p>
+ </div>
+ </div>
+ <div style="background:#fef9ec;border-left:4px solid var(--yellow);border-radius:0 8px 8px 0;padding:14px 18px">
+ <p style="font-size:14px;color:var(--gray-700)"><strong>Nota:</strong> El acceso a estos beneficios requiere pasar por una entrevista previa.</p>
+ </div>
+ </div>
+
+ <!-- Área 2: Psicología Clínica -->
+ <div style="border:1px solid var(--gray-200);border-radius:16px;padding:32px;margin-bottom:24px">
+ <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px">
+ <div style="width:52px;height:52px;border-radius:50%;background:#eff6ff;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0"></div>
+ <h3 style="font-size:22px;font-weight:800;font-family:var(--font-title);color:var(--black)">2. Psicología Clínica</h3>
+ </div>
+ <p style="font-size:15px;color:var(--gray-700);margin-bottom:20px;line-height:1.7">Se enfoca en la salud mental y el bienestar emocional de la comunidad estudiantil a través de:</p>
+ <div class="r-grid-2" style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+ <div style="display:flex;align-items:flex-start;gap:14px;background:var(--gray-50);border-radius:12px;padding:20px">
+ <div style="width:40px;height:40px;border-radius:50%;background:#eff6ff;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0"></div>
+ <div>
+ <h4 style="font-size:15px;font-weight:700;margin-bottom:6px;font-family:var(--font-title);color:var(--primary-blue)">Atención y control de emociones</h4>
+ <p style="font-size:13px;color:var(--gray-500);line-height:1.6">Orientación y acompañamiento para el manejo emocional del estudiante.</p>
+ </div>
+ </div>
+ <div style="display:flex;align-items:flex-start;gap:14px;background:var(--gray-50);border-radius:12px;padding:20px">
+ <div style="width:40px;height:40px;border-radius:50%;background:#eff6ff;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0"></div>
+ <div>
+ <h4 style="font-size:15px;font-weight:700;margin-bottom:6px;font-family:var(--font-title);color:var(--primary-blue)">Aplicación de pruebas psicológicas</h4>
+ <p style="font-size:13px;color:var(--gray-500);line-height:1.6">Evaluaciones para comprender mejor el perfil de cada estudiante.</p>
+ </div>
+ </div>
+ </div>
+ </div>
+
+ <!-- Área 3: Atención a la Diversidad -->
+ <div style="border:1px solid var(--gray-200);border-radius:16px;padding:32px;margin-bottom:40px">
+ <div style="display:flex;align-items:center;gap:14px;margin-bottom:20px">
+ <div style="width:52px;height:52px;border-radius:50%;background:#f0fdf4;display:flex;align-items:center;justify-content:center;font-size:24px;flex-shrink:0"></div>
+ <h3 style="font-size:22px;font-weight:800;font-family:var(--font-title);color:var(--black)">3. Atención a la Diversidad</h3>
+ </div>
+ <p style="font-size:15px;color:var(--gray-700);margin-bottom:20px;line-height:1.7">Este eje está dedicado a abordar y gestionar temas fundamentales como:</p>
+ <div style="display:flex;gap:16px;flex-wrap:wrap">
+ <div style="display:flex;align-items:center;gap:10px;background:#f0fdf4;border-radius:50px;padding:12px 22px">
+ <span style="font-size:20px"></span>
+ <span style="font-weight:600;font-size:15px">Discapacidad</span>
+ </div>
+ <div style="display:flex;align-items:center;gap:10px;background:#f0fdf4;border-radius:50px;padding:12px 22px">
+ <span style="font-size:20px"></span>
+ <span style="font-weight:600;font-size:15px">Cultura</span>
+ </div>
+ <div style="display:flex;align-items:center;gap:10px;background:#f0fdf4;border-radius:50px;padding:12px 22px">
+ <span style="font-size:20px"></span>
+ <span style="font-weight:600;font-size:15px">Género</span>
+ </div>
+ </div>
+ </div>
+
+ <!-- Objetivo Principal -->
+ <div style="background:var(--blue-dark);border-radius:16px;padding:40px;color:var(--white)">
+ <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px">
+ <div style="width:48px;height:48px;border-radius:50%;background:var(--yellow);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0"></div>
+ <h3 style="font-size:22px;font-weight:800;font-family:var(--font-title);color:var(--yellow)">Objetivo Principal</h3>
+ </div>
+ <p style="font-size:15px;color:rgba(255,255,255,.85);line-height:1.8">El propósito central de este departamento en el ITSE es brindar un <strong style="color:var(--white)">acompañamiento integral</strong>. No solo buscan formar a un buen profesional, sino también potenciar sus habilidades blandas y competencias para que se desarrollen como seres humanos equilibrados en todas las esferas de su vida. Asimismo, trabajan en la <strong style="color:var(--white)">permanencia estudiantil</strong>, interviniendo y apoyando a los alumnos para evitar que abandonen sus estudios debido a situaciones adversas.</p>
+ </div>
+ </section>
  
-  <!-- Alerta de crisis -->
-  <div class="alert-crisis">
-    <h3>⚠️ ¡Aviso importante! ¿Estás pasando por una crisis severa?</h3>
-    <p>No esperes. Si tienes pensamientos de hacerte daño o sientes que no puedes manejar la situación, busca ayuda inmediata.</p>
-    <div class="contact-line"><strong>Línea Nacional de Crisis (24/7):</strong> <a href="tel:169">169</a></div>
-    <div class="contact-line"><strong>Hospital Nacional:</strong> <a href="tel:507-512-9000">507-512-9000</a></div>
-    <a class="ver-mas" onclick="openModal('modal-psico')">Ver más recursos de emergencia →</a>
-  </div>
- 
-  <!-- Servicios -->
-  <section class="section-sm">
-    <h2 class="section-title" style="color:var(--primary-blue)">Nuestros Servicios</h2>
-    <br/>
-    <div class="psy-services">
-      <div class="psy-card">
-        <div class="psy-icon-box psy-icon-blue">🕐</div>
-        <div>
-          <h4>Acompañamiento Continuo</h4>
-          <p>Sesiones programadas semanales o quincenales para dar seguimiento a tu proceso terapéutico y ajustar estrategias según tus necesidades.</p>
-        </div>
-      </div>
-      <div class="psy-card">
-        <div class="psy-icon-box psy-icon-green">📅</div>
-        <div>
-          <h4>Orientación Puntual</h4>
-          <p>Consultas individuales para situaciones específicas: ansiedad ante exámenes, conflictos interpersonales o adaptación a la vida universitaria.</p>
-        </div>
-      </div>
-      <div class="psy-card">
-        <div class="psy-icon-box psy-icon-blue">👥</div>
-        <div>
-          <h4>Grupos de Apoyo</h4>
-          <p>Espacios seguros donde compartir experiencias con otros estudiantes bajo la guía de profesionales de salud mental.</p>
-        </div>
-      </div>
-      <div class="psy-card">
-        <div class="psy-icon-box psy-icon-green">🧠</div>
-        <div>
-          <h4>Talleres de Bienestar</h4>
-          <p>Actividades formativas sobre manejo del estrés, inteligencia emocional, técnicas de relajación y hábitos saludables.</p>
-        </div>
-      </div>
-    </div>
-  </section>
- 
-  <footer class="footer">
-    <div class="footer-grid">
-      <div><h3>ITSE – Psicología</h3><p>Servicios de salud mental para estudiantes del Instituto Técnico Superior Especializado.</p></div>
-      <div><h4>Navegación</h4><ul>
-        <li><a onclick="showPage('inicio')">Inicio</a></li>
-        <li><a onclick="showPage('caipi')">Caipi</a></li>
-        <li><a onclick="showPage('bienestar')">Bienestar</a></li>
-      </ul></div>
-      <div><h4>Emergencias</h4><ul>
-        <li><a href="tel:169">Línea de Crisis: 169</a></li>
-        <li><a href="tel:507-512-9000">Hospital Nacional</a></li>
-        <li><a>psicologia@itse.edu.pa</a></li>
-      </ul></div>
-    </div>
-    <div class="footer-bottom">© 2026 ITSE. Todos los derechos reservados.</div>
-  </footer>
+ <footer class="footer">
+ <div class="footer-grid">
+ <div><h3>ITSE – Departamento de Apoyo Psicosocial</h3><p>Servicios de salud mental para estudiantes del Instituto Técnico Superior Especializado.</p></div>
+ <div><h4>Navegación</h4><ul>
+ <li><a onclick="showPage('inicio')">Inicio</a></li>
+ <li><a onclick="showPage('caipi')">Caipi</a></li>
+ <li><a onclick="showPage('bienestar')">Bienestar</a></li>
+ </ul></div>
+ <div><h4>Contacto</h4><ul>
+ <li><a> Tocumen, Avenida Domingo Díaz</a></li>
+ <li><a href="tel:+5075243333"> +507 524 3333</a></li>
+ <li><a href="mailto:info@itse.ac.pa">info@itse.ac.pa</a></li>
+ <li><a href="mailto:mercado@itse.ac.pa">mercado@itse.ac.pa</a></li>
+ <li><a href="mailto:admision@itse.ac.pa">admision@itse.ac.pa</a></li>
+ </ul>
+ <div style="display:flex;gap:8px;margin-top:14px">
+ <a href="https://www.instagram.com/itsepma/" target="_blank" class="social-btn social-ig">IG</a>
+ <a href="https://www.youtube.com/channel/UCL2YWBxXCD_qYMBNnyeJhCQ/featured?view_as=subscriber" target="_blank" class="social-btn social-yt">YT</a>
+ <a href="https://www.facebook.com/itsepanama/" target="_blank" class="social-btn social-fb">FB</a>
+ <a href="https://x.com/itsepma" target="_blank" class="social-btn social-x">X</a>
+ </div></div>
+ </div>
+ <div class="footer-bottom">© 2026 ITSE. Todos los derechos reservados.</div>
+ </footer>
 </div>
  
 <!-- ══════════════════════════════════
-     PAGE: KIOSCOS (EmprendeSpace)
+ PAGE: KIOSCOS (EmprendeSpace)
 ══════════════════════════════════ -->
 <div id="page-kioscos" class="page">
-  <nav class="std-nav">
-    <div class="logo">ITSE + EmprendeSpace<span>Emprendimiento estudiantil</span></div>
-    <a onclick="showPage('inicio')">Inicio</a>
-    <a>¿Qué es?</a>
-    <a onclick="showPage('kioscos')" class="active-link">Kioscos</a>
-    <a>Beneficios</a>
-    <a onclick="openModal('modal-kioscos')">Postúlate</a>
-    <a>Aliados</a>
-    <a>Contacto</a>
-    <button class="btn btn-outline">Acceso Administradores</button>
-    <button class="btn btn-primary" onclick="openModal('modal-kioscos')">Quiero emprender →</button>
-  </nav>
+ <nav class="std-nav">
+ <div class="logo">ITSE + EmprendeSpace<span>Emprendimiento estudiantil</span></div>
+ <a onclick="showPage('inicio')">Inicio</a>
+ <a>¿Qué es?</a>
+ <a onclick="showPage('kioscos')" class="active-link">Kioscos</a>
+ <a>Beneficios</a>
+ <a onclick="openModal('modal-kioscos')">Postúlate</a>
+ <a>Aliados</a>
+ <a>Contacto</a>
+ <button class="btn btn-outline">Acceso Administradores</button>
+ <button class="btn btn-primary" onclick="openModal('modal-kioscos')">Quiero emprender →</button>
+ </nav>
  
-  <!-- Hero -->
-  <div class="hero-kiosko">
-    <div class="hero-kiosko-content">
-      <h1>Convierte tu idea en un kiosco real<br>dentro del ITSE</h1>
-      <p>Plataforma de emprendimiento para estudiantes</p>
-      <button class="btn-kiosko" onclick="openModal('modal-kioscos')">Postúlate Ahora</button>
-    </div>
-  </div>
+ <!-- Hero -->
+ <div class="hero-kiosko">
+ <div class="hero-kiosko-content">
+ <h1>Convierte tu idea en un kiosco real<br>dentro del ITSE</h1>
+ <p>Plataforma de emprendimiento para estudiantes</p>
+ <button class="btn-kiosko" onclick="openModal('modal-kioscos')">Postúlate Ahora</button>
+ </div>
+ </div>
  
-  <!-- Stats -->
-  <div class="kiosko-stats">
-    <div class="kiosko-stat">
-      <div class="kiosko-stat-num blue">12</div>
-      <div class="kiosko-stat-label">Kioscos Activos</div>
-    </div>
-    <div class="kiosko-divider"></div>
-    <div class="kiosko-stat">
-      <div class="kiosko-stat-num orange">45</div>
-      <div class="kiosko-stat-label" style="color:var(--yellow)">Estudiantes Emprendedores</div>
-    </div>
-    <div class="kiosko-divider"></div>
-    <div class="kiosko-stat">
-      <div class="kiosko-stat-num orange">8</div>
-      <div class="kiosko-stat-label" style="color:var(--yellow)">Alianzas</div>
-    </div>
-  </div>
+ <!-- Stats -->
+ <div class="kiosko-stats">
+ <div class="kiosko-stat">
+ <div class="kiosko-stat-num blue">12</div>
+ <div class="kiosko-stat-label">Kioscos Activos</div>
+ </div>
+ <div class="kiosko-divider"></div>
+ <div class="kiosko-stat">
+ <div class="kiosko-stat-num orange">45</div>
+ <div class="kiosko-stat-label" style="color:var(--yellow)">Estudiantes Emprendedores</div>
+ </div>
+ <div class="kiosko-divider"></div>
+ <div class="kiosko-stat">
+ <div class="kiosko-stat-num orange">8</div>
+ <div class="kiosko-stat-label" style="color:var(--yellow)">Alianzas</div>
+ </div>
+ </div>
  
-  <!-- Kioscos Grid -->
-  <section class="section">
-    <h2 class="section-title">Nuestros Kioscos</h2>
-    <p class="section-sub">Emprendimientos estudiantiles activos en el campus</p>
-    <div class="kioscos-grid">
-      <div class="kiosko-card">
-        <img class="kiosko-card-img" src="https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=600&q=80" alt="Sabores del Campus"/>
-        <div class="kiosko-card-body">
-          <span class="kiosko-tag tag-comida">Comida</span>
-          <h3>Sabores del Campus</h3>
-          <div class="kiosko-meta">📍 Edificio Principal</div>
-          <div class="kiosko-meta">🕐 11am – 3pm</div>
-          <div class="kiosko-products">
-            <h4>Productos:</h4>
-            <ul>
-              <li>Almuerzos</li>
-              <li>Snacks saludables</li>
-              <li>Jugos naturales</li>
-            </ul>
-          </div>
-          <div class="kiosko-responsable">Responsable: Carlos Pérez</div>
-        </div>
-      </div>
-      <div class="kiosko-card">
-        <img class="kiosko-card-img" src="https://images.unsplash.com/photo-1583394838336-acd977736f90?w=600&q=80" alt="Papelería Estudiantil"/>
-        <div class="kiosko-card-body">
-          <span class="kiosko-tag tag-papeleria">Papelería</span>
-          <h3>Papelería Estudiantil</h3>
-          <div class="kiosko-meta">📍 Biblioteca</div>
-          <div class="kiosko-meta">🕐 8am – 6pm</div>
-          <div class="kiosko-products">
-            <h4>Productos:</h4>
-            <ul>
-              <li>Útiles escolares</li>
-              <li>Impresiones</li>
-              <li>Material de oficina</li>
-            </ul>
-          </div>
-          <div class="kiosko-responsable">Responsable: Laura Sánchez</div>
-        </div>
-      </div>
-      <div class="kiosko-card">
-        <img class="kiosko-card-img" src="https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?w=600&q=80" alt="Smoothie Station"/>
-        <div class="kiosko-card-body">
-          <span class="kiosko-tag tag-bebidas">Bebidas</span>
-          <h3>Smoothie Station</h3>
-          <div class="kiosko-meta">📍 Edificio B</div>
-          <div class="kiosko-meta">🕐 9am – 4pm</div>
-          <div class="kiosko-products">
-            <h4>Productos:</h4>
-            <ul>
-              <li>Smoothies</li>
-              <li>Batidos proteicos</li>
-              <li>Snacks fitness</li>
-            </ul>
-          </div>
-          <div class="kiosko-responsable">Responsable: Roberto Torres</div>
-        </div>
-      </div>
-    </div>
-  </section>
+ <!-- Kioscos Grid -->
+ <section class="section">
+ <h2 class="section-title">Nuestros Kioscos</h2>
+ <p class="section-sub">Emprendimientos estudiantiles activos en el campus</p>
+ <div class="kioscos-grid">
+ <div class="kiosko-card">
+ <img class="kiosko-card-img" src="https://images.unsplash.com/photo-1565299507177-b0ac66763828?w=600&q=80" alt="Sabores del Campus"/>
+ <div class="kiosko-card-body">
+ <span class="kiosko-tag tag-comida">Comida</span>
+ <h3>Sabores del Campus</h3>
+ <div class="kiosko-meta"> Edificio Principal</div>
+ <div class="kiosko-meta"> 11am – 3pm</div>
+ <div class="kiosko-products">
+ <h4>Productos:</h4>
+ <ul>
+ <li>Almuerzos</li>
+ <li>Snacks saludables</li>
+ <li>Jugos naturales</li>
+ </ul>
+ </div>
+ <div class="kiosko-responsable">Responsable: Carlos Pérez</div>
+ </div>
+ </div>
+ <div class="kiosko-card">
+ <img class="kiosko-card-img" src="https://images.unsplash.com/photo-1583394838336-acd977736f90?w=600&q=80" alt="Papelería Estudiantil"/>
+ <div class="kiosko-card-body">
+ <span class="kiosko-tag tag-papeleria">Papelería</span>
+ <h3>Papelería Estudiantil</h3>
+ <div class="kiosko-meta"> Biblioteca</div>
+ <div class="kiosko-meta"> 8am – 6pm</div>
+ <div class="kiosko-products">
+ <h4>Productos:</h4>
+ <ul>
+ <li>Útiles escolares</li>
+ <li>Impresiones</li>
+ <li>Material de oficina</li>
+ </ul>
+ </div>
+ <div class="kiosko-responsable">Responsable: Laura Sánchez</div>
+ </div>
+ </div>
+ <div class="kiosko-card">
+ <img class="kiosko-card-img" src="https://images.unsplash.com/photo-1553361371-9b22f78e8b1d?w=600&q=80" alt="Smoothie Station"/>
+ <div class="kiosko-card-body">
+ <span class="kiosko-tag tag-bebidas">Bebidas</span>
+ <h3>Smoothie Station</h3>
+ <div class="kiosko-meta"> Edificio B</div>
+ <div class="kiosko-meta"> 9am – 4pm</div>
+ <div class="kiosko-products">
+ <h4>Productos:</h4>
+ <ul>
+ <li>Smoothies</li>
+ <li>Batidos proteicos</li>
+ <li>Snacks fitness</li>
+ </ul>
+ </div>
+ <div class="kiosko-responsable">Responsable: Roberto Torres</div>
+ </div>
+ </div>
+ </div>
+ </section>
  
-  <!-- Habilidades -->
-  <section class="section" style="background:var(--gray-light)">
-    <h2 class="section-title">Habilidades que desarrollas</h2>
-    <p class="section-sub">Competencias profesionales valoradas en el mercado laboral</p>
-    <div style="display:grid;grid-template-columns:repeat(5,1fr);gap:20px;text-align:center">
-      <div><div style="font-size:40px;margin-bottom:10px">🚚</div><h4 style="color:var(--primary-blue)">Logística</h4><p style="font-size:13px;color:var(--gray-500)">Gestión de inventario y proveedores</p></div>
-      <div><div style="font-size:40px;margin-bottom:10px">🧮</div><h4>Contabilidad</h4><p style="font-size:13px;color:var(--gray-500)">Finanzas y control de costos</p></div>
-      <div><div style="font-size:40px;margin-bottom:10px">🎧</div><h4 style="color:var(--yellow)">Atención al cliente</h4><p style="font-size:13px;color:var(--gray-500)">Servicio y experiencia del usuario</p></div>
-      <div><div style="font-size:40px;margin-bottom:10px">📢</div><h4 style="color:var(--yellow)">Marketing</h4><p style="font-size:13px;color:var(--gray-500)">Estrategias de promoción y ventas</p></div>
-      <div><div style="font-size:40px;margin-bottom:10px">🛒</div><h4 style="color:var(--yellow)">Ventas</h4><p style="font-size:13px;color:var(--gray-500)">Negociación y cierre de negocios</p></div>
-    </div>
-  </section>
+ <!-- Habilidades -->
+ <section class="section" style="background:var(--gray-light)">
+ <h2 class="section-title">Habilidades que desarrollas</h2>
+ <p class="section-sub">Competencias profesionales valoradas en el mercado laboral</p>
+ <div class="r-grid-5" style="display:grid;grid-template-columns:repeat(5,1fr);gap:20px;text-align:center">
+ <div><div style="font-size:40px;margin-bottom:10px"></div><h4 style="color:var(--primary-blue)">Logística</h4><p style="font-size:13px;color:var(--gray-500)">Gestión de inventario y proveedores</p></div>
+ <div><div style="font-size:40px;margin-bottom:10px"></div><h4>Contabilidad</h4><p style="font-size:13px;color:var(--gray-500)">Finanzas y control de costos</p></div>
+ <div><div style="font-size:40px;margin-bottom:10px"></div><h4 style="color:var(--yellow)">Atención al cliente</h4><p style="font-size:13px;color:var(--gray-500)">Servicio y experiencia del usuario</p></div>
+ <div><div style="font-size:40px;margin-bottom:10px"></div><h4 style="color:var(--yellow)">Marketing</h4><p style="font-size:13px;color:var(--gray-500)">Estrategias de promoción y ventas</p></div>
+ <div><div style="font-size:40px;margin-bottom:10px"></div><h4 style="color:var(--yellow)">Ventas</h4><p style="font-size:13px;color:var(--gray-500)">Negociación y cierre de negocios</p></div>
+ </div>
+ </section>
  
-  <!-- CTA -->
-  <section style="text-align:center;padding:60px 80px;background:var(--blue-dark);color:var(--white)">
-    <h2 style="font-size:36px;font-weight:900;margin-bottom:12px;font-family:var(--font-title)">¿Listo para emprender?</h2>
-    <p style="font-size:17px;color:rgba(255,255,255,.7);margin-bottom:28px">Únete a nuestra comunidad de emprendedores y transforma tu idea en realidad</p>
-    <button class="btn-kiosko" onclick="openModal('modal-kioscos')">Postúlate Ahora</button>
-  </section>
+ <!-- CTA -->
+ <section class="r-pad-section" style="text-align:center;padding:60px 80px;background:var(--blue-dark);color:var(--white)">
+ <h2 style="font-size:36px;font-weight:900;margin-bottom:12px;font-family:var(--font-title)">¿Listo para emprender?</h2>
+ <p style="font-size:17px;color:rgba(255,255,255,.7);margin-bottom:28px">Únete a nuestra comunidad de emprendedores y transforma tu idea en realidad</p>
+ <button class="btn-kiosko" onclick="openModal('modal-kioscos')">Postúlate Ahora</button>
+ </section>
  
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="footer-grid">
-      <div><h3>ITSE + EmprendeSpace</h3><p>Plataforma de emprendimiento para estudiantes del Instituto Técnico Superior Especializado.</p></div>
-      <div><h4>Enlaces Rápidos</h4><ul>
-        <li><a onclick="showPage('inicio')">Inicio</a></li>
-        <li><a onclick="showPage('kioscos')">Kioscos</a></li>
-        <li><a onclick="openModal('modal-kioscos')">Postúlate</a></li>
-      </ul></div>
-      <div><h4>Contacto</h4><ul>
-        <li><a>emprendespace@itse.edu.pa</a></li>
-        <li><a>+507 123-4567</a></li>
-        <li><a>Campus Principal, Panamá</a></li>
-      </ul></div>
-    </div>
-    <div class="footer-bottom">© 2026 ITSE + EmprendeSpace. Todos los derechos reservados. En colaboración con CIIECYT</div>
-  </footer>
+ <!-- Footer -->
+ <footer class="footer">
+ <div class="footer-grid">
+ <div><h3>ITSE + EmprendeSpace</h3><p>Plataforma de emprendimiento para estudiantes del Instituto Técnico Superior Especializado.</p></div>
+ <div><h4>Enlaces Rápidos</h4><ul>
+ <li><a onclick="showPage('inicio')">Inicio</a></li>
+ <li><a onclick="showPage('kioscos')">Kioscos</a></li>
+ <li><a onclick="openModal('modal-kioscos')">Postúlate</a></li>
+ </ul></div>
+ <div><h4>Contacto</h4><ul>
+ <li><a> Tocumen, Avenida Domingo Díaz</a></li>
+ <li><a href="tel:+5075243333"> +507 524 3333</a></li>
+ <li><a href="mailto:info@itse.ac.pa">info@itse.ac.pa</a></li>
+ <li><a href="mailto:mercado@itse.ac.pa">mercado@itse.ac.pa</a></li>
+ <li><a href="mailto:admision@itse.ac.pa">admision@itse.ac.pa</a></li>
+ </ul>
+ <div style="display:flex;gap:8px;margin-top:14px">
+ <a href="https://www.instagram.com/itsepma/" target="_blank" class="social-btn social-ig">IG</a>
+ <a href="https://www.youtube.com/channel/UCL2YWBxXCD_qYMBNnyeJhCQ/featured?view_as=subscriber" target="_blank" class="social-btn social-yt">YT</a>
+ <a href="https://www.facebook.com/itsepanama/" target="_blank" class="social-btn social-fb">FB</a>
+ <a href="https://x.com/itsepma" target="_blank" class="social-btn social-x">X</a>
+ </div></div>
+ </div>
+ <div class="footer-bottom">© 2026 ITSE + EmprendeSpace. Todos los derechos reservados. En colaboración con CIIECYT</div>
+ </footer>
 </div>
  
 <!-- ══════════════════════════════════
-     PAGE: CLUBS
+ PAGE: CLUBS
 ══════════════════════════════════ -->
 <div id="page-clubs" class="page">
-  <nav class="std-nav">
-    <div class="logo">ITSE<span>Clubs Estudiantiles</span></div>
-    <a onclick="showPage('inicio')">Inicio</a>
-    <a onclick="showPage('caipi')">Caipi</a>
-    <a onclick="showPage('clubs')" class="active-link">Clubs</a>
-    <a onclick="showPage('psicologia')">Psicología</a>
-    <a onclick="showPage('bienestar')">Bienestar</a>
-    <a onclick="showPage('kioscos')">Kioscos</a>
-  </nav>
+ <nav class="std-nav">
+ <div class="logo">ITSE<span>Clubs Estudiantiles</span></div>
+ <a onclick="showPage('inicio')">Inicio</a>
+ <a onclick="showPage('caipi')">Caipi</a>
+ <a onclick="showPage('clubs')" class="active-link">Clubs</a>
+ <a onclick="showPage('psicologia')">Departamento de Apoyo Psicosocial</a>
+ <a onclick="showPage('bienestar')">Bienestar</a>
+ <a onclick="showPage('kioscos')">Kioscos</a>
+ </nav>
  
-  <div class="clubs-hero">
-    <h1 style="font-size:44px;font-weight:900;margin-bottom:12px;font-family:var(--font-title)">Clubs Estudiantiles</h1>
-    <p style="font-size:17px;color:var(--gray-500)">Encuentra tu comunidad, desarrolla tus pasiones y crece con otros estudiantes</p>
-  </div>
+ <div class="clubs-hero">
+ <h1 style="font-size:44px;font-weight:900;margin-bottom:12px;font-family:var(--font-title)">Clubs Estudiantiles</h1>
+ <p style="font-size:17px;color:var(--gray-500)">Encuentra tu comunidad, desarrolla tus pasiones y crece con otros estudiantes</p>
+ </div>
  
-  <!-- Clubs Tecnológicos -->
-  <div class="club-section-title" style="color:var(--primary-blue)">Clubs Tecnológicos</div>
-  <div class="clubs-grid">
-    <div class="club-card">
-      <img class="club-card-img" src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&q=80" alt="Robótica"/>
-      <div class="club-card-body">
-        <h3>Club de Robótica</h3>
-        <p>Diseño, construcción y programación de robots.</p>
-        <div class="club-meta">
-          <span>📅 Viernes 4:00 PM</span>
-          <span>👥 35+ estudiantes</span>
-        </div>
-        <a class="btn-ver-club">Ver club</a>
-        <button class="btn-unirse" onclick="openModal('modal-club')">Únete al Club</button>
-      </div>
-    </div>
-    <div class="club-card">
-      <img class="club-card-img" src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&q=80" alt="Programación"/>
-      <div class="club-card-body">
-        <h3>Club de Programación</h3>
-        <p>Desarrollo de software, hackathons y proyectos digitales.</p>
-        <div class="club-meta">
-          <span>📅 Miércoles 5:00 PM</span>
-          <span>👥 42+ estudiantes</span>
-        </div>
-        <a class="btn-ver-club">Ver club</a>
-        <button class="btn-unirse" onclick="openModal('modal-club')">Únete al Club</button>
-      </div>
-    </div>
-    <div class="club-card">
-      <img class="club-card-img" src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80" alt="Electrónica"/>
-      <div class="club-card-body">
-        <h3>Club de Electrónica</h3>
-        <p>Circuitos, Arduino, IoT y proyectos de hardware.</p>
-        <div class="club-meta">
-          <span>📅 Jueves 4:30 PM</span>
-          <span>👥 28+ estudiantes</span>
-        </div>
-        <a class="btn-ver-club">Ver club</a>
-        <button class="btn-unirse" onclick="openModal('modal-club')">Únete al Club</button>
-      </div>
-    </div>
-  </div>
+ <!-- Clubs Tecnológicos -->
+ <div class="club-section-title" style="color:var(--primary-blue)">Clubs Tecnológicos</div>
+ <div class="clubs-grid">
+ <div class="club-card">
+ <img class="club-card-img" src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&q=80" alt="Robótica"/>
+ <div class="club-card-body">
+ <h3>Club de Robótica</h3>
+ <p>Diseño, construcción y programación de robots.</p>
+ <div class="club-meta">
+ <span> Viernes 4:00 PM</span>
+ <span> 35+ estudiantes</span>
+ </div>
+ <a class="btn-ver-club">Ver club</a>
+ <button class="btn-unirse" onclick="openModal('modal-club')">Únete al Club</button>
+ </div>
+ </div>
+ <div class="club-card">
+ <img class="club-card-img" src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&q=80" alt="Programación"/>
+ <div class="club-card-body">
+ <h3>Club de Programación</h3>
+ <p>Desarrollo de software, hackathons y proyectos digitales.</p>
+ <div class="club-meta">
+ <span> Miércoles 5:00 PM</span>
+ <span> 42+ estudiantes</span>
+ </div>
+ <a class="btn-ver-club">Ver club</a>
+ <button class="btn-unirse" onclick="openModal('modal-club')">Únete al Club</button>
+ </div>
+ </div>
+ <div class="club-card">
+ <img class="club-card-img" src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80" alt="Electrónica"/>
+ <div class="club-card-body">
+ <h3>Club de Electrónica</h3>
+ <p>Circuitos, Arduino, IoT y proyectos de hardware.</p>
+ <div class="club-meta">
+ <span> Jueves 4:30 PM</span>
+ <span> 28+ estudiantes</span>
+ </div>
+ <a class="btn-ver-club">Ver club</a>
+ <button class="btn-unirse" onclick="openModal('modal-club')">Únete al Club</button>
+ </div>
+ </div>
+ </div>
  
-  <!-- Ver más -->
-  <div style="text-align:center;padding:20px 0 40px">
-    <button class="btn btn-outline" style="border-radius:50px;padding:12px 36px">Ver más clubes</button>
-  </div>
+ <!-- Ver más -->
+ <div style="text-align:center;padding:20px 0 40px">
+ <button class="btn btn-outline" style="border-radius:50px;padding:12px 36px">Ver más clubes</button>
+ </div>
  
-  <!-- Clubs Culturales -->
-  <div style="background:var(--gray-light);padding:40px 0">
-    <div style="text-align:center;margin-bottom:8px">
-      <span style="display:inline-block;width:40px;height:3px;background:var(--red);border-radius:2px"></span>
-    </div>
-    <h2 class="section-title">Clubes Culturales</h2>
-    <p class="section-sub">Expresa tu creatividad y descubre nuevas formas de arte.</p>
-    <div class="clubs-grid" style="padding:16px 80px 40px">
-      <div class="club-card">
-        <img class="club-card-img" src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=600&q=80" alt="Cine Club"/>
-        <div class="club-card-body">
-          <h3>Cine Club</h3>
-          <p>Proyecciones, análisis cinematográfico y producción audiovisual.</p>
-          <div class="club-meta">
-            <span>📅 Sábados 2:00 PM</span>
-            <span>👥 20+ estudiantes</span>
-          </div>
-          <a class="btn-ver-club" onclick="showPage('cine-club')">Ver club</a>
-          <button class="btn-unirse" onclick="openModal('modal-club')">Únete al Club</button>
-        </div>
-      </div>
-      <div class="club-card">
-        <img class="club-card-img" src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=600&q=80" alt="Círculo de Lectura"/>
-        <div class="club-card-body">
-          <h3>Círculo de Lectura</h3>
-          <p>Discusiones literarias, reseñas y encuentros con autores.</p>
-          <div class="club-meta">
-            <span>📅 Martes 4:00 PM</span>
-            <span>👥 18+ estudiantes</span>
-          </div>
-          <a class="btn-ver-club" onclick="showPage('circulo-lectura')">Ver club</a>
-          <button class="btn-unirse" onclick="openModal('modal-club')">Únete al Club</button>
-        </div>
-      </div>
-      <div class="club-card">
-        <img class="club-card-img" src="https://images.unsplash.com/photo-1499364615650-ec38552f4f34?w=600&q=80" alt="Arte y Diseño"/>
-        <div class="club-card-body">
-          <h3>Arte y Diseño</h3>
-          <p>Ilustración, diseño gráfico, murales y exposiciones estudiantiles.</p>
-          <div class="club-meta">
-            <span>📅 Lunes 5:00 PM</span>
-            <span>👥 25+ estudiantes</span>
-          </div>
-          <a class="btn-ver-club">Ver club</a>
-          <button class="btn-unirse" onclick="openModal('modal-club')">Únete al Club</button>
-        </div>
-      </div>
-    </div>
-  </div>
+ <!-- Clubs Culturales -->
+ <div style="background:var(--gray-light);padding:40px 0">
+ <div style="text-align:center;margin-bottom:8px">
+ <span style="display:inline-block;width:40px;height:3px;background:var(--red);border-radius:2px"></span>
+ </div>
+ <h2 class="section-title">Clubes Culturales</h2>
+ <p class="section-sub">Expresa tu creatividad y descubre nuevas formas de arte.</p>
+ <div class="clubs-grid" style="padding:16px 80px 40px">
+ <div class="club-card">
+ <img class="club-card-img" src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?w=600&q=80" alt="Cine Club"/>
+ <div class="club-card-body">
+ <h3>Cine Club</h3>
+ <p>Proyecciones, análisis cinematográfico y producción audiovisual.</p>
+ <div class="club-meta">
+ <span> Sábados 2:00 PM</span>
+ <span> 20+ estudiantes</span>
+ </div>
+ <a class="btn-ver-club" onclick="showPage('cine-club')">Ver club</a>
+ <button class="btn-unirse" onclick="openModal('modal-club')">Únete al Club</button>
+ </div>
+ </div>
+ <div class="club-card">
+ <img class="club-card-img" src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=600&q=80" alt="Círculo de Lectura"/>
+ <div class="club-card-body">
+ <h3>Círculo de Lectura</h3>
+ <p>Discusiones literarias, reseñas y encuentros con autores.</p>
+ <div class="club-meta">
+ <span> Martes 4:00 PM</span>
+ <span> 18+ estudiantes</span>
+ </div>
+ <a class="btn-ver-club" onclick="showPage('circulo-lectura')">Ver club</a>
+ <button class="btn-unirse" onclick="openModal('modal-club')">Únete al Club</button>
+ </div>
+ </div>
+ <div class="club-card">
+ <img class="club-card-img" src="https://images.unsplash.com/photo-1499364615650-ec38552f4f34?w=600&q=80" alt="Arte y Diseño"/>
+ <div class="club-card-body">
+ <h3>Arte y Diseño</h3>
+ <p>Ilustración, diseño gráfico, murales y exposiciones estudiantiles.</p>
+ <div class="club-meta">
+ <span> Lunes 5:00 PM</span>
+ <span> 25+ estudiantes</span>
+ </div>
+ <a class="btn-ver-club">Ver club</a>
+ <button class="btn-unirse" onclick="openModal('modal-club')">Únete al Club</button>
+ </div>
+ </div>
+ </div>
+ </div>
  
-  <footer class="footer">
-    <div class="footer-grid">
-      <div><h3>ITSE – Clubs</h3><p>Comunidades estudiantiles del Instituto Técnico Superior Especializado.</p></div>
-      <div><h4>Navegación</h4><ul>
-        <li><a onclick="showPage('inicio')">Inicio</a></li>
-        <li><a onclick="showPage('kioscos')">Kioscos</a></li>
-        <li><a onclick="showPage('psicologia')">Psicología</a></li>
-      </ul></div>
-      <div><h4>Contacto</h4><ul>
-        <li><a>clubs@itse.edu.pa</a></li>
-        <li><a>+507 123-4567</a></li>
-      </ul></div>
-    </div>
-    <div class="footer-bottom">© 2026 ITSE. Todos los derechos reservados.</div>
-  </footer>
+ <footer class="footer">
+ <div class="footer-grid">
+ <div><h3>ITSE – Clubs</h3><p>Comunidades estudiantiles del Instituto Técnico Superior Especializado.</p></div>
+ <div><h4>Navegación</h4><ul>
+ <li><a onclick="showPage('inicio')">Inicio</a></li>
+ <li><a onclick="showPage('kioscos')">Kioscos</a></li>
+ <li><a onclick="showPage('psicologia')">Departamento de Apoyo Psicosocial</a></li>
+ </ul></div>
+ <div><h4>Contacto</h4><ul>
+ <li><a> Tocumen, Avenida Domingo Díaz</a></li>
+ <li><a href="tel:+5075243333"> +507 524 3333</a></li>
+ <li><a href="mailto:info@itse.ac.pa">info@itse.ac.pa</a></li>
+ <li><a href="mailto:mercado@itse.ac.pa">mercado@itse.ac.pa</a></li>
+ <li><a href="mailto:admision@itse.ac.pa">admision@itse.ac.pa</a></li>
+ </ul>
+ <div style="display:flex;gap:8px;margin-top:14px">
+ <a href="https://www.instagram.com/itsepma/" target="_blank" class="social-btn social-ig">IG</a>
+ <a href="https://www.youtube.com/channel/UCL2YWBxXCD_qYMBNnyeJhCQ/featured?view_as=subscriber" target="_blank" class="social-btn social-yt">YT</a>
+ <a href="https://www.facebook.com/itsepanama/" target="_blank" class="social-btn social-fb">FB</a>
+ <a href="https://x.com/itsepma" target="_blank" class="social-btn social-x">X</a>
+ </div></div>
+ </div>
+ <div class="footer-bottom">© 2026 ITSE. Todos los derechos reservados.</div>
+ </footer>
 </div>
  
 <!-- ══════════════════════════════════
-     PAGE: CINE CLUB
+ PAGE: CINE CLUB
 ══════════════════════════════════ -->
 <div id="page-cine-club" class="page">
-  <nav class="cine-nav">
-    <a onclick="showPage('inicio')" style="margin-right:auto;font-weight:700;color:var(--white)">← Clubs</a>
-    <a class="active" onclick="">🏠 Inicio</a>
-    <a>🎬 Proyecciones</a>
-    <a>⚡ Actividades</a>
-    <a>🖼️ Galería</a>
-    <a>⭐ Inscripción</a>
-  </nav>
+ <nav class="cine-nav">
+ <a onclick="showPage('inicio')" style="margin-right:auto;font-weight:700;color:var(--white)">← Clubs</a>
+ <a class="active" onclick=""> Inicio</a>
+ <a> Proyecciones</a>
+ <a> Actividades</a>
+ <a> Galería</a>
+ <a>⭐ Inscripción</a>
+ </nav>
  
-  <div class="cine-hero">
-    <h1 style="color:var(--white);font-family:var(--font-title)">Cine Club ITSE</h1>
-    <p>Análisis cinematográfico, proyecciones y cultura audiovisual</p>
-    <div style="display:flex;gap:12px;justify-content:center">
-      <button class="btn-orange" onclick="openModal('modal-club')">Únete al Club</button>
-      <button style="background:transparent;border:2px solid rgba(255,255,255,.4);color:rgba(255,255,255,.8);padding:12px 28px;border-radius:8px;font-size:15px;cursor:pointer">Ver próximas proyecciones</button>
-    </div>
-  </div>
+ <div class="cine-hero">
+ <h1 style="color:var(--white);font-family:var(--font-title)">Cine Club ITSE</h1>
+ <p>Análisis cinematográfico, proyecciones y cultura audiovisual</p>
+ <div style="display:flex;gap:12px;justify-content:center">
+ <button class="btn-orange" onclick="openModal('modal-club')">Únete al Club</button>
+ <button style="background:transparent;border:2px solid rgba(255,255,255,.4);color:rgba(255,255,255,.8);padding:12px 28px;border-radius:8px;font-size:15px;cursor:pointer">Ver próximas proyecciones</button>
+ </div>
+ </div>
  
-  <div class="cine-features">
-    <div class="cine-feat">
-      <div class="feat-icon">🎯</div>
-      <p style="color:var(--white);font-weight:600;margin-bottom:6px">Fomentar el pensamiento crítico</p>
-    </div>
-    <div class="cine-feat">
-      <div class="feat-icon">💬</div>
-      <p style="color:var(--white);font-weight:600;margin-bottom:6px">Desarrollar habilidades de comunicación</p>
-    </div>
-    <div class="cine-feat">
-      <div class="feat-icon">⭐</div>
-      <p style="color:var(--white);font-weight:600;margin-bottom:6px">Promover la Capacidad de Síntesis</p>
-    </div>
-    <div class="cine-feat">
-      <div class="feat-icon">🏆</div>
-      <p style="color:var(--white);font-weight:600;margin-bottom:6px">Estimular la Creatividad y la Imaginación</p>
-    </div>
-    <div class="cine-feat">
-      <div class="feat-icon">👤</div>
-      <p style="color:var(--white);font-weight:600;margin-bottom:6px">Reflexionar sobre Temas Universales</p>
-    </div>
-  </div>
+ <div class="cine-features">
+ <div class="cine-feat">
+ <div class="feat-icon"></div>
+ <p style="color:var(--white);font-weight:600;margin-bottom:6px">Fomentar el pensamiento crítico</p>
+ </div>
+ <div class="cine-feat">
+ <div class="feat-icon"></div>
+ <p style="color:var(--white);font-weight:600;margin-bottom:6px">Desarrollar habilidades de comunicación</p>
+ </div>
+ <div class="cine-feat">
+ <div class="feat-icon">⭐</div>
+ <p style="color:var(--white);font-weight:600;margin-bottom:6px">Promover la Capacidad de Síntesis</p>
+ </div>
+ <div class="cine-feat">
+ <div class="feat-icon"></div>
+ <p style="color:var(--white);font-weight:600;margin-bottom:6px">Estimular la Creatividad y la Imaginación</p>
+ </div>
+ <div class="cine-feat">
+ <div class="feat-icon"></div>
+ <p style="color:var(--white);font-weight:600;margin-bottom:6px">Reflexionar sobre Temas Universales</p>
+ </div>
+ </div>
  
-  <div style="background:#1e293b;padding:40px 80px">
-    <h2 style="color:var(--white);font-size:28px;font-weight:800;margin-bottom:24px;padding-left:16px;border-left:4px solid var(--yellow);font-family:var(--font-title)">Nuestro Equipo</h2>
-    <div class="equipo-grid">
-      <div class="equipo-card">
-        <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=700&q=80" alt="Equipo Organizador"/>
-        <div class="equipo-label">
-          <h4>👥 Equipo Organizador</h4>
-          <p>Estudiantes y profesores comprometidos con la cultura cinematográfica.</p>
-        </div>
-      </div>
-      <div class="equipo-card">
-        <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=700&q=80" alt="Nuestra Comunidad"/>
-        <div class="equipo-label">
-          <h4>🎞️ Nuestra Comunidad</h4>
-          <p>Cinéfilos que comparten el amor por el análisis cinematográfico.</p>
-        </div>
-      </div>
-    </div>
-  </div>
+ <div class="r-pad-section" style="background:#1e293b;padding:40px 80px">
+ <h2 style="color:var(--white);font-size:28px;font-weight:800;margin-bottom:24px;padding-left:16px;border-left:4px solid var(--yellow);font-family:var(--font-title)">Nuestro Equipo</h2>
+ <div class="equipo-grid">
+ <div class="equipo-card">
+ <img src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=700&q=80" alt="Equipo Organizador"/>
+ <div class="equipo-label">
+ <h4> Equipo Organizador</h4>
+ <p>Estudiantes y profesores comprometidos con la cultura cinematográfica.</p>
+ </div>
+ </div>
+ <div class="equipo-card">
+ <img src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=700&q=80" alt="Nuestra Comunidad"/>
+ <div class="equipo-label">
+ <h4> Nuestra Comunidad</h4>
+ <p>Cinéfilos que comparten el amor por el análisis cinematográfico.</p>
+ </div>
+ </div>
+ </div>
+ </div>
  
-  <footer class="footer">
-    <div class="footer-grid">
-      <div><h3>Cine Club ITSE</h3><p>Club de cine del Instituto Técnico Superior Especializado.</p></div>
-      <div><h4>Navegación</h4><ul>
-        <li><a onclick="showPage('clubs')">Todos los Clubs</a></li>
-        <li><a onclick="showPage('inicio')">Inicio</a></li>
-      </ul></div>
-      <div><h4>Contacto</h4><ul><li><a>cineclub@itse.edu.pa</a></li></ul></div>
-    </div>
-    <div class="footer-bottom">© 2026 ITSE. Todos los derechos reservados.</div>
-  </footer>
+ <footer class="footer">
+ <div class="footer-grid">
+ <div><h3>Cine Club ITSE</h3><p>Club de cine del Instituto Técnico Superior Especializado.</p></div>
+ <div><h4>Navegación</h4><ul>
+ <li><a onclick="showPage('clubs')">Todos los Clubs</a></li>
+ <li><a onclick="showPage('inicio')">Inicio</a></li>
+ </ul></div>
+ <div><h4>Contacto</h4><ul>
+ <li><a> Tocumen, Avenida Domingo Díaz</a></li>
+ <li><a href="tel:+5075243333"> +507 524 3333</a></li>
+ <li><a href="mailto:info@itse.ac.pa">info@itse.ac.pa</a></li>
+ <li><a href="mailto:mercado@itse.ac.pa">mercado@itse.ac.pa</a></li>
+ <li><a href="mailto:admision@itse.ac.pa">admision@itse.ac.pa</a></li>
+ </ul>
+ <div style="display:flex;gap:8px;margin-top:14px">
+ <a href="https://www.instagram.com/itsepma/" target="_blank" class="social-btn social-ig">IG</a>
+ <a href="https://www.youtube.com/channel/UCL2YWBxXCD_qYMBNnyeJhCQ/featured?view_as=subscriber" target="_blank" class="social-btn social-yt">YT</a>
+ <a href="https://www.facebook.com/itsepanama/" target="_blank" class="social-btn social-fb">FB</a>
+ <a href="https://x.com/itsepma" target="_blank" class="social-btn social-x">X</a>
+ </div></div>
+ </div>
+ <div class="footer-bottom">© 2026 ITSE. Todos los derechos reservados.</div>
+ </footer>
 </div>
  
 <!-- ══════════════════════════════════
-     PAGE: CÍRCULO DE LECTURA
+ PAGE: CÍRCULO DE LECTURA
 ══════════════════════════════════ -->
 <div id="page-circulo-lectura" class="page">
-  <nav class="std-nav">
-    <div class="logo">ITSE<span>Círculo de Lectura</span></div>
-    <a onclick="showPage('clubs')">← Clubs</a>
-    <a onclick="showPage('inicio')">Inicio</a>
-    <button class="btn btn-green" onclick="openModal('modal-club')">Ver Próximas Reuniones</button>
-    <button class="btn btn-outline" onclick="openModal('modal-club')">Más Información</button>
-  </nav>
+ <nav class="std-nav">
+ <div class="logo">ITSE<span>Círculo de Lectura</span></div>
+ <a onclick="showPage('clubs')">← Clubs</a>
+ <a onclick="showPage('inicio')">Inicio</a>
+ <button class="btn btn-green" onclick="openModal('modal-club')">Ver Próximas Reuniones</button>
+ <button class="btn btn-outline" onclick="openModal('modal-club')">Más Información</button>
+ </nav>
  
-  <div style="padding:80px;background:linear-gradient(135deg,#f0fdf4,#fff);display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center">
-    <div>
-      <div style="display:inline-block;background:var(--primary-blue);color:var(--white);border-radius:50px;padding:6px 16px;font-size:13px;font-weight:600;margin-bottom:20px">📚 Club Literario</div>
-      <h1 style="font-size:44px;font-weight:900;margin-bottom:16px;font-family:var(--font-title)">Círculo de Lectura ITSE</h1>
-      <p style="font-size:16px;color:var(--gray-500);margin-bottom:24px">Un espacio para compartir la pasión por los libros, discutir ideas y explorar nuevas perspectivas a través de la literatura.</p>
-      <div style="display:flex;gap:12px">
-        <button class="btn btn-green" onclick="openModal('modal-club')">Únete Ahora</button>
-        <button class="btn btn-outline">Ver calendario</button>
-      </div>
-    </div>
-    <div style="border-radius:16px;overflow:hidden">
-      <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=700&q=80" alt="Libros" style="width:100%;height:400px;object-fit:cover"/>
-    </div>
-  </div>
+ <div class="r-hero-2col" style="padding:80px;background:linear-gradient(135deg,#f0fdf4,#fff);display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center">
+ <div>
+ <div style="display:inline-block;background:var(--primary-blue);color:var(--white);border-radius:50px;padding:6px 16px;font-size:13px;font-weight:600;margin-bottom:20px"> Club Literario</div>
+ <h1 style="font-size:44px;font-weight:900;margin-bottom:16px;font-family:var(--font-title)">Círculo de Lectura ITSE</h1>
+ <p style="font-size:16px;color:var(--gray-500);margin-bottom:24px">Un espacio para compartir la pasión por los libros, discutir ideas y explorar nuevas perspectivas a través de la literatura.</p>
+ <div style="display:flex;gap:12px">
+ <button class="btn btn-green" onclick="openModal('modal-club')">Únete Ahora</button>
+ <button class="btn btn-outline">Ver calendario</button>
+ </div>
+ </div>
+ <div style="border-radius:16px;overflow:hidden">
+ <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=700&q=80" alt="Libros" style="width:100%;height:400px;object-fit:cover"/>
+ </div>
+ </div>
  
-  <!-- Libros en Curso -->
-  <section class="section">
-    <h2 class="section-title">Libros en Curso</h2>
-    <p class="section-sub">Explora nuestra selección actual y únete a las discusiones</p>
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
-      <div style="border-radius:12px;overflow:hidden">
-        <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=500&q=80" alt="Libro 1" style="width:100%;height:280px;object-fit:cover"/>
-      </div>
-      <div style="border-radius:12px;overflow:hidden">
-        <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=500&q=80" alt="Libro 2" style="width:100%;height:280px;object-fit:cover"/>
-      </div>
-      <div style="border-radius:12px;overflow:hidden">
-        <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=500&q=80" alt="Libro 3" style="width:100%;height:280px;object-fit:cover"/>
-      </div>
-    </div>
-  </section>
+ <!-- Libros en Curso -->
+ <section class="section">
+ <h2 class="section-title">Libros en Curso</h2>
+ <p class="section-sub">Explora nuestra selección actual y únete a las discusiones</p>
+ <div class="r-grid-3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+ <div style="border-radius:12px;overflow:hidden">
+ <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=500&q=80" alt="Libro 1" style="width:100%;height:280px;object-fit:cover"/>
+ </div>
+ <div style="border-radius:12px;overflow:hidden">
+ <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=500&q=80" alt="Libro 2" style="width:100%;height:280px;object-fit:cover"/>
+ </div>
+ <div style="border-radius:12px;overflow:hidden">
+ <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=500&q=80" alt="Libro 3" style="width:100%;height:280px;object-fit:cover"/>
+ </div>
+ </div>
+ </section>
  
-  <footer class="footer">
-    <div class="footer-grid">
-      <div><h3>Círculo de Lectura ITSE</h3><p>Club literario del ITSE para amantes de los libros.</p></div>
-      <div><h4>Navegación</h4><ul>
-        <li><a onclick="showPage('clubs')">Todos los Clubs</a></li>
-        <li><a onclick="showPage('inicio')">Inicio</a></li>
-      </ul></div>
-      <div><h4>Contacto</h4><ul><li><a>lectura@itse.edu.pa</a></li></ul></div>
-    </div>
-    <div class="footer-bottom">© 2026 ITSE. Todos los derechos reservados.</div>
-  </footer>
+ <footer class="footer">
+ <div class="footer-grid">
+ <div><h3>Círculo de Lectura ITSE</h3><p>Club literario del ITSE para amantes de los libros.</p></div>
+ <div><h4>Navegación</h4><ul>
+ <li><a onclick="showPage('clubs')">Todos los Clubs</a></li>
+ <li><a onclick="showPage('inicio')">Inicio</a></li>
+ </ul></div>
+ <div><h4>Contacto</h4><ul>
+ <li><a> Tocumen, Avenida Domingo Díaz</a></li>
+ <li><a href="tel:+5075243333"> +507 524 3333</a></li>
+ <li><a href="mailto:info@itse.ac.pa">info@itse.ac.pa</a></li>
+ <li><a href="mailto:mercado@itse.ac.pa">mercado@itse.ac.pa</a></li>
+ <li><a href="mailto:admision@itse.ac.pa">admision@itse.ac.pa</a></li>
+ </ul>
+ <div style="display:flex;gap:8px;margin-top:14px">
+ <a href="https://www.instagram.com/itsepma/" target="_blank" class="social-btn social-ig">IG</a>
+ <a href="https://www.youtube.com/channel/UCL2YWBxXCD_qYMBNnyeJhCQ/featured?view_as=subscriber" target="_blank" class="social-btn social-yt">YT</a>
+ <a href="https://www.facebook.com/itsepanama/" target="_blank" class="social-btn social-fb">FB</a>
+ <a href="https://x.com/itsepma" target="_blank" class="social-btn social-x">X</a>
+ </div></div>
+ </div>
+ <div class="footer-bottom">© 2026 ITSE. Todos los derechos reservados.</div>
+ </footer>
 </div>
  
 <!-- ══════════════════════════════════
-     PAGE: BIENESTAR
+ PAGE: BIENESTAR
 ══════════════════════════════════ -->
 <div id="page-bienestar" class="page">
-  <nav class="std-nav">
-    <div class="logo">ITSE<span>Bienestar Estudiantil</span></div>
-    <a onclick="showPage('inicio')">Inicio</a>
-    <a onclick="showPage('caipi')">Caipi</a>
-    <a onclick="showPage('clubs')">Clubs</a>
-    <a onclick="showPage('psicologia')">Psicología</a>
-    <a onclick="showPage('bienestar')" class="active-link">Bienestar Estudiantil</a>
-    <a onclick="showPage('kioscos')">Kioscos</a>
-  </nav>
+ <nav class="std-nav">
+ <div class="logo">ITSE<span>Bienestar Estudiantil</span></div>
+ <a onclick="showPage('inicio')">Inicio</a>
+ <a onclick="showPage('caipi')">Caipi</a>
+ <a onclick="showPage('clubs')">Clubs</a>
+ <a onclick="showPage('psicologia')">Departamento de Apoyo Psicosocial</a>
+ <a onclick="showPage('bienestar')" class="active-link">Bienestar Estudiantil</a>
+ <a onclick="showPage('kioscos')">Kioscos</a>
+ </nav>
  
-  <div class="bienestar-hero">
-    <h1>Bienestar Estudiantil</h1>
-    <p>Tu desarrollo integral es nuestra misión. Servicios y programas para tu bienestar físico, mental y social.</p>
-  </div>
+ <div class="bienestar-hero">
+ <h1>Bienestar Estudiantil</h1>
+ <p>Tu desarrollo integral es nuestra misión. Servicios y programas para tu bienestar físico, mental y social.</p>
+ </div>
  
-  <div class="bienestar-cards">
-    <div class="bienestar-card purple">
-      <div class="b-icon">🧠</div>
-      <h3>Salud Mental</h3>
-      <p>Apoyo psicológico, talleres de manejo del estrés y grupos de apoyo para tu bienestar emocional.</p>
-    </div>
-    <div class="bienestar-card green">
-      <div class="b-icon">💪</div>
-      <h3>Actividad Física</h3>
-      <p>Programas deportivos, torneos interclases y actividades físicas para mantener un estilo de vida saludable.</p>
-    </div>
-    <div class="bienestar-card blue">
-      <div class="b-icon">📚</div>
-      <h3>Apoyo Académico</h3>
-      <p>Tutorías, asesorías estudiantiles y recursos educativos para tu éxito académico.</p>
-    </div>
-    <div class="bienestar-card green">
-      <div class="b-icon">🏥</div>
-      <h3>Clínica Estudiantil</h3>
-      <p>Atención médica básica, primeros auxilios y orientación de salud para los estudiantes del campus.</p>
-    </div>
-    <div class="bienestar-card blue">
-      <div class="b-icon">🤝</div>
-      <h3>Vida Comunitaria</h3>
-      <p>Actividades sociales, clubs y eventos que fortalecen los lazos entre estudiantes y la comunidad.</p>
-    </div>
-    <div class="bienestar-card purple">
-      <div class="b-icon">🌱</div>
-      <h3>Desarrollo Personal</h3>
-      <p>Talleres de liderazgo, comunicación efectiva y crecimiento personal para tu futuro profesional.</p>
-    </div>
-  </div>
+ <div class="bienestar-cards">
+ <div class="bienestar-card purple">
+ <div class="b-icon"></div>
+ <h3>Salud Mental</h3>
+ <p>Apoyo psicológico, talleres de manejo del estrés y grupos de apoyo para tu bienestar emocional.</p>
+ </div>
+ <div class="bienestar-card green">
+ <div class="b-icon"></div>
+ <h3>Actividad Física</h3>
+ <p>Programas deportivos, torneos interclases y actividades físicas para mantener un estilo de vida saludable.</p>
+ </div>
+ <div class="bienestar-card blue">
+ <div class="b-icon"></div>
+ <h3>Apoyo Académico</h3>
+ <p>Tutorías, asesorías estudiantiles y recursos educativos para tu éxito académico.</p>
+ </div>
+ <div class="bienestar-card green">
+ <div class="b-icon"></div>
+ <h3>Clínica Estudiantil</h3>
+ <p>Atención médica básica, primeros auxilios y orientación de salud para los estudiantes del campus.</p>
+ </div>
+ <div class="bienestar-card blue">
+ <div class="b-icon"></div>
+ <h3>Vida Comunitaria</h3>
+ <p>Actividades sociales, clubs y eventos que fortalecen los lazos entre estudiantes y la comunidad.</p>
+ </div>
+ <div class="bienestar-card purple">
+ <div class="b-icon"></div>
+ <h3>Desarrollo Personal</h3>
+ <p>Talleres de liderazgo, comunicación efectiva y crecimiento personal para tu futuro profesional.</p>
+ </div>
+ </div>
  
-  <div style="text-align:center;padding:60px;background:linear-gradient(135deg,#f5f3ff,#eff6ff)">
-    <h2 style="font-size:36px;font-weight:900;margin-bottom:16px;font-family:var(--font-title)">¿Necesitas ayuda?</h2>
-    <p style="font-size:17px;color:var(--gray-500);margin-bottom:28px">Nuestro equipo de bienestar está aquí para apoyarte en cada paso de tu trayectoria estudiantil.</p>
-    <button class="btn-orange" onclick="openModal('modal-bienestar')">Contáctanos</button>
-  </div>
+ <div class="r-pad-cta" style="text-align:center;padding:60px;background:linear-gradient(135deg,#f5f3ff,#eff6ff)">
+ <h2 style="font-size:36px;font-weight:900;margin-bottom:16px;font-family:var(--font-title)">¿Necesitas ayuda?</h2>
+ <p style="font-size:17px;color:var(--gray-500);margin-bottom:28px">Nuestro equipo de bienestar está aquí para apoyarte en cada paso de tu trayectoria estudiantil.</p>
+ <button class="btn-orange" onclick="openModal('modal-bienestar')">Contáctanos</button>
+ </div>
  
-  <footer class="footer">
-    <div class="footer-grid">
-      <div><h3>ITSE – Bienestar</h3><p>Servicios integrales de bienestar estudiantil del ITSE.</p></div>
-      <div><h4>Navegación</h4><ul>
-        <li><a onclick="showPage('psicologia')">Psicología</a></li>
-        <li><a onclick="showPage('caipi')">Caipi</a></li>
-        <li><a onclick="showPage('clubs')">Clubs</a></li>
-      </ul></div>
-      <div><h4>Contacto</h4><ul>
-        <li><a>bienestar@itse.edu.pa</a></li>
-        <li><a>+507 123-4567</a></li>
-        <li><a>Campus Principal, Panamá</a></li>
-      </ul></div>
-    </div>
-    <div class="footer-bottom">© 2026 ITSE. Todos los derechos reservados.</div>
-  </footer>
+ <footer class="footer">
+ <div class="footer-grid">
+ <div><h3>ITSE – Bienestar</h3><p>Servicios integrales de bienestar estudiantil del ITSE.</p></div>
+ <div><h4>Navegación</h4><ul>
+ <li><a onclick="showPage('psicologia')">Departamento de Apoyo Psicosocial</a></li>
+ <li><a onclick="showPage('caipi')">Caipi</a></li>
+ <li><a onclick="showPage('clubs')">Clubs</a></li>
+ </ul></div>
+ <div><h4>Contacto</h4><ul>
+ <li><a> Tocumen, Avenida Domingo Díaz</a></li>
+ <li><a href="tel:+5075243333"> +507 524 3333</a></li>
+ <li><a href="mailto:info@itse.ac.pa">info@itse.ac.pa</a></li>
+ <li><a href="mailto:mercado@itse.ac.pa">mercado@itse.ac.pa</a></li>
+ <li><a href="mailto:admision@itse.ac.pa">admision@itse.ac.pa</a></li>
+ </ul>
+ <div style="display:flex;gap:8px;margin-top:14px">
+ <a href="https://www.instagram.com/itsepma/" target="_blank" class="social-btn social-ig">IG</a>
+ <a href="https://www.youtube.com/channel/UCL2YWBxXCD_qYMBNnyeJhCQ/featured?view_as=subscriber" target="_blank" class="social-btn social-yt">YT</a>
+ <a href="https://www.facebook.com/itsepanama/" target="_blank" class="social-btn social-fb">FB</a>
+ <a href="https://x.com/itsepma" target="_blank" class="social-btn social-x">X</a>
+ </div></div>
+ </div>
+ <div class="footer-bottom">© 2026 ITSE. Todos los derechos reservados.</div>
+ </footer>
 </div>
  
 <!-- ══════════════════════════════════
-     PAGE: CLÍNICA (placeholder)
+ PAGE: CLÍNICA (placeholder)
 ══════════════════════════════════ -->
 <div id="page-clinica" class="page">
-  <nav class="std-nav">
-    <div class="logo">ITSE<span>Clínica Estudiantil</span></div>
-    <a onclick="showPage('inicio')">Inicio</a>
-    <a onclick="showPage('clinica')" class="active-link">Clínica</a>
-    <a onclick="showPage('psicologia')">Psicología</a>
-    <a onclick="showPage('bienestar')">Bienestar</a>
-    <a onclick="showPage('kioscos')">Kioscos</a>
-  </nav>
-  <div style="padding:80px;text-align:center;background:linear-gradient(135deg,#fef9ee,#fff)">
-    <div style="font-size:64px;margin-bottom:20px">🏥</div>
-    <h1 style="font-size:44px;font-weight:900;margin-bottom:16px;font-family:var(--font-title)">Clínica Estudiantil ITSE</h1>
-    <p style="font-size:17px;color:var(--gray-500);margin-bottom:32px">Atención médica básica y de primeros auxilios para los estudiantes del campus.</p>
-    <div style="display:flex;gap:20px;justify-content:center;flex-wrap:wrap">
-      <div style="background:var(--white);border:1px solid var(--gray-200);border-radius:16px;padding:28px;max-width:250px;text-align:center">
-        <div style="font-size:36px;margin-bottom:10px">⏰</div>
-        <h3 style="font-weight:700;font-family:var(--font-title)">Horario</h3>
-        <p style="color:var(--gray-500);font-size:14px">Lunes a Viernes<br>7:00am – 5:00pm</p>
-      </div>
-      <div style="background:var(--white);border:1px solid var(--gray-200);border-radius:16px;padding:28px;max-width:250px;text-align:center">
-        <div style="font-size:36px;margin-bottom:10px">📍</div>
-        <h3 style="font-weight:700;font-family:var(--font-title)">Ubicación</h3>
-        <p style="color:var(--gray-500);font-size:14px">Edificio Principal<br>Planta Baja</p>
-      </div>
-      <div style="background:var(--white);border:1px solid var(--gray-200);border-radius:16px;padding:28px;max-width:250px;text-align:center">
-        <div style="font-size:36px;margin-bottom:10px">📞</div>
-        <h3 style="font-weight:700;font-family:var(--font-title)">Contacto</h3>
-        <p style="color:var(--gray-500);font-size:14px">+507 123-4567<br>clinica@itse.edu.pa</p>
-      </div>
-    </div>
-    <br/><br/>
-    <button class="btn-orange" onclick="openModal('modal-bienestar')">Solicitar Cita</button>
-  </div>
-  <footer class="footer">
-    <div class="footer-grid">
-      <div><h3>ITSE – Clínica</h3><p>Atención médica estudiantil del ITSE.</p></div>
-      <div><h4>Navegación</h4><ul><li><a onclick="showPage('inicio')">Inicio</a></li></ul></div>
-      <div><h4>Emergencias</h4><ul><li><a href="tel:169">Línea Crisis: 169</a></li></ul></div>
-    </div>
-    <div class="footer-bottom">© 2026 ITSE. Todos los derechos reservados.</div>
-  </footer>
+ <nav class="std-nav">
+ <div class="logo">ITSE<span>Clínica Estudiantil</span></div>
+ <a onclick="showPage('inicio')">Inicio</a>
+ <a onclick="showPage('clinica')" class="active-link">Clínica</a>
+ <a onclick="showPage('psicologia')">Departamento de Apoyo Psicosocial</a>
+ <a onclick="showPage('bienestar')">Bienestar</a>
+ <a onclick="showPage('kioscos')">Kioscos</a>
+ </nav>
+ <!-- Hero Clínica -->
+ <div class="r-pad-section" style="padding:60px 80px 40px;text-align:center;background:linear-gradient(135deg,#fef9ee,#fff)">
+ <div style="font-size:64px;margin-bottom:16px"></div>
+ <h1 style="font-size:44px;font-weight:900;margin-bottom:12px;font-family:var(--font-title)">Clínica Estudiantil ITSE</h1>
+ <p style="font-size:17px;color:var(--gray-500)">Atención de salud integral para los estudiantes del campus.</p>
+ </div>
+
+ <!-- Horarios y Contacto -->
+ <section class="section-sm" style="padding-top:0">
+ <div class="r-grid-2" style="display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:32px">
+ <div style="background:#fef9ec;border:1.5px solid var(--yellow);border-radius:16px;padding:28px;display:flex;align-items:flex-start;gap:16px">
+ <div style="font-size:36px;flex-shrink:0"></div>
+ <div>
+ <h3 style="font-size:18px;font-weight:700;font-family:var(--font-title);margin-bottom:12px">Horario de Atención</h3>
+ <p style="font-size:15px;color:var(--gray-700);margin-bottom:8px"><strong>Enfermería:</strong> 7:00 A.M – 10:00 P.M</p>
+ <p style="font-size:15px;color:var(--gray-700)"><strong>Medicina General:</strong> 8:00 A.M – 12:00 P.M</p>
+ </div>
+ </div>
+ <div style="background:#eff6ff;border:1.5px solid #93c5fd;border-radius:16px;padding:28px;display:flex;align-items:flex-start;gap:16px">
+ <div style="font-size:36px;flex-shrink:0"></div>
+ <div>
+ <h3 style="font-size:18px;font-weight:700;font-family:var(--font-title);margin-bottom:12px">Teléfono Directo</h3>
+ <p style="font-size:16px;color:var(--gray-700)"><a href="tel:+5075243333" style="color:var(--primary-blue);font-weight:700;text-decoration:none">524-3333</a> <span style="color:var(--gray-500)">Ext. 1133</span></p>
+ </div>
+ </div>
+ </div>
+
+ <!-- Temas y Servicios -->
+ <h2 style="font-size:22px;font-weight:800;font-family:var(--font-title);margin-bottom:16px;color:var(--black)">Temas y Servicios</h2>
+ <div class="r-grid-3" style="display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:28px">
+ <div style="background:var(--gray-50);border-radius:12px;padding:16px;display:flex;align-items:center;gap:12px">
+ <span style="font-size:22px"></span><span style="font-weight:600;font-size:14px">Nutrición</span>
+ </div>
+ <div style="background:var(--gray-50);border-radius:12px;padding:16px;display:flex;align-items:center;gap:12px">
+ <span style="font-size:22px"></span><span style="font-weight:600;font-size:14px">Salud Sexual</span>
+ </div>
+ <div style="background:var(--gray-50);border-radius:12px;padding:16px;display:flex;align-items:center;gap:12px">
+ <span style="font-size:22px"></span><span style="font-weight:600;font-size:14px">Psicología</span>
+ </div>
+ <div style="background:var(--gray-50);border-radius:12px;padding:16px;display:flex;align-items:center;gap:12px">
+ <span style="font-size:22px"></span><span style="font-weight:600;font-size:14px">Telemedicina</span>
+ </div>
+ <div style="background:var(--gray-50);border-radius:12px;padding:16px;display:flex;align-items:center;gap:12px">
+ <span style="font-size:22px"></span><span style="font-weight:600;font-size:14px">Inyectables</span>
+ </div>
+ <div style="background:var(--gray-50);border-radius:12px;padding:16px;display:flex;align-items:center;gap:12px">
+ <span style="font-size:22px"></span><span style="font-weight:600;font-size:14px">Atención a Urgencias</span>
+ </div>
+ <div style="background:var(--gray-50);border-radius:12px;padding:16px;display:flex;align-items:center;gap:12px">
+ <span style="font-size:22px"></span><span style="font-weight:600;font-size:14px">Planificación Familiar</span>
+ </div>
+ <div style="background:var(--gray-50);border-radius:12px;padding:16px;display:flex;align-items:center;gap:12px">
+ <span style="font-size:22px"></span><span style="font-weight:600;font-size:14px">Consejos y Orientación</span>
+ </div>
+ <div style="background:var(--gray-50);border-radius:12px;padding:16px;display:flex;align-items:center;gap:12px">
+ <span style="font-size:22px"></span><span style="font-weight:600;font-size:14px">Peso y Talla</span>
+ </div>
+ </div>
+
+ <!-- Nota Telemedicina -->
+ <div style="background:#eff6ff;border-left:4px solid var(--primary-blue);border-radius:0 12px 12px 0;padding:16px 20px;margin-bottom:32px">
+ <p style="font-size:14px;color:var(--gray-700);line-height:1.7"><strong style="color:var(--primary-blue)">Telemedicina:</strong> La doctora realiza la atención a través de una llamada y le explica a la enfermera el procedimiento que tiene que realizar.</p>
+ </div>
+
+ <!-- Flujograma de Emergencia -->
+ <div style="border:2px dashed var(--gray-200);border-radius:16px;padding:36px;text-align:center">
+ <div style="font-size:48px;margin-bottom:12px"></div>
+ <h3 style="font-size:20px;font-weight:800;font-family:var(--font-title);margin-bottom:8px">Flujograma de Emergencia</h3>
+ <p style="color:var(--gray-500);font-size:14px">Protocolo de atención ante situaciones de emergencia dentro del campus.</p>
+ </div>
+ </section>
+
+ <footer class="footer">
+ <div class="footer-grid">
+ <div><h3>ITSE – Clínica</h3><p>Atención médica estudiantil del ITSE.</p></div>
+ <div><h4>Navegación</h4><ul><li><a onclick="showPage('inicio')">Inicio</a></li><li><a onclick="showPage('bienestar')">Bienestar</a></li></ul></div>
+ <div><h4>Contacto</h4><ul>
+ <li><a> Tocumen, Avenida Domingo Díaz</a></li>
+ <li><a href="tel:+5075243333"> +507 524 3333</a></li>
+ <li><a href="mailto:info@itse.ac.pa">info@itse.ac.pa</a></li>
+ <li><a href="mailto:mercado@itse.ac.pa">mercado@itse.ac.pa</a></li>
+ <li><a href="mailto:admision@itse.ac.pa">admision@itse.ac.pa</a></li>
+ </ul>
+ <div style="display:flex;gap:8px;margin-top:14px">
+ <a href="https://www.instagram.com/itsepma/" target="_blank" class="social-btn social-ig">IG</a>
+ <a href="https://www.youtube.com/channel/UCL2YWBxXCD_qYMBNnyeJhCQ/featured?view_as=subscriber" target="_blank" class="social-btn social-yt">YT</a>
+ <a href="https://www.facebook.com/itsepanama/" target="_blank" class="social-btn social-fb">FB</a>
+ <a href="https://x.com/itsepma" target="_blank" class="social-btn social-x">X</a>
+ </div></div>
+ </div>
+ <div class="footer-bottom">© 2026 ITSE. Todos los derechos reservados.</div>
+ </footer>
 </div>
  
 <!-- ══════════════════════════════════
-     MODALS
+ MODALS
 ══════════════════════════════════ -->
  
 <!-- Modal Caipi -->
 <div id="modal-caipi" class="modal-overlay" onclick="closeModalOutside(event,'modal-caipi')">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal('modal-caipi')">✕</button>
-    <h2>Inscribir a mi hijo en Caipi</h2>
-    <p>Completa el formulario y nos pondremos en contacto contigo.</p>
-    <input type="text" placeholder="Nombre del padre/madre"/>
-    <input type="text" placeholder="Nombre del niño(a)"/>
-    <input type="number" placeholder="Edad del niño(a)"/>
-    <input type="email" placeholder="Correo electrónico"/>
-    <input type="tel" placeholder="Teléfono"/>
-    <textarea placeholder="Información adicional o preguntas..."></textarea>
-    <button class="btn-submit" onclick="submitForm('modal-caipi')">Enviar solicitud</button>
-  </div>
+ <div class="modal">
+ <button class="modal-close" onclick="closeModal('modal-caipi')"></button>
+ <h2>Inscribir a mi hijo en Caipi</h2>
+ <p>Completa el formulario y nos pondremos en contacto contigo.</p>
+ <input type="text" placeholder="Nombre del padre/madre"/>
+ <input type="text" placeholder="Nombre del niño(a)"/>
+ <input type="number" placeholder="Edad del niño(a)"/>
+ <input type="email" placeholder="Correo electrónico"/>
+ <input type="tel" placeholder="Teléfono"/>
+ <textarea placeholder="Información adicional o preguntas..."></textarea>
+ <button class="btn-submit" onclick="submitForm('modal-caipi')">Enviar solicitud</button>
+ </div>
 </div>
  
 <!-- Modal Psico / Emergencia -->
 <div id="modal-psico" class="modal-overlay" onclick="closeModalOutside(event,'modal-psico')">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal('modal-psico')">✕</button>
-    <h2>🆘 Recursos de Emergencia</h2>
-    <p>Si estás en crisis, no estás solo. Hay ayuda disponible ahora mismo.</p>
-    <div style="background:var(--red-light);border:1px solid var(--red);border-radius:10px;padding:16px;margin-bottom:16px">
-      <p style="font-weight:700;color:var(--red)">Líneas de emergencia 24/7:</p>
-      <p style="margin-top:8px"><strong>Línea Nacional de Crisis:</strong> <a href="tel:169" style="color:var(--primary-blue)">169</a></p>
-      <p><strong>Hospital Nacional:</strong> <a href="tel:5075129000" style="color:var(--primary-blue)">507-512-9000</a></p>
-    </div>
-    <input type="text" placeholder="Tu nombre (opcional)"/>
-    <input type="email" placeholder="Correo electrónico"/>
-    <textarea placeholder="Cuéntanos cómo podemos ayudarte..."></textarea>
-    <button class="btn-submit" onclick="submitForm('modal-psico')">Solicitar orientación</button>
-  </div>
+ <div class="modal">
+ <button class="modal-close" onclick="closeModal('modal-psico')"></button>
+ <h2>🆘 Recursos de Emergencia</h2>
+ <p>Si estás en crisis, no estás solo. Hay ayuda disponible ahora mismo.</p>
+ <div style="background:var(--red-light);border:1px solid var(--red);border-radius:10px;padding:16px;margin-bottom:16px">
+ <p style="font-weight:700;color:var(--red)">Líneas de emergencia 24/7:</p>
+ <p style="margin-top:8px"><strong>Línea Nacional de Crisis:</strong> <a href="tel:169" style="color:var(--primary-blue)">169</a></p>
+ <p><strong>Hospital Nacional:</strong> <a href="tel:5075129000" style="color:var(--primary-blue)">507-512-9000</a></p>
+ </div>
+ <input type="text" placeholder="Tu nombre (opcional)"/>
+ <input type="email" placeholder="Correo electrónico"/>
+ <textarea placeholder="Cuéntanos cómo podemos ayudarte..."></textarea>
+ <button class="btn-submit" onclick="submitForm('modal-psico')">Solicitar orientación</button>
+ </div>
 </div>
  
 <!-- Modal Kioscos -->
 <div id="modal-kioscos" class="modal-overlay" onclick="closeModalOutside(event,'modal-kioscos')">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal('modal-kioscos')">✕</button>
-    <h2>🚀 Quiero Emprender</h2>
-    <p>Postúlate para tener tu propio kiosco dentro del ITSE.</p>
-    <input type="text" placeholder="Tu nombre completo"/>
-    <input type="email" placeholder="Correo institucional (@itse.edu.pa)"/>
-    <input type="text" placeholder="Nombre de tu idea de negocio"/>
-    <select>
-      <option value="">Categoría del negocio</option>
-      <option>Comida y bebidas</option>
-      <option>Papelería y útiles</option>
-      <option>Artesanías</option>
-      <option>Tecnología</option>
-      <option>Servicios</option>
-    </select>
-    <textarea placeholder="Describe brevemente tu idea de negocio..."></textarea>
-    <button class="btn-submit" style="background:var(--yellow);color:var(--black)" onclick="submitForm('modal-kioscos')">Enviar postulación</button>
-  </div>
+ <div class="modal">
+ <button class="modal-close" onclick="closeModal('modal-kioscos')"></button>
+ <h2> Quiero Emprender</h2>
+ <p>Postúlate para tener tu propio kiosco dentro del ITSE.</p>
+ <input type="text" placeholder="Tu nombre completo"/>
+ <input type="email" placeholder="Correo institucional (@itse.edu.pa)"/>
+ <input type="text" placeholder="Nombre de tu idea de negocio"/>
+ <select>
+ <option value="">Categoría del negocio</option>
+ <option>Comida y bebidas</option>
+ <option>Papelería y útiles</option>
+ <option>Artesanías</option>
+ <option>Tecnología</option>
+ <option>Servicios</option>
+ </select>
+ <textarea placeholder="Describe brevemente tu idea de negocio..."></textarea>
+ <button class="btn-submit" style="background:var(--yellow);color:var(--black)" onclick="submitForm('modal-kioscos')">Enviar postulación</button>
+ </div>
 </div>
  
 <!-- Modal Club -->
 <div id="modal-club" class="modal-overlay" onclick="closeModalOutside(event,'modal-club')">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal('modal-club')">✕</button>
-    <h2>Unirme al Club</h2>
-    <p>Completa tu información para unirte.</p>
-    <input type="text" placeholder="Tu nombre completo"/>
-    <input type="email" placeholder="Correo electrónico"/>
-    <input type="text" placeholder="Carrera / Año"/>
-    <select>
-      <option value="">Selecciona el club</option>
-      <option>Club de Robótica</option>
-      <option>Club de Programación</option>
-      <option>Club de Electrónica</option>
-      <option>Cine Club</option>
-      <option>Círculo de Lectura</option>
-      <option>Arte y Diseño</option>
-    </select>
-    <textarea placeholder="¿Por qué quieres unirte? (opcional)"></textarea>
-    <button class="btn-submit" onclick="submitForm('modal-club')">Inscribirme</button>
-  </div>
+ <div class="modal">
+ <button class="modal-close" onclick="closeModal('modal-club')"></button>
+ <h2>Unirme al Club</h2>
+ <p>Completa tu información para unirte.</p>
+ <input type="text" placeholder="Tu nombre completo"/>
+ <input type="email" placeholder="Correo electrónico"/>
+ <input type="text" placeholder="Carrera / Año"/>
+ <select>
+ <option value="">Selecciona el club</option>
+ <option>Club de Robótica</option>
+ <option>Club de Programación</option>
+ <option>Club de Electrónica</option>
+ <option>Cine Club</option>
+ <option>Círculo de Lectura</option>
+ <option>Arte y Diseño</option>
+ </select>
+ <textarea placeholder="¿Por qué quieres unirte? (opcional)"></textarea>
+ <button class="btn-submit" onclick="submitForm('modal-club')">Inscribirme</button>
+ </div>
 </div>
  
 <!-- Modal Bienestar / Cita -->
 <div id="modal-bienestar" class="modal-overlay" onclick="closeModalOutside(event,'modal-bienestar')">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal('modal-bienestar')">✕</button>
-    <h2>Solicitar Servicio</h2>
-    <p>Cuéntanos cómo podemos ayudarte.</p>
-    <input type="text" placeholder="Tu nombre completo"/>
-    <input type="email" placeholder="Correo electrónico"/>
-    <select>
-      <option value="">Tipo de servicio</option>
-      <option>Psicología</option>
-      <option>Clínica / Médico</option>
-      <option>Apoyo académico</option>
-      <option>Orientación general</option>
-    </select>
-    <textarea placeholder="Describe brevemente tu situación..."></textarea>
-    <button class="btn-submit" onclick="submitForm('modal-bienestar')">Enviar solicitud</button>
-  </div>
+ <div class="modal">
+ <button class="modal-close" onclick="closeModal('modal-bienestar')"></button>
+ <h2>Solicitar Servicio</h2>
+ <p>Cuéntanos cómo podemos ayudarte.</p>
+ <input type="text" placeholder="Tu nombre completo"/>
+ <input type="email" placeholder="Correo electrónico"/>
+ <select>
+ <option value="">Tipo de servicio</option>
+ <option>Psicología</option>
+ <option>Clínica / Médico</option>
+ <option>Apoyo académico</option>
+ <option>Orientación general</option>
+ </select>
+ <textarea placeholder="Describe brevemente tu situación..."></textarea>
+ <button class="btn-submit" onclick="submitForm('modal-bienestar')">Enviar solicitud</button>
+ </div>
 </div>
  
 <script>
-  function showPage(id) {
-    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-    const el = document.getElementById('page-' + id);
-    if (el) { el.classList.add('active'); window.scrollTo(0, 0); }
-  }
+ function showPage(id) {
+ document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+ const el = document.getElementById('page-' + id);
+ if (el) { el.classList.add('active'); window.scrollTo(0, 0); }
+ }
  
-  function openModal(id) {
-    document.getElementById(id).classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
+ function openModal(id) {
+ document.getElementById(id).classList.add('open');
+ document.body.style.overflow = 'hidden';
+ }
  
-  function closeModal(id) {
-    document.getElementById(id).classList.remove('open');
-    document.body.style.overflow = '';
-  }
+ function closeModal(id) {
+ document.getElementById(id).classList.remove('open');
+ document.body.style.overflow = '';
+ }
  
-  function closeModalOutside(e, id) {
-    if (e.target.id === id) closeModal(id);
-  }
+ function closeModalOutside(e, id) {
+ if (e.target.id === id) closeModal(id);
+ }
  
-  function submitForm(modalId) {
-    closeModal(modalId);
-    const toast = document.createElement('div');
-    toast.textContent = '✅ ¡Solicitud enviada! Nos pondremos en contacto contigo pronto.';
-    toast.style.cssText = 'position:fixed;bottom:30px;left:50%;transform:translateX(-50%);background:#111827;color:#fff;padding:14px 28px;border-radius:50px;font-size:15px;font-weight:600;z-index:9999;box-shadow:0 8px 24px rgba(0,0,0,.2)';
-    document.body.appendChild(toast);
-    setTimeout(() => toast.remove(), 4000);
-  }
+ function submitForm(modalId) {
+ closeModal(modalId);
+ const toast = document.createElement('div');
+ toast.textContent = ' ¡Solicitud enviada! Nos pondremos en contacto contigo pronto.';
+ toast.style.cssText = 'position:fixed;bottom:30px;left:50%;transform:translateX(-50%);background:#111827;color:#fff;padding:14px 28px;border-radius:50px;font-size:15px;font-weight:600;z-index:9999;box-shadow:0 8px 24px rgba(0,0,0,.2)';
+ document.body.appendChild(toast);
+ setTimeout(() => toast.remove(), 4000);
+ }
  
-  // Hero slideshow
-  let slide = 0;
-  const slides = ['https://images.unsplash.com/photo-1523580494863-6f3031224c94?w=1400&q=80','https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=1400&q=80','https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1400&q=80'];
-  setInterval(() => {
-    slide = (slide + 1) % slides.length;
-    const bg = document.querySelector('.hero-bg');
-    if(bg) bg.style.backgroundImage = `linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.6)),url('${slides[slide]}')`;
-    document.querySelectorAll('.hero-dot').forEach((d,i) => d.classList.toggle('active', i===slide));
-  }, 4000);
+ // Caipi carousel
+ let caipiSlide = 0;
+ function caipiGo(n) {
+ caipiSlide = ((n % 3) + 3) % 3;
+ document.querySelector('.caipi-slides').style.transform = `translateX(-${caipiSlide * 100}%)`;
+ document.querySelectorAll('.caipi-dots span').forEach((d, i) => d.classList.toggle('active', i === caipiSlide));
+ }
+ setInterval(() => caipiGo(caipiSlide + 1), 4000);
+
+ // Hero slideshow
+ let slide = 0;
+ const slides = ['img/SaveClip.App_693382464_18348540760212897_1156338101896558044_n.jpg','img/SaveClip.App_669463582_18343116034212897_7268976270134655221_n.jpg','img/SaveClip.App_660295991_18343115854212897_5279633631813186699_n.jpg'];
+ setInterval(() => {
+ slide = (slide + 1) % slides.length;
+ const bg = document.querySelector('.hero-bg');
+ if(bg) bg.style.backgroundImage = `linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.6)),url('${slides[slide]}')`;
+ document.querySelectorAll('.hero-dot').forEach((d,i) => d.classList.toggle('active', i===slide));
+ }, 4000);
 </script>
 </body>
 </html>
