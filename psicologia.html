@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Proyecto ITSE – Vida Estudiantil</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <style>
+div id="page-psicologia" class="page">
+  <nav class="std-nav">
+    <div class="logo" style="color:var(--primary-blue)">ITSE<span style="color:var(--gray-500)">Bienestar Estudiantil</span></div>
+    <a onclick="showPage('inicio')">Inicio</a>
+    <a onclick="showPage('caipi')">Caipi</a>
+    <a onclick="showPage('clinica')">Clínica</a>
+    <a onclick="showPage('clubs')">Clubs</a>
+    <a onclick="showPage('psicologia')" style="background:#eff6ff;color:var(--primary-blue);border-radius:50px;padding:8px 16px;font-weight:600">Psicología</a>
+    <a onclick="showPage('bienestar')">Bienestar Estudiantil</a>
+    <button class="btn btn-primary" onclick="openModal('modal-psico')">Recursos de emergencia</button>
+  </nav>
+ 
+  <!-- Hero -->
+  <div class="hero-psico">
+    <span class="badge-blue">💙 Salud Mental Estudiantil</span>
+    <h1>Tu Bienestar Mental<br>es Nuestra Prioridad</h1>
+    <p>Servicios de apoyo psicológico gratuitos y confidenciales para todos los estudiantes del ITSE.</p>
+    <button class="btn-orange" onclick="openModal('modal-psico')">Conoce nuestros servicios</button>
+  </div>
+ 
+  <!-- Alerta de crisis -->
+  <div class="alert-crisis">
+    <h3>⚠️ ¡Aviso importante! ¿Estás pasando por una crisis severa?</h3>
+    <p>No esperes. Si tienes pensamientos de hacerte daño o sientes que no puedes manejar la situación, busca ayuda inmediata.</p>
+    <div class="contact-line"><strong>Línea Nacional de Crisis (24/7):</strong> <a href="tel:169">169</a></div>
+    <div class="contact-line"><strong>Hospital Nacional:</strong> <a href="tel:507-512-9000">507-512-9000</a></div>
+    <a class="ver-mas" onclick="openModal('modal-psico')">Ver más recursos de emergencia →</a>
+  </div>
+ 
+  <!-- Servicios -->
+  <section class="section-sm">
+    <h2 class="section-title" style="color:var(--primary-blue)">Nuestros Servicios</h2>
+    <br/>
+    <div class="psy-services">
+      <div class="psy-card">
+        <div class="psy-icon-box psy-icon-blue">🕐</div>
+        <div>
+          <h4>Acompañamiento Continuo</h4>
+          <p>Sesiones programadas semanales o quincenales para dar seguimiento a tu proceso terapéutico y ajustar estrategias según tus necesidades.</p>
+        </div>
+      </div>
+      <div class="psy-card">
+        <div class="psy-icon-box psy-icon-green">📅</div>
+        <div>
+          <h4>Orientación Puntual</h4>
+          <p>Consultas individuales para situaciones específicas: ansiedad ante exámenes, conflictos interpersonales o adaptación a la vida universitaria.</p>
+        </div>
+      </div>
+      <div class="psy-card">
+        <div class="psy-icon-box psy-icon-blue">👥</div>
+        <div>
+          <h4>Grupos de Apoyo</h4>
+          <p>Espacios seguros donde compartir experiencias con otros estudiantes bajo la guía de profesionales de salud mental.</p>
+        </div>
+      </div>
+      <div class="psy-card">
+        <div class="psy-icon-box psy-icon-green">🧠</div>
+        <div>
+          <h4>Talleres de Bienestar</h4>
+          <p>Actividades formativas sobre manejo del estrés, inteligencia emocional, técnicas de relajación y hábitos saludables.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+ 
+  <footer class="footer">
+    <div class="footer-grid">
+      <div><h3>ITSE – Psicología</h3><p>Servicios de salud mental para estudiantes del Instituto Técnico Superior Especializado.</p></div>
+      <div><h4>Navegación</h4><ul>
+        <li><a onclick="showPage('inicio')">Inicio</a></li>
+        <li><a onclick="showPage('caipi')">Caipi</a></li>
+        <li><a onclick="showPage('bienestar')">Bienestar</a></li>
+      </ul></div>
+      <div><h4>Emergencias</h4><ul>
+        <li><a href="tel:169">Línea de Crisis: 169</a></li>
+        <li><a href="tel:507-512-9000">Hospital Nacional</a></li>
+        <li><a>psicologia@itse.edu.pa</a></li>
+      </ul></div>
+    </div>
+    <div class="footer-bottom">© 2026 ITSE. Todos los derechos reservados.</div>
+  </footer>
+</div> } 
