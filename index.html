@@ -428,6 +428,13 @@
  .modal .btn-submit { width: 100%; padding: 14px; background: var(--primary-blue); color: var(--black); border: none; border-radius: 10px; font-size: 16px; font-weight: 700; cursor: pointer; transition: background .2s; }
  .modal .btn-submit:hover { background: var(--blue-dark); }
  
+ /* ── BUTTON GROUPS ── */
+ .btn-group {
+   display: flex; flex-wrap: wrap; gap: 12px; align-items: center;
+ }
+ .btn-group-center { justify-content: center; }
+ .btn-group-social { gap: 8px; margin-top: 14px; }
+
  /* ── SOCIAL BUTTONS ── */
  .social-btn {
  display: inline-flex; align-items: center; justify-content: center;
@@ -557,6 +564,45 @@
  .r-hero-2col { grid-template-columns: 1fr !important; padding: 28px 16px !important; }
  }
 
+ /* ── BOTONES RESPONSIVE (≤ 540px) ── */
+ @media (max-width: 540px) {
+   .btn-group {
+     flex-direction: column;
+     align-items: stretch;
+     width: 100%;
+   }
+   .btn-group > .btn,
+   .btn-group > button,
+   .btn-group > a.btn {
+     width: 100%;
+     text-align: center;
+     justify-content: center;
+   }
+   .btn-group-center {
+     align-items: center;
+   }
+   /* Conservar social buttons en fila */
+   .btn-group-social {
+     flex-direction: row !important;
+     flex-wrap: wrap;
+     width: auto;
+   }
+   /* Botones hero de texto completo */
+   .btn-orange, .btn-kiosko {
+     width: 100%;
+     text-align: center;
+   }
+   .hero-psico .btn-orange,
+   .bienestar-hero .btn-orange,
+   .cta-banner .btn,
+   .cta-banner button {
+     width: auto;
+     min-width: 200px;
+   }
+   /* Nav std sin desbordamiento */
+   .std-nav .btn { display: none; }
+ }
+
  /* ── RESPONSIVE MÓVIL PEQUEÑO (≤ 400px) ── */
  @media (max-width: 400px) {
  .nav-inicio a { font-size: 11px; }
@@ -663,7 +709,7 @@
  <li><a href="mailto:mercado@itse.ac.pa">mercado@itse.ac.pa</a></li>
  <li><a href="mailto:admision@itse.ac.pa">admision@itse.ac.pa</a></li>
  </ul>
- <div style="display:flex;gap:8px;margin-top:14px">
+ <div class="btn-group btn-group-social">
  <a href="https://www.instagram.com/itsepma/" target="_blank" class="social-btn social-ig">IG</a>
  <a href="https://www.youtube.com/channel/UCL2YWBxXCD_qYMBNnyeJhCQ/featured?view_as=subscriber" target="_blank" class="social-btn social-yt">YT</a>
  <a href="https://www.facebook.com/itsepanama/" target="_blank" class="social-btn social-fb">FB</a>
@@ -795,7 +841,7 @@
  <li><a href="mailto:mercado@itse.ac.pa">mercado@itse.ac.pa</a></li>
  <li><a href="mailto:admision@itse.ac.pa">admision@itse.ac.pa</a></li>
  </ul>
- <div style="display:flex;gap:8px;margin-top:14px">
+ <div class="btn-group btn-group-social">
  <a href="https://www.instagram.com/itsepma/" target="_blank" class="social-btn social-ig">IG</a>
  <a href="https://www.youtube.com/channel/UCL2YWBxXCD_qYMBNnyeJhCQ/featured?view_as=subscriber" target="_blank" class="social-btn social-yt">YT</a>
  <a href="https://www.facebook.com/itsepanama/" target="_blank" class="social-btn social-fb">FB</a>
@@ -936,7 +982,7 @@
  <li><a href="mailto:mercado@itse.ac.pa">mercado@itse.ac.pa</a></li>
  <li><a href="mailto:admision@itse.ac.pa">admision@itse.ac.pa</a></li>
  </ul>
- <div style="display:flex;gap:8px;margin-top:14px">
+ <div class="btn-group btn-group-social">
  <a href="https://www.instagram.com/itsepma/" target="_blank" class="social-btn social-ig">IG</a>
  <a href="https://www.youtube.com/channel/UCL2YWBxXCD_qYMBNnyeJhCQ/featured?view_as=subscriber" target="_blank" class="social-btn social-yt">YT</a>
  <a href="https://www.facebook.com/itsepanama/" target="_blank" class="social-btn social-fb">FB</a>
@@ -1089,7 +1135,7 @@
  <li><a href="mailto:mercado@itse.ac.pa">mercado@itse.ac.pa</a></li>
  <li><a href="mailto:admision@itse.ac.pa">admision@itse.ac.pa</a></li>
  </ul>
- <div style="display:flex;gap:8px;margin-top:14px">
+ <div class="btn-group btn-group-social">
  <a href="https://www.instagram.com/itsepma/" target="_blank" class="social-btn social-ig">IG</a>
  <a href="https://www.youtube.com/channel/UCL2YWBxXCD_qYMBNnyeJhCQ/featured?view_as=subscriber" target="_blank" class="social-btn social-yt">YT</a>
  <a href="https://www.facebook.com/itsepanama/" target="_blank" class="social-btn social-fb">FB</a>
@@ -1233,7 +1279,7 @@
  <li><a href="mailto:mercado@itse.ac.pa">mercado@itse.ac.pa</a></li>
  <li><a href="mailto:admision@itse.ac.pa">admision@itse.ac.pa</a></li>
  </ul>
- <div style="display:flex;gap:8px;margin-top:14px">
+ <div class="btn-group btn-group-social">
  <a href="https://www.instagram.com/itsepma/" target="_blank" class="social-btn social-ig">IG</a>
  <a href="https://www.youtube.com/channel/UCL2YWBxXCD_qYMBNnyeJhCQ/featured?view_as=subscriber" target="_blank" class="social-btn social-yt">YT</a>
  <a href="https://www.facebook.com/itsepanama/" target="_blank" class="social-btn social-fb">FB</a>
@@ -1260,7 +1306,7 @@
  <div class="cine-hero">
  <h1 style="color:var(--white);font-family:var(--font-title)">Cine Club ITSE</h1>
  <p>Análisis cinematográfico, proyecciones y cultura audiovisual</p>
- <div style="display:flex;gap:12px;justify-content:center">
+ <div class="btn-group btn-group-center" style="gap:12px;justify-content:center">
  <button class="btn-orange" onclick="openModal('modal-club')">Únete al Club</button>
  <button style="background:transparent;border:2px solid rgba(255,255,255,.4);color:rgba(255,255,255,.8);padding:12px 28px;border-radius:8px;font-size:15px;cursor:pointer">Ver próximas proyecciones</button>
  </div>
@@ -1323,7 +1369,7 @@
  <li><a href="mailto:mercado@itse.ac.pa">mercado@itse.ac.pa</a></li>
  <li><a href="mailto:admision@itse.ac.pa">admision@itse.ac.pa</a></li>
  </ul>
- <div style="display:flex;gap:8px;margin-top:14px">
+ <div class="btn-group btn-group-social">
  <a href="https://www.instagram.com/itsepma/" target="_blank" class="social-btn social-ig">IG</a>
  <a href="https://www.youtube.com/channel/UCL2YWBxXCD_qYMBNnyeJhCQ/featured?view_as=subscriber" target="_blank" class="social-btn social-yt">YT</a>
  <a href="https://www.facebook.com/itsepanama/" target="_blank" class="social-btn social-fb">FB</a>
@@ -1351,7 +1397,7 @@
  <div style="display:inline-block;background:var(--primary-blue);color:var(--white);border-radius:50px;padding:6px 16px;font-size:13px;font-weight:600;margin-bottom:20px"> Club Literario</div>
  <h1 style="font-size:44px;font-weight:900;margin-bottom:16px;font-family:var(--font-title)">Círculo de Lectura ITSE</h1>
  <p style="font-size:16px;color:var(--gray-500);margin-bottom:24px">Un espacio para compartir la pasión por los libros, discutir ideas y explorar nuevas perspectivas a través de la literatura.</p>
- <div style="display:flex;gap:12px">
+ <div class="btn-group" style="gap:12px">
  <button class="btn btn-green" onclick="openModal('modal-club')">Únete Ahora</button>
  <button class="btn btn-outline">Ver calendario</button>
  </div>
@@ -1392,7 +1438,7 @@
  <li><a href="mailto:mercado@itse.ac.pa">mercado@itse.ac.pa</a></li>
  <li><a href="mailto:admision@itse.ac.pa">admision@itse.ac.pa</a></li>
  </ul>
- <div style="display:flex;gap:8px;margin-top:14px">
+ <div class="btn-group btn-group-social">
  <a href="https://www.instagram.com/itsepma/" target="_blank" class="social-btn social-ig">IG</a>
  <a href="https://www.youtube.com/channel/UCL2YWBxXCD_qYMBNnyeJhCQ/featured?view_as=subscriber" target="_blank" class="social-btn social-yt">YT</a>
  <a href="https://www.facebook.com/itsepanama/" target="_blank" class="social-btn social-fb">FB</a>
@@ -1476,7 +1522,7 @@
  <li><a href="mailto:mercado@itse.ac.pa">mercado@itse.ac.pa</a></li>
  <li><a href="mailto:admision@itse.ac.pa">admision@itse.ac.pa</a></li>
  </ul>
- <div style="display:flex;gap:8px;margin-top:14px">
+ <div class="btn-group btn-group-social">
  <a href="https://www.instagram.com/itsepma/" target="_blank" class="social-btn social-ig">IG</a>
  <a href="https://www.youtube.com/channel/UCL2YWBxXCD_qYMBNnyeJhCQ/featured?view_as=subscriber" target="_blank" class="social-btn social-yt">YT</a>
  <a href="https://www.facebook.com/itsepanama/" target="_blank" class="social-btn social-fb">FB</a>
@@ -1582,7 +1628,7 @@
  <li><a href="mailto:mercado@itse.ac.pa">mercado@itse.ac.pa</a></li>
  <li><a href="mailto:admision@itse.ac.pa">admision@itse.ac.pa</a></li>
  </ul>
- <div style="display:flex;gap:8px;margin-top:14px">
+ <div class="btn-group btn-group-social">
  <a href="https://www.instagram.com/itsepma/" target="_blank" class="social-btn social-ig">IG</a>
  <a href="https://www.youtube.com/channel/UCL2YWBxXCD_qYMBNnyeJhCQ/featured?view_as=subscriber" target="_blank" class="social-btn social-yt">YT</a>
  <a href="https://www.facebook.com/itsepanama/" target="_blank" class="social-btn social-fb">FB</a>
