@@ -567,37 +567,23 @@
  /* ── BOTONES RESPONSIVE (≤ 540px) ── */
  @media (max-width: 540px) {
    .btn-group {
-     flex-direction: column;
-     align-items: stretch;
-     width: 100%;
+     flex-direction: row;
+     flex-wrap: wrap;
+     justify-content: center;
+     gap: 10px;
    }
    .btn-group > .btn,
    .btn-group > button,
    .btn-group > a.btn {
-     width: 100%;
+     flex: 1 1 auto;
+     min-width: 120px;
      text-align: center;
-     justify-content: center;
+     font-size: 13px;
+     padding: 9px 14px;
    }
-   .btn-group-center {
-     align-items: center;
-   }
-   /* Conservar social buttons en fila */
-   .btn-group-social {
-     flex-direction: row !important;
-     flex-wrap: wrap;
-     width: auto;
-   }
-   /* Botones hero de texto completo */
    .btn-orange, .btn-kiosko {
-     width: 100%;
-     text-align: center;
-   }
-   .hero-psico .btn-orange,
-   .bienestar-hero .btn-orange,
-   .cta-banner .btn,
-   .cta-banner button {
-     width: auto;
-     min-width: 200px;
+     font-size: 14px;
+     padding: 11px 20px;
    }
    /* Nav std sin desbordamiento */
    .std-nav .btn { display: none; }
