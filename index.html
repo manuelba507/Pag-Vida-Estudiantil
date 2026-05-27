@@ -454,6 +454,27 @@
  .btn-group-center { justify-content: center; }
  .btn-group-social { gap: 8px; margin-top: 14px; }
 
+ /* ── HAMBURGER BUTTON (base) ── */
+ .nav-toggle {
+   display: none;
+   flex-direction: column;
+   justify-content: space-between;
+   width: 26px; height: 18px;
+   background: transparent; border: none; cursor: pointer; padding: 0;
+   flex-shrink: 0; z-index: 200;
+ }
+ .nav-toggle span {
+   display: block; height: 2.5px; width: 100%; border-radius: 3px;
+   background: var(--black); transition: transform .3s ease, opacity .25s ease;
+ }
+ .cine-nav .nav-toggle span { background: var(--white); }
+ /* X animation when open */
+ .nav-open .nav-toggle span:nth-child(1) { transform: translateY(7.75px) rotate(45deg); }
+ .nav-open .nav-toggle span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+ .nav-open .nav-toggle span:nth-child(3) { transform: translateY(-7.75px) rotate(-45deg); }
+ /* Dropdown links wrapper — hidden on desktop */
+ .nav-links { display: contents; }   /* transparent on desktop — links flow normally */
+
  /* ── SOCIAL BUTTONS ── */
  .social-btn {
  display: inline-flex; align-items: center; justify-content: center;
@@ -560,6 +581,65 @@
  .clubs-hero { padding: 28px 16px; }
  .clubs-grid { padding: 10px 16px 28px; grid-template-columns: 1fr; }
  .club-section-title { margin: 0 16px 8px; font-size: 20px; }
+
+ /* ── std-nav hamburguesa ── */
+ .std-nav { flex-wrap: wrap; align-items: center; gap: 0; padding: 0 16px; }
+ .std-nav .logo { padding: 14px 0; margin-right: auto; }
+ .std-nav .nav-toggle { display: flex; }
+ .std-nav .nav-links {
+   display: none; flex-direction: column;
+   width: 100%; margin: 0 -16px;
+   border-top: 1px solid var(--gray-100);
+   padding: 4px 0 10px;
+ }
+ .std-nav.nav-open .nav-links { display: flex; }
+ .std-nav .nav-links a {
+   padding: 13px 20px; font-size: 15px !important; font-weight: 500;
+   color: var(--gray-700); border-bottom: 1px solid var(--gray-100);
+ }
+ .std-nav .nav-links a:last-of-type { border-bottom: none; }
+ .std-nav .nav-links button.btn {
+   margin: 10px 16px 2px; width: calc(100% - 32px);
+   font-size: 14px !important; text-align: center;
+ }
+
+ /* ── nav-inicio hamburguesa ── */
+ .nav-inicio { justify-content: space-between; flex-wrap: nowrap; position: relative; padding: 14px 20px; }
+ .nav-inicio .nav-brand { font-size: 17px; font-weight: 800; font-family: var(--font-title); color: var(--black); }
+ .nav-inicio .nav-toggle { display: flex; }
+ .nav-inicio .nav-links {
+   display: none; flex-direction: column;
+   position: absolute; top: 100%; left: 0; right: 0; z-index: 150;
+   background: var(--primary-blue);
+   box-shadow: 0 8px 28px rgba(0,0,0,.18);
+   padding: 4px 0 8px;
+ }
+ .nav-inicio.nav-open .nav-links { display: flex; }
+ .nav-inicio .nav-links a {
+   padding: 14px 24px; font-size: 15px !important; font-weight: 600;
+   color: var(--black); border-bottom: 1px solid rgba(0,0,0,.07);
+   text-decoration: none;
+ }
+ .nav-inicio .nav-links a:last-child { border-bottom: none; }
+
+ /* ── cine-nav hamburguesa ── */
+ .cine-nav { flex-wrap: wrap; gap: 0; padding: 0 16px; }
+ .cine-nav > a:first-child { padding: 14px 0; margin-right: auto; }
+ .cine-nav .nav-toggle { display: flex; align-self: center; }
+ .cine-nav .nav-links {
+   display: none; flex-direction: column;
+   width: 100%; margin: 0 -16px;
+   border-top: 1px solid rgba(255,255,255,.12);
+   padding: 4px 0 10px;
+ }
+ .cine-nav.nav-open .nav-links { display: flex; }
+ .cine-nav .nav-links a {
+   padding: 13px 24px; font-size: 14px !important;
+   color: rgba(255,255,255,.75); border-bottom: 1px solid rgba(255,255,255,.08);
+   border-radius: 0;
+ }
+ .cine-nav .nav-links a:last-child { border-bottom: none; }
+ .cine-nav .nav-links a.active { color: var(--white); font-weight: 700; }
  .bienestar-hero { padding: 36px 16px; }
  .bienestar-cards { padding: 16px; grid-template-columns: 1fr; }
  .cine-hero { padding: 36px 16px; }
@@ -628,13 +708,17 @@
 ══════════════════════════════════ -->
 <div id="page-inicio" class="page active">
  <nav class="nav-inicio">
- <a onclick="showPage('inicio')">Inicio</a>
- <a onclick="showPage('caipi')">Caipi</a>
- <a onclick="showPage('clubs')">Clubs</a>
- <a onclick="showPage('clinica')">Clínica</a>
- <a onclick="showPage('psicologia')">Departamento de Apoyo Psicosocial</a>
- <a onclick="showPage('bienestar')">Bienestar Estudiantil</a>
- <a onclick="showPage('kioscos')">Kioscos</a>
+ <span class="nav-brand">ITSE</span>
+ <button class="nav-toggle" onclick="toggleNav(this)" aria-label="Menú"><span></span><span></span><span></span></button>
+ <div class="nav-links">
+  <a onclick="showPage('inicio');closeNav(this)">Inicio</a>
+  <a onclick="showPage('caipi');closeNav(this)">Caipi</a>
+  <a onclick="showPage('clubs');closeNav(this)">Clubs</a>
+  <a onclick="showPage('clinica');closeNav(this)">Clínica</a>
+  <a onclick="showPage('psicologia');closeNav(this)">Departamento de Apoyo Psicosocial</a>
+  <a onclick="showPage('bienestar');closeNav(this)">Bienestar Estudiantil</a>
+  <a onclick="showPage('kioscos');closeNav(this)">Kioscos</a>
+ </div>
  </nav>
  
  <!-- Hero -->
@@ -732,12 +816,15 @@
 <div id="page-caipi" class="page">
  <nav class="std-nav">
  <div class="logo">ITSE<span>Vida Estudiantil</span></div>
- <a onclick="showPage('inicio')">Inicio</a>
- <a onclick="showPage('caipi')" class="active-link">Caipi</a>
- <a onclick="showPage('clubs')">Clubs</a>
- <a onclick="showPage('psicologia')">Departamento de Apoyo Psicosocial</a>
- <a onclick="showPage('bienestar')">Bienestar</a>
- <a onclick="showPage('kioscos')">Kioscos</a>
+ <button class="nav-toggle" onclick="toggleNav(this)" aria-label="Menú"><span></span><span></span><span></span></button>
+ <div class="nav-links">
+  <a onclick="showPage('inicio');closeNav(this)">Inicio</a>
+  <a onclick="showPage('caipi');closeNav(this)" class="active-link">Caipi</a>
+  <a onclick="showPage('clubs');closeNav(this)">Clubs</a>
+  <a onclick="showPage('psicologia');closeNav(this)">Departamento de Apoyo Psicosocial</a>
+  <a onclick="showPage('bienestar');closeNav(this)">Bienestar</a>
+  <a onclick="showPage('kioscos');closeNav(this)">Kioscos</a>
+ </div>
  </nav>
  
  <!-- Hero -->
@@ -863,13 +950,16 @@
 <div id="page-psicologia" class="page">
  <nav class="std-nav">
  <div class="logo" style="color:var(--primary-blue)">ITSE<span style="color:var(--gray-500)">Bienestar Estudiantil</span></div>
- <a onclick="showPage('inicio')">Inicio</a>
- <a onclick="showPage('caipi')">Caipi</a>
- <a onclick="showPage('clinica')">Clínica</a>
- <a onclick="showPage('clubs')">Clubs</a>
- <a onclick="showPage('psicologia')" style="background:#eff6ff;color:var(--primary-blue);border-radius:50px;padding:8px 16px;font-weight:600">Departamento de Apoyo Psicosocial</a>
- <a onclick="showPage('bienestar')">Bienestar Estudiantil</a>
- <button class="btn btn-primary" onclick="openModal('modal-psico')">Recursos de emergencia</button>
+ <button class="nav-toggle" onclick="toggleNav(this)" aria-label="Menú"><span></span><span></span><span></span></button>
+ <div class="nav-links">
+  <a onclick="showPage('inicio');closeNav(this)">Inicio</a>
+  <a onclick="showPage('caipi');closeNav(this)">Caipi</a>
+  <a onclick="showPage('clinica');closeNav(this)">Clínica</a>
+  <a onclick="showPage('clubs');closeNav(this)">Clubs</a>
+  <a onclick="showPage('psicologia');closeNav(this)" style="background:#eff6ff;color:var(--primary-blue);border-radius:50px;padding:8px 16px;font-weight:600">Departamento de Apoyo Psicosocial</a>
+  <a onclick="showPage('bienestar');closeNav(this)">Bienestar Estudiantil</a>
+  <button class="btn btn-primary" onclick="openModal('modal-psico')">Recursos de emergencia</button>
+ </div>
  </nav>
  
  <!-- Hero -->
@@ -1004,15 +1094,18 @@
 <div id="page-kioscos" class="page">
  <nav class="std-nav">
  <div class="logo">ITSE + EmprendeSpace<span>Emprendimiento estudiantil</span></div>
- <a onclick="showPage('inicio')">Inicio</a>
- <a>¿Qué es?</a>
- <a onclick="showPage('kioscos')" class="active-link">Kioscos</a>
- <a>Beneficios</a>
- <a onclick="openModal('modal-kioscos')">Postúlate</a>
- <a>Aliados</a>
- <a>Contacto</a>
- <button class="btn btn-outline">Acceso Administradores</button>
- <button class="btn btn-primary" onclick="openModal('modal-kioscos')">Quiero emprender →</button>
+ <button class="nav-toggle" onclick="toggleNav(this)" aria-label="Menú"><span></span><span></span><span></span></button>
+ <div class="nav-links">
+  <a onclick="showPage('inicio');closeNav(this)">Inicio</a>
+  <a>¿Qué es?</a>
+  <a onclick="showPage('kioscos');closeNav(this)" class="active-link">Kioscos</a>
+  <a>Beneficios</a>
+  <a onclick="openModal('modal-kioscos');closeNav(this)">Postúlate</a>
+  <a>Aliados</a>
+  <a>Contacto</a>
+  <button class="btn btn-outline">Acceso Administradores</button>
+  <button class="btn btn-primary" onclick="openModal('modal-kioscos')">Quiero emprender →</button>
+ </div>
  </nav>
  
  <!-- Hero -->
@@ -1157,12 +1250,15 @@
 <div id="page-clubs" class="page">
  <nav class="std-nav">
  <div class="logo">ITSE<span>Clubs Estudiantiles</span></div>
- <a onclick="showPage('inicio')">Inicio</a>
- <a onclick="showPage('caipi')">Caipi</a>
- <a onclick="showPage('clubs')" class="active-link">Clubs</a>
- <a onclick="showPage('psicologia')">Departamento de Apoyo Psicosocial</a>
- <a onclick="showPage('bienestar')">Bienestar</a>
- <a onclick="showPage('kioscos')">Kioscos</a>
+ <button class="nav-toggle" onclick="toggleNav(this)" aria-label="Menú"><span></span><span></span><span></span></button>
+ <div class="nav-links">
+  <a onclick="showPage('inicio');closeNav(this)">Inicio</a>
+  <a onclick="showPage('caipi');closeNav(this)">Caipi</a>
+  <a onclick="showPage('clubs');closeNav(this)" class="active-link">Clubs</a>
+  <a onclick="showPage('psicologia');closeNav(this)">Departamento de Apoyo Psicosocial</a>
+  <a onclick="showPage('bienestar');closeNav(this)">Bienestar</a>
+  <a onclick="showPage('kioscos');closeNav(this)">Kioscos</a>
+ </div>
  </nav>
  
  <div class="clubs-hero">
@@ -1418,12 +1514,15 @@
 ══════════════════════════════════ -->
 <div id="page-cine-club" class="page">
  <nav class="cine-nav">
- <a onclick="showPage('inicio')" style="margin-right:auto;font-weight:700;color:var(--white)">← Clubs</a>
- <a class="active" onclick="">Inicio</a>
- <a>Proyecciones</a>
- <a>Actividades</a>
- <a>Galería</a>
- <a>Inscripción</a>
+ <a onclick="showPage('inicio')" style="font-weight:700;color:var(--white)">← Clubs</a>
+ <button class="nav-toggle" onclick="toggleNav(this)" aria-label="Menú"><span></span><span></span><span></span></button>
+ <div class="nav-links">
+  <a class="active" onclick="">Inicio</a>
+  <a>Proyecciones</a>
+  <a>Actividades</a>
+  <a>Galería</a>
+  <a>Inscripción</a>
+ </div>
  </nav>
  
  <div class="cine-hero">
@@ -1509,10 +1608,13 @@
 <div id="page-circulo-lectura" class="page">
  <nav class="std-nav">
  <div class="logo">ITSE<span>Círculo de Lectura</span></div>
- <a onclick="showPage('clubs')">← Clubs</a>
- <a onclick="showPage('inicio')">Inicio</a>
- <button class="btn btn-green" onclick="openModal('modal-club')">Ver Próximas Reuniones</button>
- <button class="btn btn-outline" onclick="openModal('modal-club')">Más Información</button>
+ <button class="nav-toggle" onclick="toggleNav(this)" aria-label="Menú"><span></span><span></span><span></span></button>
+ <div class="nav-links">
+  <a onclick="showPage('clubs');closeNav(this)">← Clubs</a>
+  <a onclick="showPage('inicio');closeNav(this)">Inicio</a>
+  <button class="btn btn-green" onclick="openModal('modal-club')">Ver Próximas Reuniones</button>
+  <button class="btn btn-outline" onclick="openModal('modal-club')">Más Información</button>
+ </div>
  </nav>
  
  <div class="r-hero-2col" style="padding:80px;background:linear-gradient(135deg,#f0fdf4,#fff);display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center">
@@ -1578,12 +1680,15 @@
 <div id="page-bienestar" class="page">
  <nav class="std-nav">
  <div class="logo">ITSE<span>Bienestar Estudiantil</span></div>
- <a onclick="showPage('inicio')">Inicio</a>
- <a onclick="showPage('caipi')">Caipi</a>
- <a onclick="showPage('clubs')">Clubs</a>
- <a onclick="showPage('psicologia')">Departamento de Apoyo Psicosocial</a>
- <a onclick="showPage('bienestar')" class="active-link">Bienestar Estudiantil</a>
- <a onclick="showPage('kioscos')">Kioscos</a>
+ <button class="nav-toggle" onclick="toggleNav(this)" aria-label="Menú"><span></span><span></span><span></span></button>
+ <div class="nav-links">
+  <a onclick="showPage('inicio');closeNav(this)">Inicio</a>
+  <a onclick="showPage('caipi');closeNav(this)">Caipi</a>
+  <a onclick="showPage('clubs');closeNav(this)">Clubs</a>
+  <a onclick="showPage('psicologia');closeNav(this)">Departamento de Apoyo Psicosocial</a>
+  <a onclick="showPage('bienestar');closeNav(this)" class="active-link">Bienestar Estudiantil</a>
+  <a onclick="showPage('kioscos');closeNav(this)">Kioscos</a>
+ </div>
  </nav>
  
  <div class="bienestar-hero">
@@ -1662,11 +1767,14 @@
 <div id="page-clinica" class="page">
  <nav class="std-nav">
  <div class="logo">ITSE<span>Clínica Estudiantil</span></div>
- <a onclick="showPage('inicio')">Inicio</a>
- <a onclick="showPage('clinica')" class="active-link">Clínica</a>
- <a onclick="showPage('psicologia')">Departamento de Apoyo Psicosocial</a>
- <a onclick="showPage('bienestar')">Bienestar</a>
- <a onclick="showPage('kioscos')">Kioscos</a>
+ <button class="nav-toggle" onclick="toggleNav(this)" aria-label="Menú"><span></span><span></span><span></span></button>
+ <div class="nav-links">
+  <a onclick="showPage('inicio');closeNav(this)">Inicio</a>
+  <a onclick="showPage('clinica');closeNav(this)" class="active-link">Clínica</a>
+  <a onclick="showPage('psicologia');closeNav(this)">Departamento de Apoyo Psicosocial</a>
+  <a onclick="showPage('bienestar');closeNav(this)">Bienestar</a>
+  <a onclick="showPage('kioscos');closeNav(this)">Kioscos</a>
+ </div>
  </nav>
  <!-- Hero Clínica -->
  <div class="r-pad-section" style="padding:60px 80px 40px;text-align:center;background:linear-gradient(135deg,#fef9ee,#fff)">
@@ -1886,6 +1994,21 @@
 </div>
  
 <script>
+ function toggleNav(btn) {
+  const nav = btn.closest('nav');
+  nav.classList.toggle('nav-open');
+  document.addEventListener('click', function handler(e) {
+   if (!nav.contains(e.target)) {
+    nav.classList.remove('nav-open');
+    document.removeEventListener('click', handler);
+   }
+  });
+ }
+ function closeNav(el) {
+  const nav = el.closest('nav');
+  if (nav) nav.classList.remove('nav-open');
+ }
+
  function showPage(id) {
  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
  const el = document.getElementById('page-' + id);
