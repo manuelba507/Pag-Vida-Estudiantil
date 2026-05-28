@@ -187,9 +187,9 @@
  .hero-caipi .img-placeholder img { width: 100%; height: 100%; object-fit: cover; }
 
  /* ── CAIPI CAROUSEL ── */
- .caipi-carousel { position: relative; border-radius: 16px; overflow: hidden; height: 380px; }
+ .caipi-carousel { position: relative; border-radius: 16px; overflow: hidden; height: 380px; width: 100%; min-width: 0; }
  .caipi-slides { display: flex; height: 100%; transition: transform .45s ease; }
- .caipi-slides img { width: 100%; height: 100%; object-fit: cover; flex-shrink: 0; }
+ .caipi-slides img { flex: 0 0 100%; width: 100%; height: 100%; object-fit: cover; min-width: 0; }
  .caipi-btn {
  position: absolute; top: 50%; transform: translateY(-50%);
  background: rgba(0,0,0,.45); color: #fff; border: none;
@@ -394,17 +394,17 @@
  .ve-ayuda-card p { font-size: 14px; color: var(--gray-500); line-height: 1.75; }
 
  /* Sección 3: Qué aportan */
- .ve-aportes { padding: 80px 80px; background: var(--blue-dark); }
+ .ve-aportes { padding: 80px 80px; background: var(--primary-blue); }
  .ve-aportes-inner { max-width: 1200px; margin: 0 auto; }
  .ve-aportes-header { text-align: center; margin-bottom: 56px; }
- .ve-aportes-header h2 { font-size: 36px; font-weight: 900; font-family: var(--font-title); color: var(--white); margin-bottom: 14px; }
- .ve-aportes-header p { font-size: 16px; color: rgba(255,255,255,.6); line-height: 1.7; }
+ .ve-aportes-header h2 { font-size: 36px; font-weight: 900; font-family: var(--font-title); color: var(--blue-dark); margin-bottom: 14px; }
+ .ve-aportes-header p { font-size: 16px; color: rgba(0,0,0,.6); line-height: 1.7; }
  .ve-aportes-grid { display: flex; flex-direction: column; gap: 2px; }
- .ve-aporte-item { display: flex; align-items: flex-start; gap: 32px; padding: 36px 40px; border-radius: 16px; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08); transition: background .2s; }
- .ve-aporte-item:hover { background: rgba(255,255,255,.09); }
- .ve-aporte-num { font-size: 52px; font-weight: 900; font-family: var(--font-title); color: var(--primary-blue); line-height: 1; flex-shrink: 0; min-width: 72px; }
- .ve-aporte-body h3 { font-size: 20px; font-weight: 800; font-family: var(--font-title); color: var(--white); margin-bottom: 10px; }
- .ve-aporte-body p { font-size: 15px; color: rgba(255,255,255,.65); line-height: 1.8; }
+ .ve-aporte-item { display: flex; align-items: flex-start; gap: 32px; padding: 36px 40px; border-radius: 16px; background: rgba(0,0,0,.04); border: 1px solid rgba(0,0,0,.08); transition: background .2s; }
+ .ve-aporte-item:hover { background: rgba(0,0,0,.08); }
+ .ve-aporte-num { font-size: 52px; font-weight: 900; font-family: var(--font-title); color: var(--blue-dark); line-height: 1; flex-shrink: 0; min-width: 72px; }
+ .ve-aporte-body h3 { font-size: 20px; font-weight: 800; font-family: var(--font-title); color: var(--blue-dark); margin-bottom: 10px; }
+ .ve-aporte-body p { font-size: 15px; color: rgba(0,0,0,.65); line-height: 1.8; }
 
  /* ── BIENESTAR PAGE ── */
  .bienestar-hero {
@@ -798,96 +798,6 @@
  </div>
  </section>
  
- <!-- ══ SECCIÓN 1: QUÉ ES VIDA ESTUDIANTIL ══ -->
- <section class="ve-intro">
-  <div class="ve-intro-inner">
-   <div class="ve-intro-text">
-    <span class="ve-badge">Vida Estudiantil · ITSE</span>
-    <h2>Más allá del aula</h2>
-    <p>La vida académica es fundamental para el viaje universitario. No se limita únicamente a asistir a clases y presentar pruebas, sino que abarca un conjunto de actividades, recursos y ambientes diseñados para promover el crecimiento completo del alumno, tanto en su carrera como en su vida personal, más allá de la enseñanza formal.</p>
-    <p>En el <strong>ITSE (Instituto Técnico Superior Especializado)</strong>, la Vida Estudiantil juega un papel crucial debido al enfoque práctico y tecnológico de la institución.</p>
-   </div>
-   <div class="ve-intro-stats">
-    <div class="ve-stat-card">
-     <span class="ve-stat-num">500+</span>
-     <span class="ve-stat-label">Estudiantes activos</span>
-    </div>
-    <div class="ve-stat-card">
-     <span class="ve-stat-num">20+</span>
-     <span class="ve-stat-label">Clubs y grupos</span>
-    </div>
-    <div class="ve-stat-card">
-     <span class="ve-stat-num">3</span>
-     <span class="ve-stat-label">Ejes de apoyo</span>
-    </div>
-    <div class="ve-stat-card">
-     <span class="ve-stat-num">100%</span>
-     <span class="ve-stat-label">Inclusión garantizada</span>
-    </div>
-   </div>
-  </div>
- </section>
-
- <!-- ══ SECCIÓN 2: CÓMO ASISTEN ══ -->
- <section class="ve-ayuda">
-  <div class="ve-ayuda-inner">
-   <div class="ve-ayuda-header">
-    <h2>¿Cómo asistimos a los alumnos?</h2>
-    <p>La Oficina de Vida Estudiantil del ITSE funciona como un sistema de soporte para garantizar que tu experiencia en la institución sea exitosa y equilibrada. Ofrecen ayuda principalmente en tres áreas:</p>
-   </div>
-   <div class="ve-ayuda-grid">
-    <div class="ve-ayuda-card ve-purple">
-     <div class="ve-ayuda-icon">🧠</div>
-     <h3>Bienestar y Salud Mental</h3>
-     <p>Proporcionan servicios de orientación psicológica y apoyo emocional para ayudarte a gestionar el estrés académico o problemas personales, asegurando tu equilibrio integral.</p>
-    </div>
-    <div class="ve-ayuda-card ve-yellow">
-     <div class="ve-ayuda-icon">🚀</div>
-     <h3>Desarrollo Profesional y Liderazgo</h3>
-     <p>Promueven la formación de clubes estudiantiles, asociaciones y actividades culturales o deportivas donde puedes desarrollar habilidades blandas como el trabajo en equipo, la comunicación y el liderazgo.</p>
-    </div>
-    <div class="ve-ayuda-card ve-blue">
-     <div class="ve-ayuda-icon">♿</div>
-     <h3>Inclusión y Accesibilidad</h3>
-     <p>Ofrecen asistencia a estudiantes con necesidades educativas especiales o en condiciones de vulnerabilidad, asegurando que tengan igual acceso a todas las oportunidades de aprendizaje.</p>
-    </div>
-   </div>
-  </div>
- </section>
-
- <!-- ══ SECCIÓN 3: QUÉ APORTAN AL ITSE ══ -->
- <section class="ve-aportes">
-  <div class="ve-aportes-inner">
-   <div class="ve-aportes-header">
-    <h2>¿Qué aportan directamente al ITSE?</h2>
-    <p>La Vida Estudiantil no solo beneficia a los alumnos de forma individual, sino que le da identidad y fuerza a la institución.</p>
-   </div>
-   <div class="ve-aportes-grid">
-    <div class="ve-aporte-item">
-     <span class="ve-aporte-num">01</span>
-     <div class="ve-aporte-body">
-      <h3>Sentido de Comunidad y Pertenencia</h3>
-      <p>Convierte el campus en algo más que un simple "espacio educativo" y lo transforma en una comunidad vibrante. Al llevar a cabo competencias, grupos tecnológicos o eventos culturales, se motiva a los estudiantes a sentirse orgullosos de ser parte del ITSE, lo que contribuye de manera significativa a disminuir el abandono escolar.</p>
-     </div>
-    </div>
-    <div class="ve-aporte-item">
-     <span class="ve-aporte-num">02</span>
-     <div class="ve-aporte-body">
-      <h3>Vinculación con el Entorno (Networking)</h3>
-      <p>Mediante las actividades de Vida Estudiantil, se estimula el trabajo voluntario y la conexión directa con empresas y organizaciones en Panamá. Esto permite que el conocimiento técnico del ITSE se expanda hacia la comunidad y ayuda a los alumnos a construir redes de contactos desde etapas tempranas.</p>
-     </div>
-    </div>
-    <div class="ve-aporte-item">
-     <span class="ve-aporte-num">03</span>
-     <div class="ve-aporte-body">
-      <h3>Formación Integral e Innovación</h3>
-      <p>El ITSE tiene como objetivo capacitar técnicos de alta calidad. Vida Estudiantil ofrece el complemento ideal a la rigurosa formación técnica: innovatividad y creatividad. Los grupos de programación, robótica o diseño que surgen de los propios estudiantes impulsan el aprendizaje colaborativo y fomentan el desarrollo de proyectos autónomos.</p>
-     </div>
-    </div>
-   </div>
-  </div>
- </section>
-
  <!-- ══ BANNER #SomosITSE ══ -->
  <div class="banner-black">
   <div class="banner-black-content">
@@ -1102,7 +1012,6 @@
  <span class="badge-blue"> Apoyo Integral Estudiantil</span>
  <h1>Departamento de Apoyo<br>Psicosocial</h1>
  <p>Acompañamiento integral para el desarrollo personal y profesional de los estudiantes del ITSE.</p>
- <button class="btn-orange" onclick="openModal('modal-psico')">Conoce nuestros servicios</button>
  </div>
 
  <!-- Áreas del Departamento -->
@@ -1479,7 +1388,7 @@
  <!-- ── CLUBES CULTURALES, TECNOLÓGICOS Y FORMATIVOS ── -->
  <div style="background:var(--gray-light);padding:40px 0 8px">
   <div class="club-section-title" style="color:var(--blue-dark)">🎓 Clubes Culturales, Tecnológicos y Formativos</div>
-  <div class="clubs-grid" style="padding:0 80px 48px">
+  <div class="clubs-grid">
    <div class="club-card">
     <img class="club-card-img" src="https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=600&q=80" alt="Robótica"/>
     <div class="club-card-body">
