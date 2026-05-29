@@ -188,8 +188,14 @@
 
  /* ── CAIPI CAROUSEL ── */
  .caipi-carousel { position: relative; border-radius: 16px; overflow: hidden; height: 380px; width: 100%; min-width: 0; }
- .caipi-slides { display: flex; height: 100%; transition: transform .45s ease; }
- .caipi-slides img { flex: 0 0 100%; width: 100%; height: 100%; object-fit: cover; min-width: 0; }
+ .caipi-slides { display: flex; height: 100%; width: 100%; transition: transform .45s ease; }
+ .caipi-slides img { flex: 0 0 100%; width: 100%; height: 100%; object-fit: cover; min-width: 0; max-width: 100%; }
+
+ /* ── LOGO ITSE IMAGEN ── */
+ .logo-itse-img { height: 36px; cursor: pointer; display: block; object-fit: contain; }
+ .std-nav .logo { display: flex; flex-direction: column; justify-content: center; }
+ .nav-inicio .logo-itse-img { height: 34px; }
+ .cine-nav .logo-itse-img { height: 30px; align-self: center; margin-right: auto; }
  .caipi-btn {
  position: absolute; top: 50%; transform: translateY(-50%);
  background: rgba(0,0,0,.45); color: #fff; border: none;
@@ -771,7 +777,7 @@
 ══════════════════════════════════ -->
 <div id="page-inicio" class="page active">
  <nav class="nav-inicio">
- <span class="nav-brand">ITSE</span>
+ <img class="logo-itse-img" onclick="showPage('inicio')" alt="ITSE">
  <button class="nav-toggle" onclick="toggleNav(this)" aria-label="Menú"><span></span><span></span><span></span></button>
  <div class="nav-links">
   <a onclick="showPage('inicio');closeNav(this)">Inicio</a>
@@ -876,7 +882,7 @@
 ══════════════════════════════════ -->
 <div id="page-caipi" class="page">
  <nav class="std-nav">
- <div class="logo">ITSE<span>Vida Estudiantil</span></div>
+ <div class="logo"><img class="logo-itse-img" onclick="showPage('inicio')" alt="ITSE"><span>Vida Estudiantil</span></div>
  <button class="nav-toggle" onclick="toggleNav(this)" aria-label="Menú"><span></span><span></span><span></span></button>
  <div class="nav-links">
   <a onclick="showPage('inicio');closeNav(this)">Inicio</a>
@@ -1010,7 +1016,7 @@
 ══════════════════════════════════ -->
 <div id="page-psicologia" class="page">
  <nav class="std-nav">
- <div class="logo" style="color:var(--primary-blue)">ITSE<span style="color:var(--gray-500)">Bienestar Estudiantil</span></div>
+ <div class="logo"><img class="logo-itse-img" onclick="showPage('inicio')" alt="ITSE"><span>Bienestar Estudiantil</span></div>
  <button class="nav-toggle" onclick="toggleNav(this)" aria-label="Menú"><span></span><span></span><span></span></button>
  <div class="nav-links">
   <a onclick="showPage('inicio');closeNav(this)">Inicio</a>
@@ -1153,7 +1159,7 @@
 ══════════════════════════════════ -->
 <div id="page-kioscos" class="page">
  <nav class="std-nav">
- <div class="logo">ITSE + EmprendeSpace<span>Emprendimiento estudiantil</span></div>
+ <div class="logo"><img class="logo-itse-img" onclick="showPage('inicio')" alt="ITSE"><span>+ EmprendeSpace</span></div>
  <button class="nav-toggle" onclick="toggleNav(this)" aria-label="Menú"><span></span><span></span><span></span></button>
  <div class="nav-links">
   <a onclick="showPage('inicio');closeNav(this)">Inicio</a>
@@ -1309,7 +1315,7 @@
 ══════════════════════════════════ -->
 <div id="page-clubs" class="page">
  <nav class="std-nav">
- <div class="logo">ITSE<span>Clubs Estudiantiles</span></div>
+ <div class="logo"><img class="logo-itse-img" onclick="showPage('inicio')" alt="ITSE"><span>Clubs Estudiantiles</span></div>
  <button class="nav-toggle" onclick="toggleNav(this)" aria-label="Menú"><span></span><span></span><span></span></button>
  <div class="nav-links">
   <a onclick="showPage('inicio');closeNav(this)">Inicio</a>
@@ -1574,6 +1580,7 @@
 ══════════════════════════════════ -->
 <div id="page-cine-club" class="page">
  <nav class="cine-nav">
+ <img class="logo-itse-img" onclick="showPage('inicio')" alt="ITSE">
  <a onclick="showPage('inicio')" style="font-weight:700;color:var(--white)">← Clubs</a>
  <button class="nav-toggle" onclick="toggleNav(this)" aria-label="Menú"><span></span><span></span><span></span></button>
  <div class="nav-links">
@@ -1667,7 +1674,7 @@
 ══════════════════════════════════ -->
 <div id="page-circulo-lectura" class="page">
  <nav class="std-nav">
- <div class="logo">ITSE<span>Círculo de Lectura</span></div>
+ <div class="logo"><img class="logo-itse-img" onclick="showPage('inicio')" alt="ITSE"><span>Círculo de Lectura</span></div>
  <button class="nav-toggle" onclick="toggleNav(this)" aria-label="Menú"><span></span><span></span><span></span></button>
  <div class="nav-links">
   <a onclick="showPage('clubs');closeNav(this)">← Clubs</a>
@@ -1739,7 +1746,7 @@
 ══════════════════════════════════ -->
 <div id="page-bienestar" class="page">
  <nav class="std-nav">
- <div class="logo">ITSE<span>Bienestar Estudiantil</span></div>
+ <div class="logo"><img class="logo-itse-img" onclick="showPage('inicio')" alt="ITSE"><span>Bienestar Estudiantil</span></div>
  <button class="nav-toggle" onclick="toggleNav(this)" aria-label="Menú"><span></span><span></span><span></span></button>
  <div class="nav-links">
   <a onclick="showPage('inicio');closeNav(this)">Inicio</a>
@@ -1872,7 +1879,7 @@
 ══════════════════════════════════ -->
 <div id="page-clinica" class="page">
  <nav class="std-nav">
- <div class="logo">ITSE<span>Clínica Estudiantil</span></div>
+ <div class="logo"><img class="logo-itse-img" onclick="showPage('inicio')" alt="ITSE"><span>Clínica Estudiantil</span></div>
  <button class="nav-toggle" onclick="toggleNav(this)" aria-label="Menú"><span></span><span></span><span></span></button>
  <div class="nav-links">
   <a onclick="showPage('inicio');closeNav(this)">Inicio</a>
@@ -2100,6 +2107,12 @@
 </div>
  
 <script>
+ // Inyectar logo ITSE en todos los navs
+ document.querySelectorAll('.logo-itse-img').forEach(img => {
+  img.src = 'img/logo-itse.png';
+  img.style.cursor = 'pointer';
+ });
+
  function toggleNav(btn) {
   const nav = btn.closest('nav');
   nav.classList.toggle('nav-open');
