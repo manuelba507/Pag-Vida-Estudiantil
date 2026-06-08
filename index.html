@@ -14,7 +14,7 @@
 ══════════════════════════════════ -->
 <div id="page-inicio" class="page active">
  <nav class="nav-inicio">
- <img class="logo-itse-img" onclick="showPage('inicio')" alt="ITSE">
+ <span class="logo-itse-text" onclick="showPage('inicio')">ITSE</span>
  <button class="nav-toggle" onclick="toggleNav(this)" aria-label="Menú"><span></span><span></span><span></span></button>
  <div class="nav-links">
   <a onclick="showPage('inicio');closeNav(this)">Inicio</a>
@@ -119,7 +119,7 @@
 ══════════════════════════════════ -->
 <div id="page-caipi" class="page">
  <nav class="std-nav">
- <div class="logo"><img class="logo-itse-img" onclick="showPage('inicio')" alt="ITSE"><span>Vida Estudiantil</span></div>
+ <div class="logo"><span class="logo-itse-text" onclick="showPage('inicio')">ITSE</span><span>Vida Estudiantil</span></div>
  <button class="nav-toggle" onclick="toggleNav(this)" aria-label="Menú"><span></span><span></span><span></span></button>
  <div class="nav-links">
   <a onclick="showPage('inicio');closeNav(this)">Inicio</a>
@@ -253,7 +253,7 @@
 ══════════════════════════════════ -->
 <div id="page-psicologia" class="page">
  <nav class="std-nav">
- <div class="logo"><img class="logo-itse-img" onclick="showPage('inicio')" alt="ITSE"><span>Bienestar Estudiantil</span></div>
+ <div class="logo"><span class="logo-itse-text" onclick="showPage('inicio')">ITSE</span><span>Bienestar Estudiantil</span></div>
  <button class="nav-toggle" onclick="toggleNav(this)" aria-label="Menú"><span></span><span></span><span></span></button>
  <div class="nav-links">
   <a onclick="showPage('inicio');closeNav(this)">Inicio</a>
@@ -396,7 +396,7 @@
 ══════════════════════════════════ -->
 <div id="page-kioscos" class="page">
  <nav class="std-nav">
- <div class="logo"><img class="logo-itse-img" onclick="showPage('inicio')" alt="ITSE"><span>+ EmprendeSpace</span></div>
+ <div class="logo"><span class="logo-itse-text" onclick="showPage('inicio')">ITSE</span><span>+ EmprendeSpace</span></div>
  <button class="nav-toggle" onclick="toggleNav(this)" aria-label="Menú"><span></span><span></span><span></span></button>
  <div class="nav-links">
   <a onclick="showPage('inicio');closeNav(this)">Inicio</a>
@@ -552,7 +552,7 @@
 ══════════════════════════════════ -->
 <div id="page-clubs" class="page">
  <nav class="std-nav">
- <div class="logo"><img class="logo-itse-img" onclick="showPage('inicio')" alt="ITSE"><span>Clubs Estudiantiles</span></div>
+ <div class="logo"><span class="logo-itse-text" onclick="showPage('inicio')">ITSE</span><span>Clubs Estudiantiles</span></div>
  <button class="nav-toggle" onclick="toggleNav(this)" aria-label="Menú"><span></span><span></span><span></span></button>
  <div class="nav-links">
   <a onclick="showPage('inicio');closeNav(this)">Inicio</a>
@@ -817,7 +817,7 @@
 ══════════════════════════════════ -->
 <div id="page-cine-club" class="page">
  <nav class="cine-nav">
- <img class="logo-itse-img" onclick="showPage('inicio')" alt="ITSE">
+ <span class="logo-itse-text" onclick="showPage('inicio')">ITSE</span>
  <a onclick="showPage('inicio')" style="font-weight:700;color:var(--white)">← Clubs</a>
  <button class="nav-toggle" onclick="toggleNav(this)" aria-label="Menú"><span></span><span></span><span></span></button>
  <div class="nav-links">
@@ -911,7 +911,7 @@
 ══════════════════════════════════ -->
 <div id="page-circulo-lectura" class="page">
  <nav class="std-nav">
- <div class="logo"><img class="logo-itse-img" onclick="showPage('inicio')" alt="ITSE"><span>Círculo de Lectura</span></div>
+ <div class="logo"><span class="logo-itse-text" onclick="showPage('inicio')">ITSE</span><span>Círculo de Lectura</span></div>
  <button class="nav-toggle" onclick="toggleNav(this)" aria-label="Menú"><span></span><span></span><span></span></button>
  <div class="nav-links">
   <a onclick="showPage('clubs');closeNav(this)">← Clubs</a>
@@ -983,7 +983,7 @@
 ══════════════════════════════════ -->
 <div id="page-bienestar" class="page">
  <nav class="std-nav">
- <div class="logo"><img class="logo-itse-img" onclick="showPage('inicio')" alt="ITSE"><span>Bienestar Estudiantil</span></div>
+ <div class="logo"><span class="logo-itse-text" onclick="showPage('inicio')">ITSE</span><span>Bienestar Estudiantil</span></div>
  <button class="nav-toggle" onclick="toggleNav(this)" aria-label="Menú"><span></span><span></span><span></span></button>
  <div class="nav-links">
   <a onclick="showPage('inicio');closeNav(this)">Inicio</a>
@@ -1116,7 +1116,7 @@
 ══════════════════════════════════ -->
 <div id="page-clinica" class="page">
  <nav class="std-nav">
- <div class="logo"><img class="logo-itse-img" onclick="showPage('inicio')" alt="ITSE"><span>Clínica Estudiantil</span></div>
+ <div class="logo"><span class="logo-itse-text" onclick="showPage('inicio')">ITSE</span><span>Clínica Estudiantil</span></div>
  <button class="nav-toggle" onclick="toggleNav(this)" aria-label="Menú"><span></span><span></span><span></span></button>
  <div class="nav-links">
   <a onclick="showPage('inicio');closeNav(this)">Inicio</a>
@@ -1344,11 +1344,6 @@
 </div>
 
 <script>
- // Inyectar logo ITSE en todos los navs al cargar
- document.querySelectorAll('.logo-itse-img').forEach(img => {
-  img.src = 'img/logo-itse.png';
- });
-
  function toggleNav(btn) {
   const nav = btn.closest('nav');
   nav.classList.toggle('nav-open');
@@ -1393,18 +1388,19 @@
  setTimeout(() => toast.remove(), 4000);
  }
 
- // Caipi carousel
+ // Caipi carousel — usa píxeles para evitar desbordamiento en móvil
  let caipiSlide = 0;
  function caipiGo(n) {
- caipiSlide = ((n % 3) + 3) % 3;
- document.querySelector('.caipi-slides').style.transform = `translateX(-${caipiSlide * 100}%)`;
- document.querySelectorAll('.caipi-dots span').forEach((d, i) => d.classList.toggle('active', i === caipiSlide));
+  caipiSlide = ((n % 3) + 3) % 3;
+  const w = document.querySelector('.caipi-carousel').offsetWidth;
+  document.querySelector('.caipi-slides').style.transform = `translateX(-${caipiSlide * w}px)`;
+  document.querySelectorAll('.caipi-dots span').forEach((d, i) => d.classList.toggle('active', i === caipiSlide));
  }
  setInterval(() => caipiGo(caipiSlide + 1), 4000);
 
  // Hero slideshow
  let slide = 0;
- const slides = ['img/SaveClip.App_693382464_18348540760212897_1156338101896558044_n.jpg','img/SaveClip.App_669463582_18343116034212897_7268596270134655221_n.jpg','img/SaveClip.App_660295991_18343115854212897_5279633631813186699_n.jpg'];
+ const slides = ['img/SaveClip.App_693382464_18348540760212897_1156338101896558044_n.jpg','img/SaveClip.App_669463582_18343116034212897_7268976270134655221_n.jpg','img/SaveClip.App_660295991_18343115854212897_5279633631813186699_n.jpg'];
  setInterval(() => {
  slide = (slide + 1) % slides.length;
  const bg = document.querySelector('.hero-bg');

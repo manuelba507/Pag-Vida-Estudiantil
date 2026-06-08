@@ -153,10 +153,14 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-title); font-weight: 700; }
 .btn-white-outline { border-color: var(--black); color: var(--black); background: transparent; border-radius: 50px; }
 .btn-white-outline:hover { background: rgba(0,0,0,.1); }
 
-/* ── LOGO ITSE IMAGEN ── */
-.logo-itse-img { height: 36px; cursor: pointer; display: block; object-fit: contain; }
-.nav-inicio .logo-itse-img { height: 34px; filter: drop-shadow(0 1px 3px rgba(0,0,0,.4)); }
-.cine-nav .logo-itse-img { height: 30px; align-self: center; margin-right: auto; }
+/* ── LOGO ITSE TEXTO ── */
+.logo-itse-text {
+ font-family: var(--font-title); font-weight: 900; font-size: 22px;
+ cursor: pointer; letter-spacing: -0.5px; display: block;
+}
+.nav-inicio .logo-itse-text { color: var(--white); text-shadow: 0 1px 4px rgba(0,0,0,.4); }
+.std-nav .logo-itse-text { color: var(--primary-blue); }
+.cine-nav .logo-itse-text { color: var(--white); margin-right: auto; align-self: center; }
 
 /* ── HERO CAIPI ── */
 .hero-caipi {
@@ -185,8 +189,8 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-title); font-weight: 700; }
 
 /* ── CAIPI CAROUSEL ── */
 .caipi-carousel { position: relative; border-radius: 16px; overflow: hidden; height: 380px; width: 100%; min-width: 0; }
-.caipi-slides { display: flex; height: 100%; width: 100%; transition: transform .45s ease; }
-.caipi-slides img { flex: 0 0 100%; width: 100%; height: 100%; object-fit: cover; min-width: 0; max-width: 100%; }
+.caipi-slides { display: flex; height: 100%; transition: transform .45s ease; }
+.caipi-slides img { flex-shrink: 0; min-width: 100%; height: 100%; object-fit: cover; }
 .caipi-btn {
  position: absolute; top: 50%; transform: translateY(-50%);
  background: rgba(0,0,0,.45); color: #fff; border: none;
@@ -638,11 +642,12 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-title); font-weight: 700; }
  .std-nav .nav-links button.btn { margin: 10px 16px 2px; width: calc(100% - 32px); font-size: 14px !important; text-align: center; }
 
  /* nav-inicio hamburguesa */
- .nav-inicio { justify-content: space-between; flex-wrap: nowrap; position: relative; padding: 14px 20px; }
+ .nav-inicio { justify-content: space-between; flex-wrap: nowrap; position: relative; padding: 14px 20px; background: var(--primary-blue); }
  .nav-inicio .nav-toggle { display: flex; }
- .nav-inicio .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; z-index: 150; background: rgba(11,33,97,.96); box-shadow: 0 8px 28px rgba(0,0,0,.3); padding: 4px 0 8px; }
+ .nav-inicio .nav-toggle span { background: var(--black); }
+ .nav-inicio .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; z-index: 150; background: var(--primary-blue); box-shadow: 0 8px 28px rgba(0,0,0,.2); padding: 4px 0 8px; }
  .nav-inicio.nav-open .nav-links { display: flex; }
- .nav-inicio .nav-links a { padding: 14px 24px; font-size: 15px !important; font-weight: 600; color: var(--white); border-bottom: 1px solid rgba(255,255,255,.1); text-decoration: none; text-shadow: none; }
+ .nav-inicio .nav-links a { padding: 14px 24px; font-size: 15px !important; font-weight: 600; color: var(--black); border-bottom: 1px solid rgba(0,0,0,.08); text-decoration: none; text-shadow: none; }
  .nav-inicio .nav-links a:last-child { border-bottom: none; }
 
  /* cine-nav hamburguesa */
