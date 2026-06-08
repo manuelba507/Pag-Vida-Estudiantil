@@ -642,12 +642,12 @@ h1, h2, h3, h4, h5, h6 { font-family: var(--font-title); font-weight: 700; }
  .std-nav .nav-links button.btn { margin: 10px 16px 2px; width: calc(100% - 32px); font-size: 14px !important; text-align: center; }
 
  /* nav-inicio hamburguesa */
- .nav-inicio { justify-content: space-between; flex-wrap: nowrap; position: relative; padding: 14px 20px; background: var(--primary-blue); }
+ .nav-inicio { justify-content: space-between; flex-wrap: nowrap; padding: 14px 20px; background: transparent; }
  .nav-inicio .nav-toggle { display: flex; }
- .nav-inicio .nav-toggle span { background: var(--black); }
- .nav-inicio .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; z-index: 150; background: var(--primary-blue); box-shadow: 0 8px 28px rgba(0,0,0,.2); padding: 4px 0 8px; }
+ .nav-inicio .nav-toggle span { background: var(--white); }
+ .nav-inicio .nav-links { display: none; flex-direction: column; position: absolute; top: 100%; left: 0; right: 0; z-index: 150; background: var(--primary-blue); box-shadow: 0 8px 28px rgba(0,0,0,.25); padding: 4px 0 8px; }
  .nav-inicio.nav-open .nav-links { display: flex; }
- .nav-inicio .nav-links a { padding: 14px 24px; font-size: 15px !important; font-weight: 600; color: var(--black); border-bottom: 1px solid rgba(0,0,0,.08); text-decoration: none; text-shadow: none; }
+ .nav-inicio .nav-links a { padding: 14px 24px; font-size: 15px !important; font-weight: 700; color: var(--black); border-bottom: 1px solid rgba(0,0,0,.08); text-decoration: none; text-shadow: none; }
  .nav-inicio .nav-links a:last-child { border-bottom: none; }
 
  /* cine-nav hamburguesa */
