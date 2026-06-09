@@ -1363,6 +1363,7 @@
  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
  const el = document.getElementById('page-' + id);
  if (el) { el.classList.add('active'); window.scrollTo(0, 0); }
+ if (id === 'caipi') { caipiSlide = 0; caipiGo(0); }
  }
 
  function openModal(id) {
@@ -1388,24 +1389,31 @@
  setTimeout(() => toast.remove(), 4000);
  }
 
- // Caipi carousel — usa píxeles para evitar desbordamiento en móvil
+ // Caipi carousel
  let caipiSlide = 0;
  function caipiGo(n) {
   caipiSlide = ((n % 3) + 3) % 3;
-  const w = document.querySelector('.caipi-carousel').offsetWidth;
+  const carousel = document.querySelector('.caipi-carousel');
+  const w = carousel ? carousel.offsetWidth : 0;
+  if (!w) return;
   document.querySelector('.caipi-slides').style.transform = `translateX(-${caipiSlide * w}px)`;
   document.querySelectorAll('.caipi-dots span').forEach((d, i) => d.classList.toggle('active', i === caipiSlide));
  }
- setInterval(() => caipiGo(caipiSlide + 1), 4000);
+ setInterval(() => {
+  if (document.getElementById('page-caipi').classList.contains('active')) {
+   caipiGo(caipiSlide + 1);
+  }
+ }, 4000);
 
  // Hero slideshow
  let slide = 0;
  const slides = ['img/SaveClip.App_693382464_18348540760212897_1156338101896558044_n.jpg','img/SaveClip.App_669463582_18343116034212897_7268976270134655221_n.jpg','img/SaveClip.App_660295991_18343115854212897_5279633631813186699_n.jpg'];
  setInterval(() => {
- slide = (slide + 1) % slides.length;
- const bg = document.querySelector('.hero-bg');
- if(bg) bg.style.backgroundImage = `linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.6)),url('${slides[slide]}')`;
- document.querySelectorAll('.hero-dot').forEach((d,i) => d.classList.toggle('active', i===slide));
+  if (!document.getElementById('page-inicio').classList.contains('active')) return;
+  slide = (slide + 1) % slides.length;
+  const bg = document.querySelector('.hero-bg');
+  if (bg) bg.style.backgroundImage = `linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.6)),url('${slides[slide]}')`;
+  document.querySelectorAll('.hero-dot').forEach((d,i) => d.classList.toggle('active', i===slide));
  }, 4000);
 </script>
 </body>
